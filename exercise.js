@@ -159,9 +159,7 @@ function addExercise() {
 
 function renderExercises() {
     const list = document.getElementById("exerciseList");
-
     list.innerHTML = "";
-    exercises = JSON.parse(localStorage.getItem("exercises")) || [];
 
     let total = 0;
 
@@ -170,32 +168,23 @@ function renderExercises() {
 
         const row = document.createElement("tr");
 
-        row.innerHTML = `<td>${ex.name}</td>
+        row.innerHTML = `
+            <td>${ex.name}</td>
             <td>${ex.duration}</td>
             <td>${ex.calories} kcal</td>
             <td>
-                <button class="delete-btn" onclick="removeExercise
-            (${index})">❌<span class="tooltip">Remove</span>
-                </button>
-            </td>`;
+                <button class="delete-btn" onclick="removeExercise(${index})">❌</button>
+            </td>
+        `;
 
         list.appendChild(row);
-
-        div.innerHTML = `
-            <span>${ex.name}</span>
-            <span>${ex.duration} min</span>
-            <span>${ex.calories} kcal</span>
-            <button class="delete-btn" onclick="removeExercise(${index}">
-                <img src="pic/close.svg" alt="Delete">
-            </button>`;
-
-        list.appendChild(div);
     });
 
-    document.getElementById("totalBurn").innerText = "Total Burned: " + total + " kcal";
+    document.getElementById("totalBurn").innerText = total + " kcal";
 
     saveTodayBurn(total);
-    updateBurnProgress();
+
+    updateBurnProgress(); 
 }
 
 function removeExercise(index) {
