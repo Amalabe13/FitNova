@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <div id="outer">
+
+        <a href="home.html" >
+            <div class="box-active" >
+                <img src="pic/home.svg" >
+            </div>
+        </a>
+
+        <a href="water.html">
+            <div class="box">
+                <img src="pic/water.svg">
+               
+            </div>
+        </a>
+
+        <a href="calorie.html">
+            <div class="box">
+                <img src="pic/calorie.svg">
+               
+            </div>
+        </a>
+
+        <a href="exercise.html">
+            <div class="box">
+                <img src="pic/exercise.svg">
+                
+            </div>
+        </a>
+
+        <a href="nutrition.html">
+            <div class="box">
+                <img src="pic/nutrition.svg">
+               
+            </div>
+        </a>
+
+        <a href="progress.html">
+            <div class="box">
+                <img src="pic/progress.svg">
+                
+            </div>
+        </a>
+
+        <div class="box-last">
+            <button onclick="logout()" >Logout</button>
+        </div>
+    </div>
+
+
+
+<div id="main">
+
+    
+    <div style="margin:0 0 0 2%">
+        <img style="width:100%;height:600px" src="pic/homes.png">
+    </div>
+
+<!-- home 1st div -->
+
+    <div class="title">
+        <h1>Welcome to Your Fitness Dashboard</h1>
+    </div>
+    <div id="first">
+        <p id="desc">Track your daily health, monitor your fitness goals, and stay consistent with your progress — all in one place.</p>
+        <p id="motivation"><i>Small steps every day lead to big results</i><img src="pic/fit.svg"></p>
+    </div>
+
+<!-- 2nd div -->
+
+    <div class="title">
+        <h2>Today’s Snapshot</h2>
+    </div>
+
+    <div id="second">
+        <div class="add">
+            <div>
+                <img src="pic/calorie.svg">
+            </div>
+            <div>
+                <p class="label">Calories</p>
+                <p class="p1">0/1200 cal</p>
+                <p class="p2">1200 cal left</p>
+            </div>
+        </div>
+        <div class="add">
+            <div>
+                <img src="pic/water.svg">
+            </div>
+            <div>
+                <p class="label">Water</p>
+                <p class="p1">0/3000 ml</p>
+                <p class="p2">3000 ml left</p>
+            </div>
+        </div>
+        <div class="add">
+            <div>
+                <img src="pic/exercise.svg">
+            </div>
+            <div>
+                <p class="label">Exercise</p>
+                <p class="p1">0/10000 steps</p>
+                <p class="p2">10000 steps left</p>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- home 3rd div   -->
+    <div class="title">
+        <h2>Quick Actions</h2>
+    </div>
+
+    <div class="action">
+
+        <a href="water.html">
+            <div class="act">
+                <span><img src="pic/glass.svg"></span>
+                <p>Add Water</p>
+            </div>
+        </a>
+
+        <a href="calorie.html">
+            <div class="act">
+                <span><img src="pic/food.svg"></span>
+                <p>Log Meal</p>
+            </div>
+        </a>
+
+        <a href="exercise.html">
+            <div class="act">
+                <span><img src="pic/ex.svg"></span>
+                <p>Start Exercise</p>
+            </div>
+        </a>
+
+    </div>
+        
+
+
+
+
+
+
+
+<!-- 4th div -->
+
+
+    <div class="title">
+        <h2>Fitness Modules</h2>
+    </div>
+
+    <div class="cards">
+
+        <a href="water.html"><div class="card">
+            <h3><img src="pic/water.svg" > Water Tracker</h3>
+            <p>Track your daily water intake</p>
+        </div></a>
+
+        <a href="calorie.html"><div class="card">
+            <h3><img src="pic/calorie.svg" > Calorie Tracker</h3>
+            <p>Monitor calories and diet</p>
+        </div></a>
+
+        <a href="exercise.html"><div class="card">
+            <h3><img src="pic/exercise.svg" > Exercise</h3>
+            <p>Log workouts and activities</p>
+        </div></a>
+
+        <a href="nutrition.html"><div class="card">
+            <h3><img src="pic/nutrition.svg" > Nutrition</h3>
+            <p>Maintain balanced nutrition</p>
+        </div></a>
+
+        <a href="progress.html"><div class="card">
+            <h3><img src="pic/progress.svg" > Progress Tracker</h3>
+            <p>Visualize your fitness journey</p>
+        </div></a>
+    </div>
+</div>
+
+
+<script src="home.js"></script>
+</body>
+</html>
