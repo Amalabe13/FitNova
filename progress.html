@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Page</title>
+   <script src="progress.js"></script>
+    <link rel="stylesheet" href="progress.css">
+</head>
+
+<body>
+
+<div id="outer">
+
+        <div style="display:flex;gap:20px;align-items:center;padding:20px 30px;margin:20px;">
+            <img id="icon" src="pic/icon.svg">  
+            <h3 id="cname" style="color:#ffffff;">Name</h3>
+        </div>
+
+        <a href="home.html">
+    <div class="box">
+        <img src="pic/home.svg">
+        <span>Dashboard</span>
+    </div>
+</a>
+
+        <a href="water.html">
+            <div class="box">
+                <img src="pic/water.svg">
+                <span>Water Tracker</span>
+            </div>
+        </a>
+
+        <a href="calorie.html">
+            <div class="box">
+                <img src="pic/calorie.svg">
+                <span>Calorie Tracker</span>
+            </div>
+        </a>
+
+        <a href="exercise.html">
+            <div class="box">
+                <img src="pic/exercise.svg">
+                <span>Exercise Tracker</span>
+            </div>
+        </a>
+<a href="nutrition.html">
+    <div class="box"> <img src="pic/nutrition.svg">
+        <span>Nutrition Tracker</span>
+    </div>
+</a>
+
+<a href="progress.html">
+    <div class="box-active"> <img src="pic/progress.svg">
+        <span>Progress Tracker</span>
+    </div>
+</a>
+       
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="progress-container" style="margin-left: 22vw; padding: 20px 40px;">
+
+    <div class="simple-header">
+        <img src="pic/progress.svg" alt="icon">
+        <h1>Progress Page</h1>
+    </div>
+
+    <div class="title">
+        <h2>Daily Progress Summary</h2>
+    </div>
+
+    <div class="w">
+        <div class="meal-card">
+            <h3 style="color: #ffffff; margin-bottom: 25px; opacity: 0.9;">Daily  Performance Overview</h3>
+            
+            <div class="macro-grid">
+                <div class="macro-item highlighted-box">
+                    <span class="label">Steps Taken</span>
+                    <span class="value" id="steps-val">54,200</span>
+                </div>
+                
+                <div class="macro-item highlighted-box">
+                    <span class="label">Weight Change</span>
+                    <span class="value" id="weight-val">-0.8 kg</span>
+                </div>
+                
+                <div class="macro-item highlighted-box">
+                    <span class="label">Avg Calories</span>
+                    <span class="value" id="avg-cal">2,100</span>
+                </div>
+                
+                <div class="macro-item highlighted-box">
+                    <span class="label">Workouts</span>
+                    <span class="value" id="workout-count">5</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="fitness-score-section" style="margin-left: 22vw; padding: 20px 40px;">
+
+    <div class="title">
+        <h2>Health Analysis</h2>
+    </div>
+
+    <div class="w">
+        <div class="meal-card fitness-card">
+            <div class="title">
+                <h3 style="margin-left:0;color:#ffffff;">Your Fitness Score</h3>
+            </div>
+            
+            <div class="score-container">
+                <div class="score-circle">
+                    <div class="score-content">
+                        <span id="fitness-score-text">85</span>
+                        <small>OVERALL</small>
+                    </div>
+                </div>
+
+                <div class="score-info">
+                    <p id="score-status">Excellent</p>
+                    <span style="color: #b3b3b3; font-size: 14px;">Your activity is 15% higher than last week. Keep it up!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="content-wrapper">
+    <div class="title">
+        <h2>Goal vs Achievement</h2>
+    </div>
+
+    <div class="w">
+        <div class="meal-card">
+            <div class="goal-container">
+                <div class="goal-row">
+                    <span class="label">Daily Target:</span>
+                    <span class="value" id="target-goal">10,000 Steps</span>
+                </div>
+                
+                <div class="goal-row">
+                    <span class="label">Achieved:</span>
+                    <span class="value highlighted" id="current-achievement">0 Steps</span>
+                </div>
+                
+                <p id="motivate" style="color: #b3b3b3; font-size: 13px; margin-top: 15px; font-style: italic;">
+                    Keep going!
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

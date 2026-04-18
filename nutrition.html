@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Page</title>
+   <script src="nutrition.js"></script>
+    <link rel="stylesheet" href="nutrition.css">
+</head>
+
+<body>
+
+<div id="outer">
+
+        <div style="display:flex;gap:20px;align-items:center;padding:20px 30px;margin:20px;">
+            <img id="icon" src="pic/icon.svg">  
+            <h3 id="cname" style="color:#ffffff;">Name</h3>
+        </div>
+
+        <a href="home.html">
+    <div class="box">
+        <img src="pic/home.svg">
+        <span>Dashboard</span>
+    </div>
+</a>
+
+        <a href="water.html">
+            <div class="box">
+                <img src="pic/water.svg">
+                <span>Water Tracker</span>
+            </div>
+        </a>
+
+        <a href="calorie.html">
+            <div class="box">
+                <img src="pic/calorie.svg">
+                <span>Calorie Tracker</span>
+            </div>
+        </a>
+
+        <a href="exercise.html">
+            <div class="box">
+                <img src="pic/exercise.svg">
+                <span>Exercise Tracker</span>
+            </div>
+        </a>
+
+       <a href="nutrition.html">
+    <div class="box-active">
+        <img src="pic/nutrition.svg">
+        <span>Nutrition Tracker</span>
+    </div>
+</a>
+
+        <a href="progress.html">
+            <div class="box">
+                <img src="pic/progress.svg">
+                <span>Progress Tracker</span>
+            </div>
+        </a>
+        </div>
+
+
+
+
+
+        <div class="simple-header">
+    <img src="pic/nutrition.svg" alt="icon">
+    <h1>Nutrition Page</h1>
+</div>
+
+
+
+
+
+<!--meal selectd-->
+        
+
+
+
+
+<div id="main">
+
+    <!-- HEADING -->
+    <div class="meal-title">
+        <h2>Select Meal</h2>
+    </div>
+
+    <!-- BOX -->
+    <div class="meal-card">
+
+        <h3>Choose your meal type</h3>
+
+        <div class="meal-options">
+            <button onclick="selectMeal('Breakfast')">Breakfast</button>
+            <button onclick="selectMeal('Lunch')">Lunch</button>
+            <button onclick="selectMeal('Dinner')">Dinner</button>
+        </div>
+<p id="selectedMealDisplay" style="color: #E66A00; margin-top: 15px; font-weight: bold; text-align: center;"></p>
+     </div>
+
+</div>
+
+
+
+
+<!-- ===== DAILY NUTRITION LOG ===== -->
+
+<!-- TITLE -->
+<div class="title">
+    <h2>Daily Nutrition Log</h2>
+</div>
+
+<div class="w">
+    <div class="meal-card">
+        <h3>Enter Food Details</h3>
+        <div class="meal-options">
+            <input type="text" id="weight" placeholder="Food name (e.g. Rice, Burger)">
+            <input type="number" placeholder="Quantity (grams)">
+
+            <button onclick="calculateMacros()">Add Food</button>
+            <button onclick="resetStats()" style="background:rgba(255,0,0,0.2)">Reset</button>
+        </div>
+
+        <p id="logOutput">No food added yet</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="title">
+    <h2>Nutritional Summary</h2>
+</div>
+
+<div class="w">
+    <div class="meal-card">
+        <div class="macro-grid">
+            <div class="macro-item">
+                <span class="label">Carbs</span>
+                <span class="value" id="carb-val">0g</span>
+            </div>
+            <div class="macro-item">
+                <span class="label">Protein</span>
+                <span class="value" id="protein-val">0g</span>
+            </div>
+            <div class="macro-item">
+                <span class="label">Fibre</span>
+                <span class="value" id="fibre-val">0g</span>
+            </div>
+            <div class="macro-item">
+                <span class="label">Fat</span>
+                <span class="value" id="fat-val">0g</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="title">
+    <h2>Daily Health Tips</h2>
+</div>
+
+<div class="tips-container">
+    <div class="tip-card">Stay hydrated with 8 glasses of water.</div>
+    <div class="tip-card">Walk 10k steps for heart health.</div>
+    <div class="tip-card">Eat protein with every meal.</div>
+    <div class="tip-card">Limit sugar intake to feel energized.</div>
+    <div class="tip-card">Stretch for 5 minutes every morning.</div>
+    <div class="tip-card">Get at least 7 hours of deep sleep.</div>
+    <div class="tip-card">Focus on fiber for better digestion.</div>
+    <div class="tip-card">Take deep breaths to reduce stress.</div>
+</div>
