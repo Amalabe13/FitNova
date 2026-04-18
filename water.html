@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water</title>
+    <link rel="stylesheet" href="water.css">
+</head>
+<body>
+    <div id="outer">
+
+        <div style="display:flex;gap:20px;align-items:center;padding:20px 5px;margin:20px;">
+            <img id="icon" src="pic/icon.svg">  
+            <h3 id="cname" style="color:#ffffff;">Name</h3>
+        </div>
+
+        <a href="home.html" >
+            <div class="box" >
+                <img src="pic/home.svg">
+                <span>Dashboard</span>
+            </div>
+        </a>
+
+        <a href="water.html" >
+            <div class="box-active">
+                <img src="pic/water.svg">
+                <span>Water Tracker</span>
+            </div>
+        </a>
+
+        <a href="calorie.html">
+            <div class="box">
+                <img src="pic/calorie.svg">
+                <span>Calorie Tracker</span>
+            </div>
+        </a>
+
+        <a href="exercise.html">
+            <div class="box">
+                <img src="pic/exercise.svg">
+                <span>Exercise Tracker</span>
+            </div>
+        </a>
+
+        <a href="nutrition.html">
+            <div class="box">
+                <img src="pic/nutrition.svg">
+                <span>Nutrition Tracker</span>
+            </div>
+        </a>
+
+        <a href="progress.html">
+            <div class="box">
+                <img src="pic/progress.svg">
+                <span>Progress Tracker</span>
+            </div>
+        </a>
+
+    </div>
+
+<!-- 1st section -->
+
+    <div class="title">
+        <h1>Stay Hydrated 💧</h1>
+    </div>
+
+
+    <div class="w">
+        <div class="wateradd">
+            <div class="goal">
+                <input type="digit" id="weight" placeholder="Enter weight (kg)">
+                <div style="display:flex;gap:10px;">
+                    <button onclick="setGoal()">Set Goal</button>
+                    <button onclick="reset()">Reset</button>
+                </div>
+            </div>
+            <p id="goalText">Goal: -- L</p>
+        </div>
+        <div class="wateradd" >
+            <div class="buttons">
+                <button onclick="addWater(100)">+100 ml</button>
+                <button onclick="addWater(250)">+250 ml</button>
+                <button onclick="addWater(500)">+500 ml</button>
+            </div>
+        </div>
+
+        <div class="wateradd">
+            <div style="width:150px;margin:0;padding:0;text-align:center;">
+                <p id="intake">Intake:0L</p>
+                <p id="target">Target: 0L</p>
+                <p id="comp">0L/0L</p>
+                <i><p id="status">Start drinking 💧</p></i>
+            </div>
+        </div>
+
+        <div class="water">
+            <div class="progress-bar">
+                <div id="progress"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 2nd section -->
+
+    <div class="title">
+        <h2>Hydration Tips</h2>
+    </div>
+
+    <div class="tips-container">
+        <div class="tip-card">Start your day with a glass of lukewarm water</div>
+        <div class="tip-card">Set reminders to drink water at regular intervals</div>
+        <div class="tip-card">Eat water-rich fruits like watermelon and cucumber</div>
+        <div class="tip-card">Drink a glass of water before every meal</div>
+        <div class="tip-card">Increase water intake after physical activity</div>
+        <div class="tip-card">Keep a filled water bottle within reach at all times</div>
+        <div class="tip-card">Drink water slowly to allow better absorption</div>
+        <div class="tip-card">Avoid waiting until you feel thirsty to drink water</div>
+        <div class="tip-card">Use a marked bottle to track your daily intake</div>
+        <div class="tip-card">Add natural flavors like lemon or mint for variety</div>
+    </div>
+    
+<script src="water.js"></script>
+</body>
+</html>
