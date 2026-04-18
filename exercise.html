@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <link rel="stylesheet" href="side.css">
+    <link rel="stylesheet" href="exercise.css">
+</head>
+
+<body>
+    <div id="outer">
+        <div style="display:flex;gap:20px;align-items:center;padding:20px 5px;margin:20px">
+            <img id="icon" src="pic/icon.svg">
+            <h3 id="cname" style="color:#ffffff;">Name</h3>
+        </div>
+        <a href="home.html">
+            <div class="box">
+                <img src="pic/home.svg">
+                <span>Dashboard</span>
+            </div>
+        </a>
+        <a href="water.html">
+            <div class="box">
+                <img src="pic/water.svg">
+                <span>Water Tracker</span>
+            </div>
+        </a>
+        <a href="calorie.html">
+            <div class="box">
+                <img src="pic/calorie.svg">
+                <span>Calorie Tracker</span>
+            </div>
+        </a>
+        <a href="exercise.html">
+            <div class="box-active">
+                <img src="pic/exercise.svg">
+                <span>Exercise Tracker</span>
+            </div>
+        </a>
+        <a href="nutrition.html">
+            <div class="box">
+                <img src="pic/nutrition.svg">
+                <span>Nutrition Tracker</span>
+            </div>
+        </a>
+        <a href="progress.html">
+            <div class="box">
+                <img src="pic/progress.svg">
+                <span>Progress Tracker</span>
+            </div>
+        </a>
+    </div>
+
+    <div class="page">
+        <div class="section-title">
+            <span class="line"></span>
+            <h2>Exercise Tracker</h2>
+        </div>
+        <div class="suggest-wrapper">
+            <div class="suggest-left">
+                <div class="section-title">
+                    <span class="line"></span>
+                    <h3>Exercise Suggestion</h3>
+                </div>
+                <select id="bodyPart">
+                    <option value="">Select body part</option>
+                    <option value="belly">Belly</option>
+                    <option value="arms">Arms</option>
+                    <option value="legs">Legs</option>
+                    <option value="full">Full Body</option>
+                </select>
+                <button onclick="suggestExercise()">Suggest</button>
+            </div>
+            <div class="suggest-right" id="suggestResult">
+                <p class="placeholder">Choose a body part to get suggestions</p>
+            </div>
+        </div>
+
+        <div class="section-title" style="padding: 10px 0;">
+            <span class="line"></span>
+            <h3>Calories burnt</h3>
+        </div>
+
+        <div class="input-section">
+            <input type="text" id="exercise" placeholder="Exercise name">
+            <input type="number" id="duration" placeholder="Duration (mins)">
+            <button onclick="addExercise()">Add</button>
+        </div>
+
+        <table class="styled-table">
+            <caption>Exercise History</caption>
+
+            <thead>
+                <tr>
+                    <th scope="col">Exercise</th>
+                    <th scope="col">Duration (mins)</th>
+                    <th scope="col">Calories</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="exerciseList">
+                <!-- JS will insert rows here -->
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="2">Total Burned</td>
+                    <td id="totalBurn">0 kcal</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="section-title">
+            <span class="line"></span>
+            <h3>Set your goal</h3>
+        </div>
+
+        <div class="goal-box">
+            <div class="goal-input">
+                <input type="number" id="burnGoalInput" placeholder="Set burn goal">
+                <button onclick="setBurnGoal()">Set Goal</button>
+            </div>
+
+            <div class="goal-top">
+                <span id="burnGoalText">Burn Goal: 0 kcal</span>
+                <span id="burnPercent">0%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress" id="burnProgress"></div>
+            </div>
+
+            <i>
+                <p id="burn-msg" class="goal-msg">Set your daily goal</p>
+            </i>
+
+        </div>
+    </div>
+    <script src="exercise.js"></script>
+</body>
+
+</html>
