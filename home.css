@@ -5,7 +5,9 @@ body{
     overflow-x:hidden;
 }
 
-
+*{
+    font-family:'Poppins', sans-serif;
+}
 #outer{
     padding-top:150px;
     height:100vh;
@@ -29,7 +31,7 @@ body{
 }
 .box-last button{
     background: linear-gradient(to bottom, #ee954880, #E66A0020);
-    border:1px solid rgb(225, 105, 6) ;
+    border:0.1px solid rgb(225, 105, 6) ;
     color:white;
     height:30px;
     width:100px;
@@ -96,7 +98,38 @@ a{
     text-decoration:none;
 }
 
+.box,
+.box-active{
+    position:relative;
+    overflow:visible;
+}
 
+.box span,
+.box-active span{
+    position:absolute;
+    left:65px;
+    top:50%;
+    transform:translateY(-50%);
+    background:#111;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:8px;
+    white-space:nowrap;
+    font-size:13px;
+    opacity:0;
+    visibility:hidden;
+    transition:0.2s ease;
+    border:1px solid rgba(255,122,0,.35);
+    box-shadow:0 8px 18px rgba(0,0,0,.35);
+    pointer-events:none;
+    z-index:999;
+}
+
+.box:hover span,
+.box-active:hover span{
+    opacity:1;
+    visibility:visible;
+}
 
 /* for home 1st div */
 
@@ -104,7 +137,7 @@ a{
     margin:20px 10% 0px 10%; 
     border-radius: 16px;
     padding: 30px 40px;
-    border: 1px solid #E66A00;
+    border: 0.1px solid #E66A00;
     background: linear-gradient(to bottom, #0c0c0c, #272727);
     box-shadow: 0 0 20px rgba(255, 106, 61, 0.4);
 }
@@ -228,10 +261,9 @@ div h4{
 
 .act {
     background: linear-gradient(145deg, #1a1a1a, #111);
-    border: 1px solid #ff6a3d;
+    border: 0.1px solid #ff6a3d;
     border-radius: 14px;
     padding: 22px;          
-    box-shadow: 0 0 20px rgba(255, 106, 61, 0.4);
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -277,7 +309,7 @@ div h4{
     border-radius: 16px;
     padding: 20px;
     text-align: center;
-    border: 2px solid #E66A00;
+    border: 0.1px solid #E66A00;
     box-shadow: 0 6px 15px rgba(255, 255, 255,0.15);
     background: linear-gradient(to bottom, #0c0c0c, #272727);
 }
@@ -312,4 +344,8 @@ div h4{
   #outer span {
     display: none;
   }
+}
+.card,.add,.act{
+backdrop-filter: blur(8px);
+box-shadow:0 12px 30px rgba(0,0,0,.35);
 }
