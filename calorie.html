@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <nav>
     <div id="outer">
         <div style="display:flex;gap:20px;align-items:center;padding:20px 5px;margin:20px;">
             <img id="icon" src="pic/icon.svg">
@@ -51,7 +52,8 @@
             </div>
         </a>
     </div>
-
+    </nav>
+    <main>
     <div class="page">
         <div class="section-title">
             <span class="line"></span>
@@ -59,8 +61,8 @@
         </div>
         <div class="calorie-help">
             <span>Don't know the calories?</span>
-            <a href="https://www.calculator.net/calorie-calculator.html" target="_blank">
-                Check food calories here ↗
+            <a href="https://www.calorieking.com/" target="_blank">
+                Check food calories here
             </a>
         </div>
         <div class="input-section">
@@ -97,8 +99,8 @@
 
             <tfoot>
                 <tr>
-                    <td colspan="2"><strong>Total</strong></td>
-                    <td id="totalCalories"><strong>0 kcal</strong></td>
+                    <th scope="row" colspan="2">Total</th>
+                    <td id="totalCalories">0 kcal</td>
                 </tr>
             </tfoot>
         </table>
@@ -108,7 +110,8 @@
             <h3>Calorie Suggestion</h3>
         </div>
 
-        <div class="suggest-box">
+        <fieldset class="suggest-box">
+            <legend>Input Details</legend>
             <input type="number" id="weight" placeholder="Enter weight (kg)">
             <select id="activity">
                 <option value="25">Light activity</option>
@@ -122,7 +125,7 @@
             </select>
             <button onclick="suggestCalories()" id="sug">Suggest</button>
             <p id="suggest-result"></p>
-        </div>
+        </fieldset>
 
         <div class="section-title" style="padding-top:20px;">
             <span class="line"></span>
@@ -159,7 +162,7 @@
             </div>
         </div>
     </div>
-
+    </main>
     <script src="calorie.js"></script>
 </body>
 
