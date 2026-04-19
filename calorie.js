@@ -174,26 +174,6 @@ function enableManualGoal() {
 
 render();
 
-const foodCalories = {
-    rice: 200,
-    chapati: 120,
-    idli: 60,
-    dosa: 150,
-    egg: 70,
-    chicken: 250,
-    milk: 100,
-    banana: 90,
-    apple: 80
-};
-
-document.getElementById("food").addEventListener("change", function () {
-    const food = this.value.toLowerCase().trim();
-
-    if (foodCalories[food]) {
-        document.getElementById("calories").value = foodCalories[food];
-    }
-});
-
 window.onload = function () {
     if (!localStorage.getItem('un'))
         window.location.href = 'login.html';
