@@ -13,7 +13,7 @@ window.onload = function () {
 ------------------------- */
 function loadCalories() {
     let foods = JSON.parse(localStorage.getItem("foods")) || [];
-    let goal = parseInt(localStorage.getItem("calorieGoal")) || 1200;
+    let goal = parseInt(localStorage.getItem("calorieGoal")) || 0;
 
     let total = 0;
 
@@ -36,7 +36,7 @@ function loadCalories() {
 ------------------------- */
 function loadWater() {
     let total = parseFloat(localStorage.getItem("waterTotal")) || 0;
-    let goal = parseFloat(localStorage.getItem("waterGoal")) || 3;
+    let goal = parseFloat(localStorage.getItem("waterGoal")) || 0;
 
     /* safety fix for old wrong values */
     if (goal > 20) goal = goal / 1000;
@@ -63,10 +63,10 @@ function loadExercise() {
 
     if (goal === 0) {
         document.getElementById("exMain").innerText =
-            burned + "/0 cal";
+          "0/0 cal";
 
-        document.getElementById("exLeft").innerText =
-            "Set goal first";
+        // document.getElementById("exLeft").innerText =
+        //     "Set goal first";
 
         return;
     }
@@ -94,7 +94,8 @@ window.addEventListener("storage", function () {
    LOGOUT
 ------------------------- */
 function logout() {
-    window.location.href = "login.html";
+    localStorage.clear();   // remove saved login/session data
+    window.location.href = "login.html";   // go to login page
 }
 window.addEventListener('load', function () {
   let name = localStorage.getItem('un');

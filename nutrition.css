@@ -203,8 +203,9 @@ a{
     display: flex;
     align-items: center;
     gap: 10px;
-    margin: 15px 3% 0 22vw;   /* same alignment as main */
-    padding-left: 30px;       /* SAME as meal section */
+    margin: 15px 3% 0 22vw;   
+    padding-left: 30px; 
+    margin-bottom:30px;     
 }
 
 .title::before {
@@ -215,7 +216,7 @@ a{
     border-radius: 2px;
 }
 
-.title h2 {
+.title h2,.title h1 {
     color: #ffffff;
     font-size: 20px;
     margin: 0;
@@ -432,4 +433,89 @@ a{
   #outer span {
     display: none;
   }
+}
+
+
+
+
+/* header */
+.top-strip{
+    width:80%;
+    height:60px;
+    
+    margin-left:20%;
+    padding:0 28px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:linear-gradient(90deg,#0f0f0f,#161616,#111,#000);
+    border-radius:0 0 14px 14px;
+
+    box-shadow:0 4px 18px rgba(0,0,0,0.35);
+    border-bottom:1px solid rgba(255,122,0,0.25);
+    box-sizing:border-box;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+}
+/* LEFT SIDE BRAND */
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand img{
+    width:34px;
+    height:34px;
+    object-fit:contain;
+}
+
+.brand span{
+    color:#ffffff;
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+/* RIGHT SIDE MENU */
+.menu{
+    display:flex;
+    align-items:center;
+    gap:26px;
+}
+
+.menu a{
+    color:#ffffff;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    color:#ff7a00;
+}
+
+/* LOGOUT BUTTON */
+.menu button{
+    border:none;
+    outline:none;
+    padding:8px 16px;
+    border-radius:8px;
+
+    background:#ff7a00;
+    color:#fff;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.menu button:hover{
+    background:#ff5c00;
+    transform:translateY(-1px);
 }

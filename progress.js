@@ -33,7 +33,7 @@ window.addEventListener("load", function () {
     const weightVal = document.getElementById("weight-val");
     const mockWeightChange = -0.2; 
     weightVal.innerText = mockWeightChange < 0 ? `${Math.abs(mockWeightChange)} kg (Loss)` : `${mockWeightChange} kg (Gain)`;
-    weightVal.style.color = mockWeightChange <= 0 ? "#4CAF50" : "#FF7A00";
+    weightVal.style.color = mockWeightChange <= 0 ? "#fe5c04" : "#e66a00";
 
     // 4. GOAL VS ACHIEVEMENT
     const achElement = document.getElementById("current-achievement");

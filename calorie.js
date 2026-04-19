@@ -157,11 +157,18 @@ function suggestCalories() {
     render();
 }
 function setGoal() {
-    const val = parseInt(goalInput.value);
-    if (isNaN(val) || val <= 0) return alert('Enter valid goal');
+    let val = parseInt(document.getElementById("goalInput").value);
+
+    if (isNaN(val) || val <= 0) {
+        return alert("Enter valid goal");
+    }
+
     goal = val;
     isAuto = false;
-    saveData();
+
+    localStorage.setItem("calorieGoal", goal);
+    localStorage.setItem("isAuto", isAuto);
+
     render();
 }
 function enableManualGoal() {
