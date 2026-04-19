@@ -5,65 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fitness Tracker</title>
+    <link rel="icon" type="image/png" href="pic/app.png">
     <link rel="stylesheet" href="side.css">
     <link rel="stylesheet" href="contact.css">
 </head>
 
 <body>
-    <div id="outer">
-        <div style="display:flex;gap:20px;align-items:center;padding:20px 5px;margin:20px">
-            <img id="icon" src="pic/icon.svg">
-            <h3 id="cname" style="color:#ffffff;">Name</h3>
-        </div>
-        <a href="home.html">
-            <div class="box">
-                <img src="pic/home.svg">
-                <span>Dashboard</span>
-            </div>
-        </a>
-        <a href="water.html">
-            <div class="box">
-                <img src="pic/water.svg">
-                <span>Water Tracker</span>
-            </div>
-        </a>
-        <a href="calorie.html">
-            <div class="box">
-                <img src="pic/calorie.svg">
-                <span>Calorie Tracker</span>
-            </div>
-        </a>
-        <a href="exercise.html">
-            <div class="box">
-                <img src="pic/exercise.svg">
-                <span>Exercise Tracker</span>
-            </div>
-        </a>
-        <a href="nutrition.html">
-            <div class="box">
-                <img src="pic/nutrition.svg">
-                <span>Nutrition Tracker</span>
-            </div>
-        </a>
-        <a href="progress.html">
-            <div class="box">
-                <img src="pic/progress.svg">
-                <span>Progress Tracker</span>
-            </div>
-        </a>
-        <a href="contact.html">
-            <div class="box-active">
-                <img src="pic/contact.svg">
-                <span>Contact Us</span>
-            </div>
-        </a>
-        <a href="faq.html">
-            <div class="box">
-                <img src="pic/faq.svg">
-                <span>FAQs</span>
-            </div>
-        </a>
+    <header class="top-strip" >
+
+    <div class="brand">
+        <img src="pic/app.png" alt="">
+        <span>FIT<span style="color:#e66a00">NOVA</span></span>
     </div>
+
+    <nav class="menu">
+        <a href="home.html"><img src="pic/home.svg"></a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <button onclick="logout()">Logout</button>
+    </nav>
+
+    </header>
+
+    <main style="padding:30px;">
+    
 
     <div class="page">
         <div class="section-title">
@@ -85,6 +50,7 @@
             <p id="contact-msg" class="success-msg"></p>
         </div>
     </div>
+    </main>
     <script src="contact.js"></script>
 </body>
 </html>

@@ -1,151 +1,234 @@
+/* =========================
+   faq.css Full Final
+   Keep Brand Image Same
+   Black + Orange Theme
+   ========================= */
+
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------- BODY ---------- */
 body {
-  overflow: scroll;
-  background-color: #0D0D0D;
-  margin: 0px;
-  overflow-x: hidden;
+    background: #0D0D0D;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    overflow-x: hidden;
+    padding-top: 80px;
 }
 
-#outer {
-  height: 100vh;
-  width: 20vw;
-  background-color: #0D0D0D;
-  border-radius: 10px;
-  position: fixed;
-  border: 0.5px solid #E66A00;
-  top: 0px;
-  overflow: hidden;
+/* ---------- HEADER ---------- */
+.top-strip {
+    width: 100%;
+    min-height: 70px;
+    padding: 0 14px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: linear-gradient(90deg, #0f0f0f, #161616, #111111, #000000);
+    border-bottom: 1px solid rgba(230, 106, 0, 0.35);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
+/* ---------- BRAND ---------- */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.brand span {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* ---------- MENU ---------- */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 6px 8px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.menu a:hover {
+    color: #E66A00;
+    background: rgba(230, 106, 0, 0.08);
+}
+
+/* ---------- LOGOUT BUTTON ---------- */
+.menu button {
+    border: none;
+    outline: none;
+
+    padding: 8px 12px;
+    border-radius: 8px;
+
+    background: #E66A00;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+    white-space: nowrap;
+}
+
+.menu button:hover {
+    background: #ff5c00;
+    transform: translateY(-1px);
+}
+
+/* ---------- PAGE ---------- */
 .page {
-  padding: 20px;
-  color: white;
-  margin:20px 3% 0 23%;
+    width: 75%;
+    margin: 20px auto 0 23%;
+    color: white;
 }
 
-.box {
-  display: flex;
-  gap: 30px;
-  background: linear-gradient(to bottom, #0c0c0c, #272727);
-  width: 100%;
-  border-width: 0.1px 0px 0.1px 0px;
-  border-style: solid;
-  border-color: #E66A00;
-  align-items: center;
-  height: 40px;
-  margin-bottom: 5px;
+/* ---------- TITLE ---------- */
+.section-title {
+    margin-bottom: 25px;
 }
 
-.box img {
-  height: 20px;
-  width: 20px;
-  color: #E66A00;
-  padding-left: 30px;
+.section-title h2 {
+    font-size: 42px;
+    color: #ffffff;
+    font-weight: 100;
 }
 
-.box span {
-  color: #b3b3b3;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-}
-
-a {
-  text-decoration: none;
-}
-
-.page>* {
-  margin-bottom: 20px;
-}
-
-#icon {
-  height: 50px;
-  width: 50px;
-}
-
-.box-active {
-  display: flex;
-  gap: 30px;
-  background: linear-gradient(to bottom, #ee954880, #E66A0020);
-  width: 100%;
-  border-width: 0.1px 0px 0.1px 0px;
-  border-style: solid;
-  border-color: #E66A00;
-  align-items: center;
-  height: 40px;
-  margin-bottom: 5px;
-}
-
-.box-active img {
-  height: 20px;
-  width: 20px;
-  color: #E66A00;
-  padding-left: 30px;
-}
-
-.box-active span {
-  color: #b3b3b3;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-}
-
+/* ---------- FAQ CONTAINER ---------- */
 .faq-container {
-  width: 70%;
-  margin-top: 20px;
+    width: 75%;
 }
 
+/* ---------- FAQ ITEM ---------- */
 .faq-item {
-  border: 1px solid #E66A00;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  overflow: hidden;
-  background: linear-gradient(to bottom, #0c0c0c, #1a1a1a);
+    border: 1px solid #E66A00;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    overflow: hidden;
+
+    background: linear-gradient(90deg, #0c0c0c, #1a1a1a, #111111);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
 }
 
-/* Question */
+.faq-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(230, 106, 0, 0.12);
+}
+
+/* ---------- QUESTION ---------- */
 .faq-question {
-  width: 100%;
-  background: none;
-  border: none;
-  color: white;
-  text-align: left;
-  padding: 15px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+
+    padding: 18px 22px;
+    font-size: 17px;
+    font-weight: 500;
+    text-align: left;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Glow on hover */
-.faq-question:hover {
-  box-shadow: 0 0 10px rgba(230,106,0,0.3);
-}
-
-/* Icon */
+/* ---------- ICON ---------- */
 .faq-question .icon {
-  font-size: 20px;
-  transition: transform 0.3s;
+    font-size: 26px;
+    font-weight: bold;
+    color: #E66A00;
+    transition: transform 0.3s ease;
 }
 
-/* Answer animation */
+/* ---------- ANSWER ---------- */
 .faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-  padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 22px;
 }
 
 .faq-answer p {
-  margin: 10px 0 15px;
-  color: #ccc;
+    color: #cfcfcf;
+    line-height: 1.7;
+    margin: 0 0 18px;
+    font-size: 15px;
 }
 
-/* Active state */
+/* ---------- ACTIVE ---------- */
 .faq-item.active .faq-answer {
-  max-height: 200px; /* enough for content */
+    max-height: 200px;
 }
 
 .faq-item.active .icon {
-  transform: rotate(45deg); /* + becomes × */
+    transform: rotate(45deg);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+    .page {
+        width: 92%;
+        margin: 20px auto;
+    }
+
+    .faq-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-strip {
+        padding: 10px;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .menu {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+    }
+
+    .faq-question {
+        font-size: 15px;
+        padding: 15px;
+    }
 }

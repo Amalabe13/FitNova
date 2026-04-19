@@ -1,146 +1,218 @@
+/* =========================
+   contact.css Full Final
+   ========================= */
+
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------- BODY ---------- */
 body {
-  overflow: scroll;
-  background-color: #0D0D0D;
-  margin: 0px;
-  overflow-x: hidden;
+    background: #0D0D0D;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow-x: hidden;
+    padding-top: 80px;
 }
 
-#outer {
-  height: 100vh;
-  width: 20vw;
-  background-color: #0D0D0D;
-  border-radius: 10px;
-  position: fixed;
-  border: 0.5px solid #E66A00;
-  top: 0px;
-  overflow: hidden;
+/* ---------- HEADER ---------- */
+.top-strip {
+    width: 100%;
+    min-height: 70px;
+    padding: 0 14px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: linear-gradient(90deg, #0f0f0f, #161616, #111111, #000000);
+    border-bottom: 1px solid rgba(230, 106, 0, 0.35);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
+/* ---------- BRAND ---------- */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.brand span {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* ---------- MENU ---------- */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #E66A00;
+    background: rgba(230,106,0,0.08);
+}
+
+.menu button {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #E66A00;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    background: #ff5c00;
+}
+
+/* ---------- PAGE ---------- */
 .page {
-  padding: 20px;
-  color: white;
-  margin: 20px 3% 0 23%;
+    width: 75%;
+    margin: 20px auto 0 23%;
+    padding: 20px;
 }
 
-.box {
-  display: flex;
-  gap: 30px;
-  background: linear-gradient(to bottom, #0c0c0c, #272727);
-  width: 100%;
-  border-width: 0.1px 0px 0.1px 0px;
-  border-style: solid;
-  border-color: #E66A00;
-  align-items: center;
-  height: 40px;
-  margin-bottom: 5px;
+/* ---------- TITLE ---------- */
+.page h1,
+.page h2 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 42px;
+    font-weight: 100; 
+    padding-left:10px;
 }
 
-.box img {
-  height: 20px;
-  width: 20px;
-  color: #E66A00;
-  padding-left: 30px;
-}
-
-.box span {
-  color: #b3b3b3;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-}
-
-a {
-  text-decoration: none;
-}
-
-.page>* {
-  margin-bottom: 20px;
-}
-
-#icon {
-  height: 50px;
-  width: 50px;
-}
-
-.box-active {
-  display: flex;
-  gap: 30px;
-  background: linear-gradient(to bottom, #ee954880, #E66A0020);
-  width: 100%;
-  border-width: 0.1px 0px 0.1px 0px;
-  border-style: solid;
-  border-color: #E66A00;
-  align-items: center;
-  height: 40px;
-  margin-bottom: 5px;
-}
-
-.box-active img {
-  height: 20px;
-  width: 20px;
-  color: #E66A00;
-  padding-left: 30px;
-}
-
-.box-active span {
-  color: #b3b3b3;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-}
-
+/* ---------- CONTACT BOX ---------- */
 .contact-box {
-  width: 60%;
-  min-width: 500px;
-  margin-top: 20px;
-  background: linear-gradient(to bottom, #0c0c0c, #272727);
-  border: 1px solid #E66A00;
-  border-radius: 16px;
-  padding: 25px;
-  box-shadow: 0 0 20px rgba(230, 106, 0, 0.2);
+    width: 100%;
+    max-width: 760px;
+
+    background: linear-gradient(to bottom, #0c0c0c, #272727);
+    border: 1px solid #E66A00;
+    border-radius: 18px;
+
+    padding: 30px 35px;   /* left + right space fixed */
+    box-shadow: 0 0 20px rgba(230,106,0,0.2);
 }
 
+/* ---------- DESCRIPTION ---------- */
 .contact-desc {
-  color: #ccc;
-  margin-bottom: 15px;
-  font-size: 14px;
+    color: #cccccc;
+    margin-bottom: 18px;
+    line-height: 1.7;
 }
 
+/* ---------- INPUTS ---------- */
 .contact-box input,
 .contact-box textarea {
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 10px;
-  background: #0d0d0d;
-  border: 1px solid #333;
-  color: white;
-  border-radius: 8px;
+    width: 100%;
+    display: block;
+
+    margin-bottom: 16px;
+    padding: 12px 14px;
+
+    background: #0d0d0d;
+    border: 1px solid #333333;
+    border-radius: 10px;
+
+    color: white;
+    font-size: 15px;
 }
 
+/* ---------- FOCUS ---------- */
 .contact-box input:focus,
 .contact-box textarea:focus {
-  outline: none;
-  border: 1px solid #E66A00;
-  box-shadow: 0 0 8px rgba(230, 106, 0, 0.4);
+    outline: none;
+    border-color: #E66A00;
+    box-shadow: 0 0 8px rgba(230,106,0,0.35);
 }
 
-.success-msg {
-  margin-top: 10px;
-  color: #22C55E;
+/* ---------- TEXTAREA ---------- */
+.contact-box textarea {
+    min-height: 150px;
+    resize: vertical;
 }
 
+/* ---------- BUTTON ---------- */
 .contact-box button {
-  background: #E66A00;
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: 0.3s;
+    background: #E66A00;
+    color: white;
+    border: none;
+
+    padding: 12px 22px;
+    border-radius: 10px;
+
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 .contact-box button:hover {
-  box-shadow: 0 0 10px rgba(230, 106, 0, 0.6);
-  transform: scale(1.05);
+    background: #ff5c00;
+    transform: translateY(-2px);
+}
+
+/* ---------- SUCCESS ---------- */
+.success-msg {
+    margin-top: 12px;
+    color: #22C55E;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 900px) {
+    .page {
+        width: 92%;
+        margin: 20px auto;
+    }
+
+    .contact-box {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-strip {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+
+    .menu {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .page h1,
+    .page h2 {
+        font-size: 30px;
+    }
 }
