@@ -1,0 +1,146 @@
+body {
+  overflow: scroll;
+  background-color: #0D0D0D;
+  margin: 0px;
+  overflow-x: hidden;
+}
+
+#outer {
+  height: 100vh;
+  width: 20vw;
+  background-color: #0D0D0D;
+  border-radius: 10px;
+  position: fixed;
+  border: 0.5px solid #E66A00;
+  top: 0px;
+  overflow: hidden;
+}
+
+.page {
+  padding: 20px;
+  color: white;
+  margin: 20px 3% 0 23%;
+}
+
+.box {
+  display: flex;
+  gap: 30px;
+  background: linear-gradient(to bottom, #0c0c0c, #272727);
+  width: 100%;
+  border-width: 0.1px 0px 0.1px 0px;
+  border-style: solid;
+  border-color: #E66A00;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.box img {
+  height: 20px;
+  width: 20px;
+  color: #E66A00;
+  padding-left: 30px;
+}
+
+.box span {
+  color: #b3b3b3;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.page>* {
+  margin-bottom: 20px;
+}
+
+#icon {
+  height: 50px;
+  width: 50px;
+}
+
+.box-active {
+  display: flex;
+  gap: 30px;
+  background: linear-gradient(to bottom, #ee954880, #E66A0020);
+  width: 100%;
+  border-width: 0.1px 0px 0.1px 0px;
+  border-style: solid;
+  border-color: #E66A00;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.box-active img {
+  height: 20px;
+  width: 20px;
+  color: #E66A00;
+  padding-left: 30px;
+}
+
+.box-active span {
+  color: #b3b3b3;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-box {
+  width: 60%;
+  min-width: 500px;
+  margin-top: 20px;
+  background: linear-gradient(to bottom, #0c0c0c, #272727);
+  border: 1px solid #E66A00;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 0 20px rgba(230, 106, 0, 0.2);
+}
+
+.contact-desc {
+  color: #ccc;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #0d0d0d;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 8px;
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus {
+  outline: none;
+  border: 1px solid #E66A00;
+  box-shadow: 0 0 8px rgba(230, 106, 0, 0.4);
+}
+
+.success-msg {
+  margin-top: 10px;
+  color: #22C55E;
+}
+
+.contact-box button {
+  background: #E66A00;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.contact-box button:hover {
+  box-shadow: 0 0 10px rgba(230, 106, 0, 0.6);
+  transform: scale(1.05);
+}

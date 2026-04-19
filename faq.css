@@ -1,0 +1,151 @@
+body {
+  overflow: scroll;
+  background-color: #0D0D0D;
+  margin: 0px;
+  overflow-x: hidden;
+}
+
+#outer {
+  height: 100vh;
+  width: 20vw;
+  background-color: #0D0D0D;
+  border-radius: 10px;
+  position: fixed;
+  border: 0.5px solid #E66A00;
+  top: 0px;
+  overflow: hidden;
+}
+
+.page {
+  padding: 20px;
+  color: white;
+  margin:20px 3% 0 23%;
+}
+
+.box {
+  display: flex;
+  gap: 30px;
+  background: linear-gradient(to bottom, #0c0c0c, #272727);
+  width: 100%;
+  border-width: 0.1px 0px 0.1px 0px;
+  border-style: solid;
+  border-color: #E66A00;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.box img {
+  height: 20px;
+  width: 20px;
+  color: #E66A00;
+  padding-left: 30px;
+}
+
+.box span {
+  color: #b3b3b3;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.page>* {
+  margin-bottom: 20px;
+}
+
+#icon {
+  height: 50px;
+  width: 50px;
+}
+
+.box-active {
+  display: flex;
+  gap: 30px;
+  background: linear-gradient(to bottom, #ee954880, #E66A0020);
+  width: 100%;
+  border-width: 0.1px 0px 0.1px 0px;
+  border-style: solid;
+  border-color: #E66A00;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.box-active img {
+  height: 20px;
+  width: 20px;
+  color: #E66A00;
+  padding-left: 30px;
+}
+
+.box-active span {
+  color: #b3b3b3;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.faq-container {
+  width: 70%;
+  margin-top: 20px;
+}
+
+.faq-item {
+  border: 1px solid #E66A00;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #0c0c0c, #1a1a1a);
+}
+
+/* Question */
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  color: white;
+  text-align: left;
+  padding: 15px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Glow on hover */
+.faq-question:hover {
+  box-shadow: 0 0 10px rgba(230,106,0,0.3);
+}
+
+/* Icon */
+.faq-question .icon {
+  font-size: 20px;
+  transition: transform 0.3s;
+}
+
+/* Answer animation */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 20px;
+}
+
+.faq-answer p {
+  margin: 10px 0 15px;
+  color: #ccc;
+}
+
+/* Active state */
+.faq-item.active .faq-answer {
+  max-height: 200px; /* enough for content */
+}
+
+.faq-item.active .icon {
+  transform: rotate(45deg); /* + becomes × */
+}

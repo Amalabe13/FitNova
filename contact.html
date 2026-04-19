@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <link rel="stylesheet" href="side.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+    <div id="outer">
+        <div style="display:flex;gap:20px;align-items:center;padding:20px 5px;margin:20px">
+            <img id="icon" src="pic/icon.svg">
+            <h3 id="cname" style="color:#ffffff;">Name</h3>
+        </div>
+        <a href="home.html">
+            <div class="box">
+                <img src="pic/home.svg">
+                <span>Dashboard</span>
+            </div>
+        </a>
+        <a href="water.html">
+            <div class="box">
+                <img src="pic/water.svg">
+                <span>Water Tracker</span>
+            </div>
+        </a>
+        <a href="calorie.html">
+            <div class="box">
+                <img src="pic/calorie.svg">
+                <span>Calorie Tracker</span>
+            </div>
+        </a>
+        <a href="exercise.html">
+            <div class="box">
+                <img src="pic/exercise.svg">
+                <span>Exercise Tracker</span>
+            </div>
+        </a>
+        <a href="nutrition.html">
+            <div class="box">
+                <img src="pic/nutrition.svg">
+                <span>Nutrition Tracker</span>
+            </div>
+        </a>
+        <a href="progress.html">
+            <div class="box">
+                <img src="pic/progress.svg">
+                <span>Progress Tracker</span>
+            </div>
+        </a>
+        <a href="contact.html">
+            <div class="box-active">
+                <img src="pic/contact.svg">
+                <span>Contact Us</span>
+            </div>
+        </a>
+        <a href="faq.html">
+            <div class="box">
+                <img src="pic/faq.svg">
+                <span>FAQs</span>
+            </div>
+        </a>
+    </div>
+
+    <div class="page">
+        <div class="section-title">
+            <span class="line"></span>
+            <h2>Contact Us</h2>
+        </div>
+        <div class="contact-box">
+            <p class="contact-desc">
+                Have questions or need assistance? We're here to help!
+            </p>
+
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+            <p id="contact-msg" class="success-msg"></p>
+        </div>
+    </div>
+    <script src="contact.js"></script>
+</body>
+</html>
