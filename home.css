@@ -51,7 +51,6 @@ button:hover{
     gap:30px;
     background: linear-gradient(to bottom, #0c0c0c, #272727);
     width:100%;
-    
     align-items:center;
     height:40px;
     margin-bottom:5px;
@@ -75,7 +74,7 @@ button:hover{
     gap:30px;
     background: linear-gradient(to bottom, #ee954880, #E66A0020);
     width:100%;
-   
+
     align-items:center;
     height:40px;
     margin-bottom:5px;
@@ -101,13 +100,13 @@ a{
 .box,
 .box-active{
     position:relative;
-    overflow:visible;
 }
 
-.box span,
-.box-active span{
+.box::after,
+.box-active::after{
+    content:attr(data-name);
     position:absolute;
-    left:65px;
+    left:55px;
     top:50%;
     transform:translateY(-50%);
     background:#111;
@@ -116,21 +115,16 @@ a{
     border-radius:8px;
     white-space:nowrap;
     font-size:13px;
-    opacity:0;
-    visibility:hidden;
-    transition:0.2s ease;
+    display:none;
     border:1px solid rgba(255,122,0,.35);
     box-shadow:0 8px 18px rgba(0,0,0,.35);
-    pointer-events:none;
-    z-index:999;
+    z-index:9999;
 }
 
-.box:hover span,
-.box-active:hover span{
-    opacity:1;
-    visibility:visible;
+.box:hover::after,
+.box-active:hover::after{
+    display:block;
 }
-
 /* for home 1st div */
 
 #first{
