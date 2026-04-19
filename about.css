@@ -1,0 +1,243 @@
+/* =========================
+   about.css
+   Full Final CSS
+   Black + Orange Theme
+   ========================= */
+
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------- BODY ---------- */
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0b0b;
+    color: #ffffff;
+    padding-top: 80px;
+}
+
+/* ---------- HEADER ---------- */
+.top-strip {
+    width: 100%;
+    height: 60px;
+
+    
+    padding: 0 28px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: linear-gradient(90deg, #0f0f0f, #161616, #111111, #000000);
+    border-radius: 0 0 14px 14px;
+
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+    border-bottom: 1px solid rgba(230, 106, 0, 0.35);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* ---------- BRAND ---------- */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.brand span {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* ---------- MENU ---------- */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #E66A00;
+}
+
+/* ---------- ICON ---------- */
+.menu img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* ---------- LOGOUT BUTTON ---------- */
+.menu button {
+    border: none;
+    outline: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+
+    background: #E66A00;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu button:hover {
+    background: #ff5c00;
+    transform: translateY(-1px);
+}
+
+/* ---------- MAIN CONTAINER ---------- */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 80px 0 50px;
+}
+
+
+/* ---------- HERO SECTION ---------- */
+.hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    color: #E66A00;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 720px;
+    margin: auto;
+    color: #cccccc;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+/* ---------- CARDS ---------- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+    margin-top: 40px;
+}
+
+.card {
+    background: #141414;
+    padding: 25px;
+    border-radius: 18px;
+    border: 1px solid #222222;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: #E66A00;
+}
+
+.card h3 {
+    color: #E66A00;
+    margin-bottom: 12px;
+    font-size: 22px;
+}
+
+.card p {
+    color: #d2d2d2;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* ---------- EXTRA SECTION ---------- */
+.about-extra {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.about-extra h2 {
+    color: #E66A00;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.about-extra p {
+    max-width: 750px;
+    margin: auto;
+    color: #cfcfcf;
+    line-height: 1.8;
+}
+
+/* ---------- TOP BUTTON ---------- */
+.top-btn {
+    margin-top: 35px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 10px;
+    background: #E66A00;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.top-btn:hover {
+    background: #ff5c00;
+    transform: translateY(-2px);
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+    margin-top: 60px;
+    text-align: center;
+    color: #888888;
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    .top-strip {
+        width: 100%;
+        margin-left: 0;
+        border-radius: 0;
+        padding: 0 15px;
+    }
+
+    .menu {
+        gap: 14px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+}

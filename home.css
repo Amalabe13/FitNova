@@ -319,12 +319,13 @@ box-shadow:0 12px 30px rgba(0,0,0,.35);
 
 
 
-/* TOP HEADER BAR */
-.top-strip{
-    width:96%;
-    height:60px;
 
-    margin:0 2%;
+/* header */
+.top-strip{
+    width:100%;
+    height:60px;
+    
+    
     padding:0 28px;
 
     display:flex;
@@ -335,8 +336,12 @@ box-shadow:0 12px 30px rgba(0,0,0,.35);
     border-radius:0 0 14px 14px;
 
     box-shadow:0 4px 18px rgba(0,0,0,0.35);
-    border-bottom:1px solid rgba(255,122,0,0.25);
+    
     box-sizing:border-box;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
 }
 /* LEFT SIDE BRAND */
 .brand{
@@ -363,7 +368,6 @@ box-shadow:0 12px 30px rgba(0,0,0,.35);
     display:flex;
     align-items:center;
     gap:26px;
-    margin-left:auto;
 }
 
 .menu a{
