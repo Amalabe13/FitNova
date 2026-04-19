@@ -89,3 +89,14 @@ window.addEventListener('load', function () {
   if (name) document.getElementById('cname').innerText = name;
   if (photo) document.getElementById('icon').src = photo;
 });
+
+
+
+
+
+
+
+
+// jkkkkk
+
+

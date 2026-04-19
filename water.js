@@ -26,6 +26,7 @@ window.onload = function () {
   let savedTotal = localStorage.getItem('total');
   let savedWeight = localStorage.getItem('weight');
 
+
   if (savedWeight) document.getElementById('weight').value = savedWeight;
   if (savedGoal) {
     goal = parseFloat(savedGoal);
