@@ -2,99 +2,147 @@ let total = 0;
 let goal = 0;
 
 function getTodayKey() {
-  return new Date().toISOString().split('T')[0];
+    return new Date().toISOString().split('T')[0];
 }
 
+/* Save daily water */
 function saveTodayWater() {
-  localStorage.setItem('water_' + getTodayKey(), total);
+    localStorage.setItem('water_' + getTodayKey(), total);
 }
 
+/* Weekly data */
 function getWeeklyWaterData() {
-  let arr = [];
-  for (let i = 6; i >= 0; i--) {
-    let d = new Date();
-    d.setDate(d.getDate() - i);
-    let key = d.toISOString().split('T')[0];
-    let val = localStorage.getItem('water_' + key);
-    arr.push(val ? parseFloat(val) : 0);
-  }
-  return arr;
+    let arr = [];
+
+    for (let i = 6; i >= 0; i--) {
+        let d = new Date();
+        d.setDate(d.getDate() - i);
+
+        let key = d.toISOString().split('T')[0];
+        let val = localStorage.getItem('water_' + key);
+
+        arr.push(val ? parseFloat(val) : 0);
+    }
+
+    return arr;
 }
 
+/* Load saved data */
 window.onload = function () {
-  let savedGoal = localStorage.getItem('goal');
-  let savedTotal = localStorage.getItem('total');
-  let savedWeight = localStorage.getItem('weight');
 
+    let savedGoal = localStorage.getItem("waterGoal");
+    let savedTotal = localStorage.getItem("waterTotal");
+    let savedWeight = localStorage.getItem("weight");
 
-  if (savedWeight) document.getElementById('weight').value = savedWeight;
-  if (savedGoal) {
-    goal = parseFloat(savedGoal);
-    document.getElementById('goalText').innerText = 'Goal: ' + goal + ' L';
-    document.getElementById('target').innerText = 'Target: ' + goal + 'L';
-  }
-  if (savedTotal) {
-    total = parseFloat(savedTotal);
+    if (savedWeight)
+        document.getElementById("weight").value = savedWeight;
+
+    if (savedGoal) {
+        goal = parseFloat(savedGoal);
+    }
+
+    if (savedTotal) {
+        total = parseFloat(savedTotal);
+    }
+
     updateUI();
-  }
+
+    let name = localStorage.getItem("un");
+    let photo = localStorage.getItem("profilePic");
+
+    if (name) document.getElementById("cname").innerText = name;
+    if (photo) document.getElementById("icon").src = photo;
 };
 
+/* Update screen */
 function updateUI() {
-  document.getElementById('intake').innerText = 'Intake: ' + total.toFixed(2) + 'L';
-  document.getElementById('comp').innerText = total.toFixed(2) + 'L / ' + goal + 'L';
-  let percent = goal > 0 ? Math.min((total / goal) * 100, 100) : 0;
-  document.getElementById('status').innerText = total >= goal && goal > 0 ? 'Goal achieved!!!' : percent.toFixed(0) + '% completed';
-  document.getElementById('progress').style.height = percent + '%';
+
+    document.getElementById("goalText").innerText =
+        "Goal: " + goal.toFixed(2) + " L";
+
+    document.getElementById("target").innerText =
+        "Target: " + goal.toFixed(2) + "L";
+
+    document.getElementById("intake").innerText =
+        "Intake: " + total.toFixed(2) + "L";
+
+    document.getElementById("comp").innerText =
+        total.toFixed(2) + "L / " + goal.toFixed(2) + "L";
+
+    let percent = goal > 0 ? (total / goal) * 100 : 0;
+
+    if (percent > 100) percent = 100;
+
+    document.getElementById("progress").style.height =
+        percent + "%";
+
+    if (goal === 0)
+        document.getElementById("status").innerText = "Start drinking 💧";
+    else if (total >= goal)
+        document.getElementById("status").innerText = "Goal achieved!!!";
+    else
+        document.getElementById("status").innerText =
+            Math.round(percent) + "% completed";
 }
 
+/* Set goal from weight */
 function setGoal() {
-  let weight = document.getElementById('weight').value;
-  if (weight === '' || weight <= 0) return alert('Enter valid weight');
-  localStorage.setItem('weight', weight);
-  goal = parseFloat((weight * 0.033).toFixed(2));
-  localStorage.setItem('goal', goal);
-  total = 0;
-  localStorage.setItem('total', total);
-  saveTodayWater();
-  document.getElementById('goalText').innerText = 'Goal: ' + goal + ' L';
-  document.getElementById('target').innerText = 'Target: ' + goal + 'L';
-  updateUI();
+
+    let weight = parseFloat(document.getElementById("weight").value);
+
+    if (!weight || weight <= 0)
+        return alert("Enter valid weight");
+
+    localStorage.setItem("weight", weight);
+
+    goal = +(weight * 0.033).toFixed(2);
+
+    total = 0;
+
+    localStorage.setItem("waterGoal", goal);
+    localStorage.setItem("waterTotal", total);
+
+    saveTodayWater();
+    updateUI();
 }
 
+/* Add water */
 function addWater(amount) {
-  if (goal === 0) return alert('Set goal first!');
-  if (total >= goal) return;
-  total += amount / 1000;
-  if (total > goal) total = goal;
-  localStorage.setItem('total', total);
-  saveTodayWater();
-  updateUI();
+
+    if (goal === 0)
+        return alert("Set goal first!");
+
+    total += amount / 1000;
+
+    if (total > goal)
+        total = goal;
+
+    localStorage.setItem("waterTotal", total);
+
+    saveTodayWater();
+    updateUI();
 }
 
+/* Reset only water data */
 function reset() {
-  total = 0;
-  goal = 0;
-  localStorage.clear();
-  document.getElementById('weight').value = '';
-  document.getElementById('goalText').innerText = 'Goal: -- L';
-  document.getElementById('target').innerText = 'Target: 0L';
-  document.getElementById('intake').innerText = 'Intake: 0L';
-  document.getElementById('comp').innerText = '0L / 0L';
-  document.getElementById('status').innerText = 'Start drinking 💧';
-  document.getElementById('progress').style.height = '0%';
+
+    total = 0;
+    goal = 0;
+
+    localStorage.removeItem("waterGoal");
+    localStorage.removeItem("waterTotal");
+    localStorage.removeItem("weight");
+
+    document.getElementById("weight").value = "";
+
+    updateUI();
 }
 
-window.addEventListener('load', function () {
-  let name = localStorage.getItem('un');
-  let photo = localStorage.getItem('profilePic');
-  if (name) document.getElementById('cname').innerText = name;
-  if (photo) document.getElementById('icon').src = photo;
-});
-
-function speakText(text){
-   let speech = new SpeechSynthesisUtterance(text);
-   speech.rate = 1;
-   speech.pitch = 1;
-   speech.volume = 1;
-   window.speechSynthesis.speak(speech);
+/* Voice */
+function speakText(text) {
+    let speech = new SpeechSynthesisUtterance(text);
+    speech.rate = 1;
+    speech.pitch = 1;
+    speech.volume = 1;
+    window.speechSynthesis.speak(speech);
 }

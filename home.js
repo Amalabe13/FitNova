@@ -1,88 +1,101 @@
-let total = 0;
-let goal = 0;
-
-function getTodayKey() {
-  return new Date().toISOString().split('T')[0];
-}
-
-function saveTodayWater() {
-  localStorage.setItem('water_' + getTodayKey(), total);
-}
-
-function getWeeklyWaterData() {
-  let arr = [];
-  for (let i = 6; i >= 0; i--) {
-    let d = new Date();
-    d.setDate(d.getDate() - i);
-    let key = d.toISOString().split('T')[0];
-    let val = localStorage.getItem('water_' + key);
-    arr.push(val ? parseFloat(val) : 0);
-  }
-  return arr;
-}
+/* =========================
+   FULL FINAL home.js
+   ========================= */
 
 window.onload = function () {
-  let savedGoal = localStorage.getItem('goal');
-  let savedTotal = localStorage.getItem('total');
-  let savedWeight = localStorage.getItem('weight');
-
-  if (savedWeight) document.getElementById('weight').value = savedWeight;
-  if (savedGoal) {
-    goal = parseFloat(savedGoal);
-    document.getElementById('goalText').innerText = 'Goal: ' + goal + ' L';
-    document.getElementById('target').innerText = 'Target: ' + goal + 'L';
-  }
-  if (savedTotal) {
-    total = parseFloat(savedTotal);
-    updateUI();
-  }
+    loadCalories();
+    loadWater();
+    loadExercise();
 };
 
-function updateUI() {
-  document.getElementById('intake').innerText = 'Intake: ' + total.toFixed(2) + 'L';
-  document.getElementById('comp').innerText = total.toFixed(2) + 'L / ' + goal + 'L';
-  let percent = goal > 0 ? Math.min((total / goal) * 100, 100) : 0;
-  document.getElementById('status').innerText = total >= goal && goal > 0 ? 'Goal achieved!!!' : percent.toFixed(0) + '% completed';
-  document.getElementById('progress').style.height = percent + '%';
+/* -------------------------
+   CALORIES
+------------------------- */
+function loadCalories() {
+    let foods = JSON.parse(localStorage.getItem("foods")) || [];
+    let goal = parseInt(localStorage.getItem("calorieGoal")) || 1200;
+
+    let total = 0;
+
+    foods.forEach(item => {
+        total += Number(item.calories);
+    });
+
+    let left = goal - total;
+    if (left < 0) left = 0;
+
+    document.getElementById("calMain").innerText =
+        total + "/" + goal + " cal";
+
+    document.getElementById("calLeft").innerText =
+        left + " cal left";
 }
 
-function setGoal() {
-  let weight = document.getElementById('weight').value;
-  if (weight === '' || weight <= 0) return alert('Enter valid weight');
-  localStorage.setItem('weight', weight);
-  goal = parseFloat((weight * 0.033).toFixed(2));
-  localStorage.setItem('goal', goal);
-  total = 0;
-  localStorage.setItem('total', total);
-  saveTodayWater();
-  document.getElementById('goalText').innerText = 'Goal: ' + goal + ' L';
-  document.getElementById('target').innerText = 'Target: ' + goal + 'L';
-  updateUI();
+/* -------------------------
+   WATER
+------------------------- */
+function loadWater() {
+    let total = parseFloat(localStorage.getItem("waterTotal")) || 0;
+    let goal = parseFloat(localStorage.getItem("waterGoal")) || 3;
+
+    /* safety fix for old wrong values */
+    if (goal > 20) goal = goal / 1000;
+
+    let totalML = Math.round(total * 1000);
+    let goalML = Math.round(goal * 1000);
+
+    let left = goalML - totalML;
+    if (left < 0) left = 0;
+
+    document.getElementById("waterMain").innerText =
+        totalML + "/" + goalML + " ml";
+
+    document.getElementById("waterLeft").innerText =
+        left + " ml left";
 }
 
-function addWater(amount) {
-  if (goal === 0) return alert('Set goal first!');
-  if (total >= goal) return;
-  total += amount / 1000;
-  if (total > goal) total = goal;
-  localStorage.setItem('total', total);
-  saveTodayWater();
-  updateUI();
+/* -------------------------
+   EXERCISE
+------------------------- */
+function loadExercise() {
+    let burned = parseInt(localStorage.getItem("totalBurn")) || 0;
+    let goal = parseInt(localStorage.getItem("burnGoal")) || 0;
+
+    if (goal === 0) {
+        document.getElementById("exMain").innerText =
+            burned + "/0 cal";
+
+        document.getElementById("exLeft").innerText =
+            "Set goal first";
+
+        return;
+    }
+
+    let left = goal - burned;
+    if (left < 0) left = 0;
+
+    document.getElementById("exMain").innerText =
+        burned + "/" + goal + " cal";
+
+    document.getElementById("exLeft").innerText =
+        left + " cal left";
 }
 
-function reset() {
-  total = 0;
-  goal = 0;
-  localStorage.clear();
-  document.getElementById('weight').value = '';
-  document.getElementById('goalText').innerText = 'Goal: -- L';
-  document.getElementById('target').innerText = 'Target: 0L';
-  document.getElementById('intake').innerText = 'Intake: 0L';
-  document.getElementById('comp').innerText = '0L / 0L';
-  document.getElementById('status').innerText = 'Start drinking 💧';
-  document.getElementById('progress').style.height = '0%';
-}
+/* -------------------------
+   AUTO UPDATE
+------------------------- */
+window.addEventListener("storage", function () {
+    loadCalories();
+    loadWater();
+    loadExercise();
+});
 
+/* -------------------------
+   LOGOUT
+------------------------- */
+function logout() {
+    window.location.href = "login.html";
+}
 window.addEventListener('load', function () {
   let name = localStorage.getItem('un');
   let photo = localStorage.getItem('profilePic');
