@@ -74,7 +74,7 @@ button:hover{
     gap:30px;
     background: linear-gradient(to bottom, #ee954880, #E66A0020);
     width:100%;
-
+   
     align-items:center;
     height:40px;
     margin-bottom:5px;
@@ -97,34 +97,7 @@ a{
     text-decoration:none;
 }
 
-.box,
-.box-active{
-    position:relative;
-}
 
-.box::after,
-.box-active::after{
-    content:attr(data-name);
-    position:absolute;
-    left:55px;
-    top:50%;
-    transform:translateY(-50%);
-    background:#111;
-    color:#fff;
-    padding:6px 12px;
-    border-radius:8px;
-    white-space:nowrap;
-    font-size:13px;
-    display:none;
-    border:1px solid rgba(255,122,0,.35);
-    box-shadow:0 8px 18px rgba(0,0,0,.35);
-    z-index:9999;
-}
-
-.box:hover::after,
-.box-active:hover::after{
-    display:block;
-}
 /* for home 1st div */
 
 #first{

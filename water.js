@@ -89,3 +89,11 @@ window.addEventListener('load', function () {
   if (name) document.getElementById('cname').innerText = name;
   if (photo) document.getElementById('icon').src = photo;
 });
+
+function speakText(text){
+   let speech = new SpeechSynthesisUtterance(text);
+   speech.rate = 1;
+   speech.pitch = 1;
+   speech.volume = 1;
+   window.speechSynthesis.speak(speech);
+}
