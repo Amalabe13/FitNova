@@ -16,6 +16,30 @@ body {
   overflow: hidden;
 }
 
+.calorie-help {
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border: 1px solid #E66A00;
+  border-radius: 10px;
+  background: linear-gradient(to right, #0c0c0c, #1a1a1a);
+  color: #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.calorie-help a {
+  color: #E66A00;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.calorie-help a:hover {
+  text-shadow: 0 0 8px rgba(230,106,0,0.6);
+}
+
 #icon {
   height: 50px;
   width: 50px;
