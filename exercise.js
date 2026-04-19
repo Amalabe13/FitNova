@@ -173,7 +173,9 @@ function renderExercises() {
             <td>${ex.duration}</td>
             <td>${ex.calories} kcal</td>
             <td>
-                <button class="delete-btn" onclick="removeExercise(${index})">❌</button>
+                <button class="delete-btn" onclick="removeExercise(${index})">
+                    <img src="pic/close.svg">
+                </button>
             </td>
         `;
 
