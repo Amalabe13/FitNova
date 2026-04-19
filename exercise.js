@@ -1,8 +1,3 @@
-/* =========================
-   FULL FINAL exercise.js
-   Burn Calories Tracker
-   ========================= */
-
 let totalBurn = 0;
 let burnGoal = 0;
 let exerciseData = JSON.parse(localStorage.getItem("exerciseData")) || [];
@@ -84,28 +79,49 @@ function suggestExercise() {
     let box = document.getElementById("suggestResult");
 
     let data = {
-        belly: ["Crunches", "Plank", "Mountain Climbers"],
-        arms: ["Push-ups", "Bicep Curls", "Tricep Dips"],
-        legs: ["Squats", "Lunges", "Calf Raises"],
-        full: ["Burpees", "Jumping Jacks", "High Knees"]
+        belly: [
+            { name: "Crunches", img: "pic/crunches.jpg" },
+            { name: "Plank", img: "pic/plank.png" },
+            { name: "Mountain Climbers", img: "pic/climb.jpg" }
+        ],
+
+        arms: [
+            { name: "Push-ups", img: "pic/pushup.png" },
+            { name: "Bicep Curls", img: "pic/curl.png" },
+            { name: "Tricep Dips", img: "pic/dips.jpg" }
+        ],
+
+        legs: [
+            { name: "Squats", img: "pic/squat.jpg" },
+            { name: "Lunges", img: "pic/lunges.jpg" },
+            { name: "Leg Raises", img: "pic/legraise.jpg" }
+        ],
+
+        full: [
+            { name: "Burpees", img: "pic/burpee.jpg" },
+            { name: "Jumping Jacks", img: "pic/jumping.jpg" },
+            { name: "Jump Rope", img: "pic/jump.jpg" }
+        ]
     };
 
     if (!bodyPart) {
-        box.innerHTML = "<p class='placeholder'>Choose a body part to get suggestions</p>";
+        box.innerHTML = "<p class='placeholder'>Choose a body part</p>";
         return;
     }
 
-    let html = "<ul>";
+    let html = "";
 
     data[bodyPart].forEach(item => {
-        html += "<li>" + item + "</li>";
+        html += `
+            <div class="exercise-card">
+                <img src="${item.img}" alt="${item.name}">
+                <p>${item.name}</p>
+            </div>
+        `;
     });
-
-    html += "</ul>";
 
     box.innerHTML = html;
 }
-
 /* ---------- RENDER ---------- */
 function render() {
     let body = document.getElementById("exerciseList");
