@@ -19,7 +19,7 @@ body {
 .calorie-help {
   margin-bottom: 15px;
   padding: 10px 15px;
-  border: 1px solid #E66A00;
+  border: 1px solid #272727;
   border-radius: 10px;
   background: linear-gradient(to right, #0c0c0c, #1a1a1a);
   color: #ccc;
@@ -34,6 +34,7 @@ body {
   text-decoration: none;
   font-weight: 500;
   transition: 0.3s;
+  font-style:italic;
 }
 
 .calorie-help a:hover {
@@ -117,12 +118,18 @@ a {
   padding-left: 10px;
 }
 
-.section-title .line {
+.section-title .line{
   width: 4px;
   height: 22px;
   background: #FF7A00;
   border-radius: 2px;
-
+}
+.cp::before {
+  content: "";
+  width: 4px;
+  height: 20px;
+  background: #FF7A00;
+  border-radius: 2px;
 }
 
 .section-title h2,
@@ -355,16 +362,16 @@ button:hover {
   width: 100%;
   border-collapse: collapse;
   background: #1a1a1a;
-  border: 1px solid #E66A00;
+  border: 1px solid #272727;
   border-radius: 12px;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .list-table caption {
   text-align: left;
-  padding: 10px;
+  padding: 20px 10px;
   font-weight: 600;
-  color: #FF7A00;
+  color: #e66a00;
 }
 
 .list-table th,
@@ -375,7 +382,7 @@ button:hover {
 
 .list-table thead {
   background: #111;
-  border-bottom: 1px solid #E66A00;
+  border-bottom: 1px solid #e66a00;
 }
 
 .list-table tbody tr {
@@ -395,7 +402,7 @@ button:hover {
 .delete-btn {
   background: none;
   border: none;
-  color: #FF5C5C;
+  color: #e66a00;
   cursor: pointer;
 }
 
