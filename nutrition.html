@@ -87,12 +87,6 @@
 
 
 
-<main style="padding-top:90px;">
-
-
-
-
-
 <main id="main" style="padding-top:90px;">
 
     <div class="meal-title">
@@ -102,13 +96,17 @@
     <div class="w">
         <div class="meal-card">
             <h3>Choose your meal type</h3>
+
             <div class="meal-options">
                 <button onclick="selectMeal('breakfast')">Breakfast</button>
                 <button onclick="selectMeal('lunch')">Lunch</button>
                 <button onclick="selectMeal('snacks')">Snacks</button>
                 <button onclick="selectMeal('dinner')">Dinner</button>
             </div>
-            <p id="selectedMealDisplay" style="color: #E66A00; margin-top: 15px; font-weight: bold; text-align: center;">Please select a meal type</p>
+
+            <p id="selectedMealDisplay">
+                <i>Please select a meal type</i>
+            </p>
         </div>
     </div>
 
@@ -116,103 +114,122 @@
         <h2>Daily Nutrition Log</h2>
     </div>
 
+    <div class="meal-card">
+    <h3>Enter Food Details</h3>
+
+    <div class="meal-options wrap">
+
+        <select id="foodMenu">
+            <option value="">Select food item</option>
+        </select>
+
+        <input type="number" id="foodWeight" placeholder="Quantity (grams)">
+        <button onclick="logMeal()">Add Food</button>
+        <button class="reset-btn" onclick="resetStats()">Reset</button>
+
+    </div>
+
+    <p id="logOutput"><i>No food added yet</i></p>
+    </div>
+
+
+
+
+    <div class="w">
+        <div class="meal-card table-wrap">
+            <table class="nutrition-table">
+                <tr>
+                    <th>Nutrition</th>
+                    <th>Breakfast</th>
+                    <th>Lunch</th>
+                    <th>Dinner</th>
+                    <th>Snacks</th>
+                </tr>
+
+                <tr>
+                    <td>Carbs</td>
+                    <td class="carb-val">0g</td>
+                    <td class="carb-val">0g</td>
+                    <td class="carb-val">0g</td>
+                    <td class="carb-val">0g</td>
+                </tr>
+
+                <tr>
+                    <td>Protein</td>
+                    <td class="protein-val">0g</td>
+                    <td class="protein-val">0g</td>
+                    <td class="protein-val">0g</td>
+                    <td class="protein-val">0g</td>
+                </tr>
+
+                <tr>
+                    <td>Fibre</td>
+                    <td class="fibre-val">0g</td>
+                    <td class="fibre-val">0g</td>
+                    <td class="fibre-val">0g</td>
+                    <td class="fibre-val">0g</td>
+                </tr>
+
+                <tr>
+                    <td>Fat</td>
+                    <td class="fat-val">0g</td>
+                    <td class="fat-val">0g</td>
+                    <td class="fat-val">0g</td>
+                    <td class="fat-val">0g</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
     <div class="w">
         <div class="meal-card">
-            <h3>Enter Food Details</h3>
-            <div class="meal-options" style="flex-direction: column; gap: 15px;">
-                
-                <select id="foodMenu" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #E66A00; background: #1a1a1a; color: white;">
-                    <option value="">Select a meal type above...</option>
-                </select>
+            <h3>Grand Total</h3>
+            
 
-                <input type="number" id="foodWeight" placeholder="Quantity (grams)" style="width: 100%; padding: 12px; box-sizing: border-box;">
-
-                <div style="display: flex; gap: 10px; width: 100%;">
-                    <button onclick="logMeal()" style="flex: 2;">Add Food</button>
-                    <button onclick="resetStats()" style="flex: 1; background:rgba(255,0,0,0.2)">Reset</button>
+            <div class="macro-grid">
+                <div class="macro-item col">
+                    <span class="label">Carbs</span>
+                    <span class="value grand-carb">0g</span>
                 </div>
-            </div>
 
-            <p id="logOutput" style="margin-top: 15px; color: #888; text-align: center;">No food added yet</p>
+                <div class="macro-item col">
+                    <span class="label">Protein</span>
+                    <span class="value grand-protein">0g</span>
+                </div>
+
+                <div class="macro-item col">
+                    <span class="label">Fibre</span>
+                    <span class="value grand-fibre">0g</span>
+                </div>
+
+                <div class="macro-item col">
+                    <span class="label">Fat</span>
+                    <span class="value grand-fat">0g</span>
+                </div>
+            
+             </div>
+             
         </div>
     </div>
 
     <div class="title">
-        <h2>Daily Totals & Summary</h2>
+        <h2>Health Tips</h2>
+    </div>
+    </main>
+
+    <div class="tips-container">
+        <div class="tip-card">Stay hydrated with 8 glasses of water.</div>
+        <div class="tip-card">Walk 10k steps for heart health.</div>
+        <div class="tip-card">Eat protein with every meal.</div>
+        <div class="tip-card">Limit sugar intake to feel energized.</div>
+        <div class="tip-card">Stretch for 5 minutes every morning.</div>
+        <div class="tip-card">Get at least 7 hours of deep sleep.</div>
+        <div class="tip-card">Focus on fiber for better digestion.</div>
+        <div class="tip-card">Take deep breaths to reduce stress.</div>
+        <div class="tip-card">Choose whole grains for lasting energy.</div>
+        <div class="tip-card">Include healthy fats for brain health.</div>
     </div>
 
-    <div class="w">
-        <div class="meal-card">
-            <h3 style="color: #fff; font-size: 16px; margin-bottom: 15px;">Meal Breakdown</h3>
-            <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px; border-bottom: 1px solid #333; padding-bottom: 15px;">
-                <div style="display:flex; justify-content:space-between; color:#b3b3b3;">
-                    <span>Breakfast:</span> <span id="sum-breakfast" style="color:#E66A00;">0 kcal</span>
-                </div>
-                <div style="display:flex; justify-content:space-between; color:#b3b3b3;">
-                    <span>Lunch:</span> <span id="sum-lunch" style="color:#E66A00;">0 kcal</span>
-                </div>
-                <div style="display:flex; justify-content:space-between; color:#b3b3b3;">
-                    <span>Snacks:</span> <span id="sum-snacks" style="color:#E66A00;">0 kcal</span>
-                </div>
-                <div style="display:flex; justify-content:space-between; color:#b3b3b3;">
-                    <span>Dinner:</span> <span id="sum-dinner" style="color:#E66A00;">0 kcal</span>
-                </div>
-            </div>
 
-            <h3 style="color: #fff; font-size: 16px; margin-bottom: 15px;">Daily Macros</h3>
-            <div class="macro-grid">
-                <div class="macro-item">
-                    <span class="label">Carbs</span>
-                    <span class="value" id="carb-val">0g</span>
-                </div>
-                <div class="macro-item">
-                    <span class="label">Protein</span>
-                    <span class="value" id="protein-val">0g</span>
-                </div>
-                <div class="macro-item">
-                    <span class="label">Fibre</span>
-                    <span class="value" id="fibre-val">0g</span>
-                </div>
-                <div class="macro-item">
-                    <span class="label">Fat</span>
-                    <span class="value" id="fat-val">0g</span>
-                </div>
-            </div>
-
-            <div style="margin-top:20px; text-align:center; padding-top:15px;">
-                <h3 style="color:#fff;">Grand Total: <span id="total-cal" style="color:#e66a00;">0</span> kcal</h3>
-            </div>
-            
-            <button onclick="resetStats()" style="width:100%; margin-top:15px; background:rgba(255,0,0,0.1); border: 1px solid #ff000040; color:#ff4d4d; padding:10px; border-radius:8px; cursor:pointer;">Reset Daily Progress</button>
-        </div>
-    </div>
-
-    
-
-
-
-
-
-
-
-
-
-
-<div class="title">
-    <h2>Daily Health Tips</h2>
-</div>
-
-<div class="tips-container">
-    <div class="tip-card">Stay hydrated with 8 glasses of water.</div>
-    <div class="tip-card">Walk 10k steps for heart health.</div>
-    <div class="tip-card">Eat protein with every meal.</div>
-    <div class="tip-card">Limit sugar intake to feel energized.</div>
-    <div class="tip-card">Stretch for 5 minutes every morning.</div>
-    <div class="tip-card">Get at least 7 hours of deep sleep.</div>
-    <div class="tip-card">Focus on fiber for better digestion.</div>
-    <div class="tip-card">Take deep breaths to reduce stress.</div>
-</div>
-
-</main>
 </body>
 </html>
