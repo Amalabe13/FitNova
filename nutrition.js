@@ -1,85 +1,128 @@
-// 1. Expanded Food Dictionary
-const foodDatabase = {
-    // Healthy (Original)
-    "rice": { carbs: 45, protein: 4, fibre: 1, fat: 0 },
-    "dal": { carbs: 20, protein: 9, fibre: 8, fat: 2 },
-    "roti": { carbs: 15, protein: 3, fibre: 2, fat: 0 },
-    
-    // Fruits & Vegetables (New)
-    "apple": { carbs: 14, protein: 0, fibre: 2, fat: 0 },
-    "banana": { carbs: 23, protein: 1, fibre: 3, fat: 0 },
-    "spinach": { carbs: 1, protein: 1, fibre: 2, fat: 0 },
-    "carrot": { carbs: 10, protein: 1, fibre: 3, fat: 0 },
-    "broccoli": { carbs: 6, protein: 3, fibre: 2, fat: 0 },
-
-    // Known Junk
-    "burger": { carbs: 40, protein: 25, fibre: 2, fat: 15 },
-    "pizza": { carbs: 35, protein: 12, fibre: 1, fat: 10 },
-    "fries": { carbs: 48, protein: 3, fibre: 5, fat: 15 }
+// 1. DATABASE
+const masterDatabase = {
+    breakfast: {
+        "egg": { name: "Boiled Egg", c: 1.1, p: 13, fi: 0, f: 11, cal: 155 },
+        "oats": { name: "Oats Bowl", c: 66, p: 17, fi: 10, f: 7, cal: 389 },
+        "pancakes": { name: "Pancakes", c: 28, p: 6, fi: 1, f: 10, cal: 227 },
+        "apple": { name: "Apple", c: 14, p: 0.3, fi: 2.4, f: 0.2, cal: 52 },
+        "bread": { name: "Brown Bread", c: 43, p: 13, fi: 7, f: 3, cal: 247 },
+        "poha": { name: "Poha", c: 25, p: 3, fi: 1, f: 8, cal: 180 },
+        "smoothie": { name: "Fruit Smoothie", c: 12, p: 1, fi: 2, f: 0.5, cal: 60 }
+    },
+    lunch: {
+        "rice": { name: "White Rice", c: 28, p: 2.7, fi: 0.4, f: 0.3, cal: 130 },
+        "dal": { name: "Dal Tadka", c: 20, p: 9, fi: 8, f: 0.5, cal: 116 },
+        "chicken": { name: "Grilled Chicken", c: 0, p: 27, fi: 0, f: 3.6, cal: 165 },
+        "paneer": { name: "Paneer Curry", c: 4, p: 18, fi: 0, f: 20, cal: 265 },
+        "salad": { name: "Mixed Salad", c: 5, p: 1, fi: 2, f: 0.1, cal: 25 },
+        "fish": { name: "Baked Fish", c: 0, p: 20, fi: 0, f: 2, cal: 105 },
+        "curd": { name: "Curd/Yogurt", c: 4.7, p: 3.5, fi: 0, f: 3.3, cal: 61 }
+    },
+    snacks: {
+        "banana": { name: "Banana", c: 23, p: 1.1, fi: 2.6, f: 0.3, cal: 89 },
+        "nuts": { name: "Almonds", c: 22, p: 21, fi: 12, f: 49, cal: 579 },
+        "fries": { name: "Fries", c: 41, p: 3.4, fi: 3.8, f: 15, cal: 312 },
+        "tea": { name: "Tea", c: 0.2, p: 0.1, fi: 0, f: 0, cal: 2 },
+        "biscuit": { name: "Biscuits", c: 70, p: 6, fi: 3, f: 15, cal: 450 },
+        "popcorn": { name: "Popcorn", c: 74, p: 13, fi: 14, f: 5, cal: 387 },
+        "sandwich": { name: "Sandwich", c: 25, p: 8, fi: 3, f: 7, cal: 200 }
+    },
+    dinner: {
+        "roti": { name: "Rotti/Chapati", c: 18, p: 3, fi: 2, f: 4, cal: 120 },
+        "pizza": { name: "Pizza", c: 36, p: 11, fi: 2.3, f: 10, cal: 266 },
+        "broccoli": { name: "Broccoli", c: 7, p: 2.8, fi: 2.6, f: 0.3, cal: 34 },
+        "soup": { name: "Soup", c: 8, p: 1, fi: 1, f: 0.2, cal: 40 },
+        "pasta": { name: "Pasta", c: 31, p: 6, fi: 2, f: 1, cal: 158 },
+        "tofu": { name: "Tofu", c: 2, p: 8, fi: 1, f: 5, cal: 76 },
+        "milk": { name: "Milk", c: 5, p: 3.4, fi: 0, f: 1, cal: 42 }
+    }
 };
 
-// 2. Storage & State
-let totals = JSON.parse(localStorage.getItem('nutritionTotals')) || { carbs: 0, protein: 0, fibre: 0, fat: 0 };
-let selectedMeal = "None";
+let selectedCategory = ""; // Global variable to track choice
 
-// 3. Display Meal Selection
-function selectMeal(mealName) {
-    selectedMeal = mealName;
-    const mealDisplay = document.getElementById('selectedMealDisplay');
-    if (mealDisplay) {
-        mealDisplay.innerText = "Current Meal: " + mealName;
-        mealDisplay.style.color = "#E66A00"; // Makes it glow orange
+// 2. THIS RUNS WHEN BUTTONS ARE CLICKED
+function selectMeal(type) {
+    selectedCategory = type.toLowerCase();
+    
+    // Update the "Breakfast Selected" text
+    const display = document.getElementById("selectedMealDisplay");
+    if(display) {
+        display.innerText = type.charAt(0).toUpperCase() + type.slice(1) + " Selected";
+    }
+
+    // Fill the dropdown
+    const foodMenu = document.getElementById("foodMenu");
+    foodMenu.innerHTML = '<option value="" disabled selected>Select from ' + type + ' list...</option>';
+    
+    const items = masterDatabase[selectedCategory];
+    for (let key in items) {
+        let option = document.createElement("option");
+        option.value = key;
+        option.innerText = items[key].name;
+        foodMenu.appendChild(option);
     }
 }
 
-function updateDisplay() {
+// 3. LOG MEAL
+let totals = JSON.parse(localStorage.getItem('nutritionTotals')) || { 
+    carbs: 0, protein: 0, fibre: 0, fat: 0, calories: 0, 
+    breakfast: 0, lunch: 0, snacks: 0, dinner: 0 
+};
+
+function logMeal() {
+    const foodKey = document.getElementById("foodMenu").value;
+    const weightInput = document.getElementById("foodWeight"); // Check this ID in HTML
+    const weight = parseFloat(weightInput.value);
+
+    if (!selectedCategory || !foodKey || isNaN(weight) || weight <= 0) {
+        alert("Please select a meal type, food item, and enter weight!");
+        return;
+    }
+
+    const foodData = masterDatabase[selectedCategory][foodKey];
+    const ratio = weight / 100;
+
+    const entryCal = Math.round(foodData.cal * ratio);
+    
+    totals.carbs += Math.round(foodData.c * ratio);
+    totals.protein += Math.round(foodData.p * ratio);
+    totals.fibre += Math.round(foodData.fi * ratio);
+    totals.fat += Math.round(foodData.f * ratio);
+    totals.calories += entryCal;
+    totals[selectedCategory] += entryCal;
+
+    localStorage.setItem('nutritionTotals', JSON.stringify(totals));
+    
+    document.getElementById("logOutput").innerText = `Added ${foodData.name} to ${selectedCategory}`;
+    weightInput.value = "";
+    refreshUI();
+}
+
+function refreshUI() {
+    // Sync UI with storage
+    document.getElementById('sum-breakfast').innerText = (totals.breakfast || 0) + " kcal";
+    document.getElementById('sum-lunch').innerText = (totals.lunch || 0) + " kcal";
+    document.getElementById('sum-snacks').innerText = (totals.snacks || 0) + " kcal";
+    document.getElementById('sum-dinner').innerText = (totals.dinner || 0) + " kcal";
+
     document.getElementById('carb-val').innerText = totals.carbs + "g";
     document.getElementById('protein-val').innerText = totals.protein + "g";
     document.getElementById('fibre-val').innerText = totals.fibre + "g";
     document.getElementById('fat-val').innerText = totals.fat + "g";
-}
-
-// 4. Main Calculation with Junk Fallback
-function calculateMacros() {
-    const input = document.getElementById('weight'); 
-    const output = document.getElementById('logOutput');
-    const foodName = input.value.toLowerCase().trim();
-
-    if (!foodName) return;
-
-    let item;
-
-    if (foodDatabase[foodName]) {
-        // Known food
-        item = foodDatabase[foodName];
-        output.innerText = `Added ${foodName} to ${selectedMeal}!`;
-    } else {
-        // Unknown food -> JUNK FALLBACK
-        // Prefixed values for unknown items
-        item = { carbs: 50, protein: 5, fibre: 0, fat: 20 };
-        output.innerText = `Unknown food detected. Logged as 'General Junk' for ${selectedMeal}.`;
-    }
-
-    // Update totals
-    totals.carbs += item.carbs;
-    totals.protein += item.protein;
-    totals.fibre += item.fibre;
-    totals.fat += item.fat;
-
-    localStorage.setItem('nutritionTotals', JSON.stringify(totals));
-    updateDisplay();
-    input.value = ""; 
+    document.getElementById('total-cal').innerText = totals.calories;
 }
 
 function resetStats() {
-    if(confirm("Reset all daily totals?")) {
-        totals = { carbs: 0, protein: 0, fibre: 0, fat: 0 };
+    if(confirm("Reset data?")) {
+        totals = { carbs: 0, protein: 0, fibre: 0, fat: 0, calories: 0, breakfast: 0, lunch: 0, snacks: 0, dinner: 0 };
         localStorage.removeItem('nutritionTotals');
-        updateDisplay();
-        document.getElementById('logOutput').innerText = "Stats cleared.";
+        refreshUI();
     }
 }
 
+
+
+window.onload = refreshUI;
 window.onload = updateDisplay;
 window.addEventListener("load", function () {
   let name = localStorage.getItem("un");

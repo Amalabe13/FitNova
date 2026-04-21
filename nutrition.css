@@ -107,8 +107,9 @@ a{
 
 
 #main {
-    margin-left: 22vw;   /* pushes content right of sidebar */
-    padding: 30px;
+    margin-left: 20vw;   /* Matches sidebar width exactly */
+    padding: 30px 50px;  /* Vertical padding, then horizontal padding */
+    box-sizing: border-box;
 }
 
 
@@ -194,19 +195,19 @@ a{
 
 
 
-
-
-
-
-/* SAME HEADING STYLE (orange line) */
 .title {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin: 15px 3% 0 22vw;   
-    padding-left: 30px; 
-    margin-bottom:30px;     
+    margin: 30px 0;      /* Removed 22vw margin */
+    padding-left: 0;     /* Removed extra padding */
+    margin-bottom: 30px;
 }
+
+
+
+/* SAME HEADING STYLE (orange line) */
+
 
 .title::before {
     content: "";
@@ -224,8 +225,8 @@ a{
 
 /* SAME ALIGNMENT AS MEAL SECTION */
 .w {
-    margin: 20px 3% 0 22vw;
-    padding-left: 30px;   /* ADD THIS */
+    margin: 20px 0;      /* Removed 22vw margin */
+    padding-left: 0;     /* Removed 30px padding */
     display: flex;
 }
 
@@ -340,19 +341,11 @@ a{
 
 
 
-
-/* Container for the sliding effect */
-
 .tips-container {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    margin:0 3% 0 23%; */
-    display: flex;                  
-    padding: 20px;
-    margin: 0 3% 0 23%;
-    overflow-x: auto;    
+    display: flex;
+    padding: 20px 0;     /* Cleaned up padding */
+    margin: 0;           /* Removed 23% margin */
+    overflow-x: auto;
 }
 
 .tip-card {
@@ -403,10 +396,9 @@ a{
     display: flex;
     align-items: center;
     gap: 15px;
-    /* This 22vw matches your sidebar width to keep it aligned */
-    margin: 20px 0 20px 22vw; 
+    margin: 20px 0;      /* Removed 22vw margin */
     padding-bottom: 10px;
-    border-bottom: 2px solid #E66A00; /* Simple orange line */
+    border-bottom: 2px solid #E66A00;
 }
 
 .simple-header img {
