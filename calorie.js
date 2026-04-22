@@ -189,3 +189,8 @@ window.onload = function () {
     if (name) document.getElementById('cname').innerText = name;
     if (photo) document.getElementById('icon').src = photo;
 }
+
+function logout() {
+    localStorage.clear();   // remove saved login/session data
+    window.location.href = "login.html";   // go to login page
+}

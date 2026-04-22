@@ -146,3 +146,8 @@ function speakText(text) {
     speech.volume = 1;
     window.speechSynthesis.speak(speech);
 }
+
+function logout() {
+    localStorage.clear();   // remove saved login/session data
+    window.location.href = "login.html";   // go to login page
+}
