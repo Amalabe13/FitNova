@@ -148,17 +148,9 @@ function putMany(id,val){
 }
 
 function refreshUI(){
-    const carb = document.querySelectorAll(".carb-val");
-    const protein = document.querySelectorAll(".protein-val");
-    const fibre = document.querySelectorAll(".fibre-val");
-    const fat = document.querySelectorAll(".fat-val");
-
     const meals = ["breakfast","lunch","dinner","snacks"];
 
-    let totalCarb = 0;
-    let totalProtein = 0;
-    let totalFibre = 0;
-    let totalFat = 0;
+    let totalCarb = 0, totalProtein = 0, totalFibre = 0, totalFat = 0;
 
     meals.forEach((meal,i)=>{
         let c = totals.mealMacros[meal].carbs;
@@ -166,10 +158,10 @@ function refreshUI(){
         let fi = totals.mealMacros[meal].fibre;
         let fa = totals.mealMacros[meal].fat;
 
-        carb[i].innerText = c.toFixed(1) + "g";
-        protein[i].innerText = p.toFixed(1) + "g";
-        fibre[i].innerText = fi.toFixed(1) + "g";
-        fat[i].innerText = fa.toFixed(1) + "g";
+        document.querySelectorAll(".carb-val")[i].innerText = c.toFixed(1)+"g";
+        document.querySelectorAll(".protein-val")[i].innerText = p.toFixed(1)+"g";
+        document.querySelectorAll(".fibre-val")[i].innerText = fi.toFixed(1)+"g";
+        document.querySelectorAll(".fat-val")[i].innerText = fa.toFixed(1)+"g";
 
         totalCarb += c;
         totalProtein += p;
@@ -177,22 +169,10 @@ function refreshUI(){
         totalFat += fa;
     });
 
-    carb[4].innerText = totalCarb.toFixed(1) + "g";
-    protein[4].innerText = totalProtein.toFixed(1) + "g";
-    fibre[4].innerText = totalFibre.toFixed(1) + "g";
-    fat[4].innerText = totalFat.toFixed(1) + "g";
-
-    document.querySelector(".grand-carb").innerText =
-        totalCarb.toFixed(1) + "g";
-
-    document.querySelector(".grand-protein").innerText =
-        totalProtein.toFixed(1) + "g";
-
-    document.querySelector(".grand-fibre").innerText =
-        totalFibre.toFixed(1) + "g";
-
-    document.querySelector(".grand-fat").innerText =
-        totalFat.toFixed(1) + "g";
+    document.querySelector(".grand-carb").innerText = totalCarb.toFixed(1)+"g";
+    document.querySelector(".grand-protein").innerText = totalProtein.toFixed(1)+"g";
+    document.querySelector(".grand-fibre").innerText = totalFibre.toFixed(1)+"g";
+    document.querySelector(".grand-fat").innerText = totalFat.toFixed(1)+"g";
 }
 
 function resetStats(){
