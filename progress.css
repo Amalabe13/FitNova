@@ -93,7 +93,7 @@ a{
 }
 
 
-
+/*  1
 
 
 
@@ -141,16 +141,18 @@ a{
 
 /* --- THE CARD --- */
 .meal-card {
-    background: linear-gradient(to bottom, #0c0c0c, #1a1a1a);
+    width: auto;           /* Let margins determine the width */
+    margin-left: 23%;      /* Matches your sidebar gap */
+    margin-right: 3%;      /* Matches your right gap */
+    margin-bottom: 50px;
+    
+    /* Your existing styling */
+    background: linear-gradient(to bottom, #0c0c0c, #272727);
     border: 1px solid #E66A00;
-    border-radius: 18px;
-    padding: 30px;
-    width: 100%;
-    max-width: 1000px; 
-    box-shadow: 0 0 20px rgba(230, 106, 0, 0.15);
-    box-sizing: border-box; 
+    border-radius: 16px;
+    padding: 20px;
+    box-sizing: border-box;
 }
-
 .macro-grid {
     display: flex;
     gap: 20px;
@@ -191,6 +193,16 @@ a{
     font-size: 24px;
     font-weight: bold;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -279,6 +291,9 @@ a{
     background:#ff5c00;
     transform:translateY(-1px);
 }
+
+
+
 
 
 
@@ -436,4 +451,18 @@ a{
     color: #FF7A00 !important;
     text-shadow: 0 0 5px rgba(255, 122, 0, 0.3);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
