@@ -59,7 +59,6 @@
        
 </div>
 
-
 <header class="top-strip">
 
     <div class="brand">
@@ -88,54 +87,91 @@
 
 
 
+<main style="padding-top:90px;">
 
-<main style="margin-left: 23%; margin-right: 3%; padding-top: 100px; padding-bottom: 50px;">
-
-    <div class="title"><h2>Weekly Performance Overview</h2></div>
-    <div class="meal-card">
-        <div class="macro-grid">
-            <div class="macro-item highlighted-box"><span class="label">Total Burned</span><span class="value" id="box-burned">0 kcal</span></div>
-            <div class="macro-item highlighted-box"><span class="label">Weight Change</span><span class="value" id="weight-val">-0.8 kg</span></div>
-            <div class="macro-item highlighted-box"><span class="label">Avg Intake</span><span class="value" id="avg-cal">0</span></div>
-            <div class="macro-item highlighted-box"><span class="label">Active Time</span><span class="value" id="active-time">0m</span></div>
-            <div class="macro-item highlighted-box"><span class="label">Water Logged</span><span class="value" id="water-val">0 L</span></div>
-            <div class="macro-item highlighted-box"><span class="label">Total Workouts</span><span class="value" id="workout-count">0</span></div>
+    <div id="progress-container">
+        <div class="title">
+            <h2>Weekly Progress Summary</h2>
         </div>
-    </div>
 
-    <div class="title" style="margin-top: 40px;"><h2>Health Analysis</h2></div>
-    <div class="analysis-flex">
-        <div class="meal-card fitness-card">
-            <h3 style="color:#ffffff; margin-bottom: 20px;">Fitness Score</h3>
-            <div class="score-container">
-                <div class="score-circle"><div class="score-content"><span id="fitness-score-text">0</span><small>OVERALL</small></div></div>
-                <div class="score-info">
-                    <p id="score-status">Active</p>
-                    <span style="color: #b3b3b3; font-size: 13px;">Consistency vs Weekly Goals</span>
+        <div class="w">
+            <div class="meal-card">
+                <h3 style="color: #ffffff; margin-bottom: 25px; opacity: 0.9;">Weekly Performance Overview</h3>
+                
+                <div class="macro-grid">
+                    <div class="macro-item">
+                        <span class="label">Weight Change</span>
+                        <span class="value" id="weight-val">0.0 kg</span>
+                    </div>
+                    
+                    <div class="macro-item">
+                        <span class="label">Avg Calories</span>
+                        <span class="value" id="avg-cal">0</span>
+                    </div>
+                    
+                    <div class="macro-item">
+                        <span class="label">Workouts</span>
+                        <span class="value" id="workout-count">0</span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="meal-card visual-card">
-            <h3 style="color:#ffffff; margin-bottom: 15px;">Activity Trend</h3>
-            <img src="pic/progress_chart.png" alt="Progress Map" style="width: 100%; border-radius: 10px; border: 1px solid #333;">
+    </div>
+
+    <div id="fitness-score-section">
+        <div class="title">
+            <h2>Health Analysis</h2>
+        </div>
+
+        <div class="dual-box-container">
+            <div class="analysis-box fitness-score-box">
+                <h3 class="box-title">Your Fitness Score</h3>
+                <div class="score-circle">
+                    <div class="score-content">
+                        <span id="fitness-score-text">0</span>
+                        <small>OVERALL</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-box needs-improvement-box">
+                <h3 class="improvement-title">Needs Improvement</h3>
+                
+                <div class="improvement-list">
+                    <div class="step-item">Increase daily active minutes by 20%</div>
+                    <div class="step-item">Maintain consistent sleep schedule</div>
+                    <div class="step-item">Optimize protein intake per body weight</div>
+                </div>
+
+               
+            </div>
         </div>
     </div>
 
-    <div class="title" style="margin-top: 40px;"><h2>Goal vs Achievement</h2></div>
-    <div class="meal-card">
-        <div class="goal-container">
-            <div class="goal-row">
-                <span class="label">Weekly Burn Target:</span>
-                <span class="value" id="target-goal">500 kcal</span>
+    <div class="content-wrapper">
+        <div class="title">
+            <h2>Goal vs Achievement</h2>
+        </div>
+
+        <div class="w">
+            <div class="meal-card">
+                <div class="goal-container">
+                    <div class="goal-row">
+                        <span class="label">Daily Target:</span>
+                        <span class="value" id="target-goal">10,000 Steps</span>
+                    </div>
+                    
+                    <div class="goal-row">
+                        <span class="label">Achieved:</span>
+                        <span class="value highlighted" id="current-achievement">0 Steps</span>
+                    </div>
+                    
+                    <p id="motivate" style="color: #b3b3b3; font-size: 13px; margin-top: 15px; font-style: italic;">
+                        Keep going!
+                    </p>
+                </div>
             </div>
-            <div class="goal-row">
-                <span class="label">Achieved:</span>
-                <span class="value highlighted" id="current-achievement" style="color:#FF7A00;">0 kcal</span>
-            </div>
-            <p id="motivate" style="color: #b3b3b3; font-size: 13px; margin-top: 15px; font-style: italic;">Keep going!</p>
         </div>
     </div>
 
 </main>
-</body>
-</html>

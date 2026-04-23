@@ -1,134 +1,767 @@
-/* --- GLOBAL STYLES --- */
-body {
-    overflow-y: scroll;
+body{
+    overflow:scroll;
     background-color: #0D0D0D;
+    margin:0px;
+    overflow-x:hidden;
+}
+
+#outer{
+    height:100vh;
+    width:20vw;
+    background-color:#0D0D0D;
+    border-radius:10px;
+    position:fixed;
+    border:0.5px solid #272727;
+    top:0px;
+    overflow:auto;
+    display:flex;
+    flex-direction:column;
+}
+.box-last{
+    display:flex;
+    width:100%;
+    height:40px;
+    margin-bottom:5px;
+    margin-top:auto;
+    justify-content:center;
+}
+.box-last button{
+    background: linear-gradient(to bottom, #ee954880, #E66A0020);
+    border:1px solid rgb(225, 105, 6) ;
+    color:white;
+    height:30px;
+    width:100px;
+}
+
+button:hover{
+    box-shadow:0 0 10px rgba(255, 106, 61, 0.6);
+}
+
+#icon{
+    height:50px;
+    width:50px;
+}
+
+.box{
+    display:flex;
+    gap:30px;
+    background: linear-gradient(to bottom, #0c0c0c, #272727);
+    width:100%;
+    align-items:center;
+    height:40px;
+    margin-bottom:5px;
+}
+
+.box img{
+    height:20px;
+    width:20px;
+    color:#E66A00;
+    padding-left:30px;
+}
+
+.box span{
+    color:#b3b3b3;
+    font-size:15px;
+    display:flex;
+    align-items:center;
+}
+.box-active{
+    display:flex;
+    gap:30px;
+    background: linear-gradient(to bottom, #ee954880, #E66A0020);
+    width:100%;
+    align-items:center;
+    height:40px;
+    margin-bottom:5px;
+}
+
+.box-active img{
+    height:20px;
+    width:20px;
+    color:#E66A00;
+    padding-left:30px;
+}
+
+.box-active span{
+    color:#b3b3b3;
+    font-size:15px;
+    display:flex;
+    align-items:center;
+}
+a{
+    text-decoration:none;
+}
+
+
+
+
+
+
+
+/* WEEKLY SUMMARY SPECIFIC STYLES */
+
+/* --- HEADER & TITLE --- */
+.simple-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #E66A00;
+}
+
+.simple-header h1 {
+    color: #ffffff;
+    font-size: 26px;
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: hidden;
+    text-transform: uppercase;
 }
 
-/* --- SIDEBAR (Left 20vw) --- */
-#outer {
-    height: 100vh;
-    width: 20vw;
-    background-color: #0D0D0D;
-    position: fixed;
-    border-right: 0.5px solid #272727;
-    top: 0;
-    left: 0;
+.title {
     display: flex;
-    flex-direction: column;
-    z-index: 1001;
-}
-
-/* --- TOP HEADER (Aligned with 23% margin) --- */
-.top-strip {
-    width: 77%; /* 100% - 23% */
-    height: 65px;
-    margin-left: 23%;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    background: linear-gradient(90deg, #111, #000);
-    border-bottom: 1px solid rgba(255, 122, 0, 0.2);
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    padding: 0 30px;
-    box-sizing: border-box;
+    gap: 12px;
+    margin: 20px 0;
+    margin-bottom:30px;
 }
 
-.brand span { color: #fff; font-size: 22px; font-weight: bold; letter-spacing: 1px; }
-.menu { display: flex; gap: 20px; align-items: center; }
-.menu a { color: #fff; text-decoration: none; font-size: 14px; transition: 0.3s; }
-.menu a:hover { color: #ff7a00; }
-.menu button { background: #ff7a00; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; }
-
-/* --- SIDEBAR BOXES --- */
-.box, .box-active {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    padding: 15px 25px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-.box-active {
-    background: linear-gradient(to right, rgba(230, 106, 0, 0.2), transparent);
-    border-left: 4px solid #E66A00;
-}
-.box span, .box-active span { color: #b3b3b3; font-size: 14px; }
-.box-active span { color: #fff; font-weight: bold; }
-.box img, .box-active img { width: 20px; opacity: 0.7; }
-
-/* --- MAIN CONTENT AREA (23% Left, 3% Right) --- */
-main {
-    margin-left: 23%;
-    margin-right: 3%;
-    padding-top: 100px;
-    padding-bottom: 50px;
-    box-sizing: border-box;
+.title h2 {
+    color: #ffffff;
+    font-size: 20px;
+    margin: 0;
 }
 
-/* --- CARDS & GRIDS --- */
+.title::before {
+    content: "";
+    width: 4px;
+    height: 24px;
+    background: #FF7A00;
+    border-radius: 2px;
+}
+
+/* --- THE CARD --- */
 .meal-card {
-    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+    background: linear-gradient(to bottom, #0c0c0c, #1a1a1a);
     border: 1px solid #E66A00;
     border-radius: 18px;
-    padding: 25px;
-    box-sizing: border-box;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    margin-bottom: 25px;
+    padding: 23px;
+    width: 100%;
+    max-width: 1000px; 
+    box-shadow: 0 0 20px rgba(230, 106, 0, 0.15);
+    box-sizing: border-box; 
 }
 
 .macro-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
     gap: 20px;
+    margin-top: 10px;
 }
 
+/* --- THE SMALL BOX HIGHLIGHT (Matches your Active Sidebar Style) --- */
 .highlighted-box {
-    background: rgba(230, 106, 0, 0.05);
-    border: 1px solid rgba(230, 106, 0, 0.2);
+    flex: 1;
+    min-width: 160px;
+    /* Dark orange gradient background */
+    background: linear-gradient(to bottom, #ee954830, #E66A0010); 
+    border: 1px solid #E66A00; /* Strong orange border */
     border-radius: 12px;
-    padding: 20px;
+    padding: 23px;
     text-align: center;
+    box-shadow: inset 0 0 10px rgba(230, 106, 0, 0.1);
     transition: 0.3s;
 }
-.highlighted-box:hover { border-color: #E66A00; transform: translateY(-3px); }
-.highlighted-box .label { color: #888; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px; }
-.highlighted-box .value { color: #fff; font-size: 22px; font-weight: bold; }
 
-/* --- ANALYSIS SECTION (Side by Side) --- */
-.analysis-flex {
+.highlighted-box:hover {
+    box-shadow: 0 0 15px rgba(230, 106, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+/* --- BOX TEXT COLORS --- */
+.highlighted-box .label {
+    color: #b3b3b3; 
+    font-size: 12px;
+    display: block;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.highlighted-box .value {
+    color: #ffffff; 
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+/* header */
+.top-strip{
+    width:80%;
+    height:60px;
+    
+    margin-left:23%;
+    padding:0 28px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:linear-gradient(90deg,#0f0f0f,#161616,#111,#000);
+    border-radius:0 0 14px 14px;
+
+    box-shadow:0 4px 18px rgba(0,0,0,0.35);
+    border-bottom:1px solid rgba(255,122,0,0.25);
+    box-sizing:border-box;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+}
+/* LEFT SIDE BRAND */
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand img{
+    width:34px;
+    height:34px;
+    object-fit:contain;
+}
+
+.brand span{
+    color:#ffffff;
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+/* RIGHT SIDE MENU */
+.menu{
+    display:flex;
+    align-items:center;
+    gap:26px;
+}
+
+.menu a{
+    color:#ffffff;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    color:#ff7a00;
+}
+
+/* LOGOUT BUTTON */
+.menu button{
+    border:none;
+    outline:none;
+    padding:8px 16px;
+    border-radius:8px;
+
+    background:#ff7a00;
+    color:#fff;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.menu button:hover{
+    background:#ff5c00;
+    transform:translateY(-1px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.macro-item {
+    background: rgba(255, 255, 255, 0.05); /* Subtle dark glass effect */
+    border: 1px solid #e66a00; /* Matching your orange theme border */
+    border-radius: 12px;
+    padding: 20px;
     display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100px;
 }
-.fitness-card, .visual-card { flex: 1; min-width: 320px; }
 
-.score-container { display: flex; align-items: center; gap: 30px; margin-top: 10px; }
+.macro-item .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #b3b3b3;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.macro-item .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Ensure the main container obeys your margin rules */
+#progress-container, 
+#fitness-score-section, 
+.content-wrapper {
+    margin-left: 23% !important; /* Clears your 20vw sidebar + gap */
+    margin-right: 3% !important;  /* Gap on the right */
+    width: auto !important;       /* This prevents the overlap/overflow */
+    box-sizing: border-box;       /* Keeps padding inside the box */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- THE FITNESS CARD --- */
+.fitness-card {
+    background: linear-gradient(135deg, #0c0c0c, #1a1a1a);
+    border: 1px solid #E66A00;
+    border-radius: 18px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the circle in the box */
+}
+
+/* CHANGE 2: Increase space between Circle and Improvement Box */
+.score-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 150px; /* Adjust this number to increase/decrease the gap */
+    width: 100%;
+}
+
+/* --- THE CIRCLE --- */
 .score-circle {
-    width: 130px; height: 130px; border-radius: 50%;
-    border: 5px solid #E66A00; display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 0 20px rgba(230, 106, 0, 0.3);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #221100 20%, #000000 100%);
+    border: 4px solid #E66A00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 25px rgba(230, 106, 0, 0.4), inset 0 0 15px rgba(230, 106, 0, 0.2);
 }
-#fitness-score-text { font-size: 42px; color: #fff; font-weight: bold; }
-.score-content small { color: #E66A00; font-size: 10px; font-weight: bold; letter-spacing: 1px; }
 
-/* --- GOAL SECTION --- */
+.score-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#fitness-score-text {
+    font-size: 48px;
+    font-weight: bold;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.score-content small {
+    color: #FF7A00;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+/* --- TEXT INFO --- */
+.score-info {
+    max-width: 250px;
+}
+
+#score-status {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+}
+
+/* Mobile check */
+@media (max-width: 800px) {
+    .score-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.content-wrapper {
+    margin-left: 23%;
+    padding: 20px 40px;
+}
+
+.goal-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .goal-row {
     display: flex;
     justify-content: space-between;
-    padding: 15px 0;
-    border-bottom: 1px solid #222;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding: 8px 0;
 }
-.goal-row:last-child { border-bottom: none; }
-.goal-row .label { color: #ccc; font-size: 15px; }
-.goal-row .value { color: #fff; font-weight: bold; font-size: 16px; }
-.highlighted { color: #FF7A00 !important; text-shadow: 0 0 8px rgba(255, 122, 0, 0.4); }
 
-/* --- TITLES --- */
-.title { display: flex; align-items: center; gap: 12px; margin-bottom: 25px; }
-.title::before { content: ""; width: 4px; height: 24px; background: #ff7a00; border-radius: 2px; }
-.title h2 { color: #fff; font-size: 20px; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
+.label {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.value {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* The Orange Highlight you asked for */
+.highlighted {
+    color: #FF7A00 !important;
+    text-shadow: 0 0 5px rgba(255, 122, 0, 0.3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Layout Fix: Keeps the 23% / 3% boundary */
+#fitness-score-section {
+    margin-left: 23% !important;
+    margin-right: 3% !important;
+    width: auto !important;
+    box-sizing: border-box;
+}
+
+.fitness-card {
+    background: linear-gradient(135deg, #0c0c0c, #1a1a1a);
+    border: 1px solid #E66A00;
+    border-radius: 18px;
+    padding: 30px 45px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+}
+
+/* Removes the orange bar from the inner heading */
+.inner-heading h3 {
+    color: #ffffff;
+    font-size: 19px;
+    margin: 0 0 25px 0;
+    font-weight: 600;
+}
+
+/* Space between Circle and Advice */
+.score-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 200px; /* <--- Update this value. Increase it for more space. */
+    width: 100%;
+}
+
+.score-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid #E66A00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #221100 10%, #000 100%);
+    box-shadow: 0 0 20px rgba(230, 106, 0, 0.3);
+    flex-shrink: 0;
+}
+
+/* Interactive Advice Box */
+.score-info-box {
+    background: linear-gradient(to bottom, #ee954820, #E66A0008);
+    border: 1px solid #E66A00;
+    border-radius: 12px;
+    padding: 22px 28px;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    flex-grow: 0; /* Keeps it from stretching too far */
+    min-width: 380px;
+}
+
+.score-info-box:hover {
+    transform: scale(1.04);
+    background: linear-gradient(to bottom, #ee954830, #E66A0015);
+}
+
+.improvement-list {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.step-item {
+    color: #cccccc;
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px 15px;
+    border-radius: 6px;
+    border-left: 4px solid #E66A00;
+}
+
+#score-status {
+    color: #E66A00;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.score-subtext {
+    color: #666;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-top: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- THE MAIN SECTION CONTAINER --- */
+#fitness-score-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px; /* Reduced margin */
+}
+
+/* --- THE DUAL-BOX FLEX CONTAINER --- */
+.dual-box-container {
+    display: flex;
+    gap: 15px; /* Slightly tighter gap */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- GENERIC BOX STYLING --- */
+.analysis-box {
+    flex: 1;
+    background: linear-gradient(135deg, #0c0c0c, #1a1a1a);
+    border: 1px solid #E66A00;
+    border-radius: 14px; /* Slightly tighter corners */
+    
+    /* REDUCED LENGTH: Less vertical padding and lower min-height */
+    padding: 15px 25px; 
+    min-height: 160px; 
+    
+    box-shadow: 0 0 15px rgba(230, 106, 0, 0.1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Keeps content distributed but tight */
+}
+
+/* --- BOX 1: YOUR FITNESS SCORE --- */
+.fitness-score-box {
+    align-items: center;
+    justify-content: center;
+}
+
+.box-title {
+    color: #ffffff;
+    font-size: 16px; /* Smaller font to save space */
+    font-weight: bold;
+    margin: 0 0 10px 0; /* Tightened margin below title */
+    text-align: center;
+}
+
+.score-circle {
+    width: 100px; /* Reduced diameter to shrink box length */
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #E66A00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #221100 10%, #000 100%);
+    box-shadow: 0 0 12px rgba(230, 106, 0, 0.2);
+}
+
+.score-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#fitness-score-text { 
+    font-size: 34px; /* Scaled down for the smaller circle */
+    font-weight: bold; 
+    color: #ffffff; 
+    line-height: 1; 
+}
+
+.score-content small { 
+    color: #E66A00; 
+    font-size: 9px; 
+    font-weight: bold; 
+    margin-top: 2px; 
+    letter-spacing: 1px;
+}
+
+/* --- BOX 2: NEEDS IMPROVEMENT --- */
+.needs-improvement-box {
+    align-items: flex-start;
+}
+
+.improvement-title {
+    color: #FF7A00;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+.improvement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; /* Tighter gap between items to save vertical space */
+    width: 100%;
+}
+
+.step-item {
+    color: #cccccc;
+    font-size: 11px; /* Smaller text for compact look */
+    background: rgba(255, 255, 255, 0.03);
+    padding: 8px 12px; /* Thinner padding on bars */
+    border-radius: 6px;
+    border-left: 3px solid #E66A00;
+}
+
+.analysis-link {
+    display: block;
+    color: #555;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px; /* Reduced gap before link */
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.analysis-link:hover {
+    color: #E66A00;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
