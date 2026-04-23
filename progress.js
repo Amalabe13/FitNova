@@ -1,103 +1,57 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Define the 7-day week
-    const weekDays = [
-        'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
-    ];
-
-    function updateWeeklyDashboard() {
-        let totalScore = 0;
-        let totalWeightChange = 0;
-        let totalCalories = 0;
-        let totalWorkouts = 0;
-        let dataCount = 0;
-
-        // 2. Loop through the week to get data from localStorage
-        weekDays.forEach(day => {
-            // Assumes data is saved as: data_Monday, data_Tuesday, etc.
-            const dayData = JSON.parse(localStorage.getItem(`data_${day}`));
-
-            if (dayData) {
-                totalScore += (dayData.score || 0);
-                totalWeightChange += (parseFloat(dayData.weightChange) || 0);
-                totalCalories += (dayData.calories || 0);
-                totalWorkouts += (dayData.workouts || 0);
-                dataCount++;
-            }
-        });
-
-        // 3. Calculate Averages
-        const avgScore = dataCount > 0 ? Math.round(totalScore / dataCount) : 0;
-        const avgCals = dataCount > 0 ? Math.round(totalCalories / dataCount) : 0;
-
-        // 4. Update UI: Performance Overview
-        const weightEl = document.getElementById('weight-val');
-        const calEl = document.getElementById('avg-cal');
-        const workoutEl = document.getElementById('workout-count');
-
-        if (weightEl) weightEl.innerText = `${totalWeightChange > 0 ? '+' : ''}${totalWeightChange.toFixed(1)} kg`;
-        if (calEl) calEl.innerText = avgCals.toLocaleString();
-        if (workoutEl) workoutEl.innerText = totalWorkouts;
-
-        // 5. Update UI: Health Analysis (Fitness Score)
-        const scoreText = document.getElementById('fitness-score-text');
-        const scoreStatus = document.getElementById('score-status');
-
-        if (scoreText) scoreText.innerText = avgScore;
-
-        // Update the status and logic for improvement
-        if (scoreStatus) {
-            if (avgScore >= 80) {
-                scoreStatus.innerText = "Excellent";
-            } else if (avgScore >= 60) {
-                scoreStatus.innerText = "Good";
-            } else {
-                scoreStatus.innerText = "Needs Improvement";
-            }
-        }
-
-        // 6. Update UI: Goal vs Achievement
-        // We use the Weekly average fitness score as the achievement percentage
-        const currentAchieve = document.getElementById('current-achievement');
-        if (currentAchieve) {
-            currentAchieve.innerText = `${avgScore}% Overall`;
-        }
-    }
-
-    // Run the update function
-    updateWeeklyDashboard();
-});
-
-/**
- * Logout function
- */
-function logout() {
-    window.location.href = "login.html";
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// OUTSIDE the event listener block above.
-window.onload = updateDisplay;
 window.addEventListener("load", function () {
-  let name = localStorage.getItem("un");
-  let photo = localStorage.getItem("profilePic");
+    // SESSION & PROFILE
+    const username = localStorage.getItem("un") || "User";
+    document.getElementById("cname").innerText = username;
+    const photo = localStorage.getItem("profilePic");
+    if (photo) document.getElementById("icon").src = photo;
 
-  if (name) {
-    document.getElementById("cname").innerText = name;
-  }
+    // DATA EXTRACTION (Total accumulation from all pages)
+    const foods = JSON.parse(localStorage.getItem("foods")) || [];
+    const exercises = JSON.parse(localStorage.getItem("exercises")) || [];
+    
+    // Weekly Totals
+    const totalCalsConsumed = foods.reduce((sum, f) => sum + (Number(f.calories) || 0), 0);
+    const totalCalsBurned = exercises.reduce((sum, e) => sum + (Number(e.calories) || 0), 0);
+    const totalMinutes = exercises.reduce((sum, e) => sum + (Number(e.duration) || 0), 0);
+    
+    const waterIntake = parseFloat(localStorage.getItem("intake")) || 0;
+    const dailyWaterTarget = parseFloat(localStorage.getItem("target")) || 3;
+    const weeklyWaterTarget = dailyWaterTarget * 7;
 
-  if (photo) {
-    document.getElementById("icon").src = photo;
-  }
+    // UI UPDATES
+    document.getElementById("steps-val").innerText = (totalMinutes * 100).toLocaleString();
+    document.getElementById("avg-cal").innerText = Math.round(totalCalsConsumed / 7).toLocaleString(); // Weekly Avg
+    document.getElementById("workout-count").innerText = exercises.length;
+
+    // Weekly Achievement Logic
+    const dailyBurnGoal = Number(localStorage.getItem("burnGoal")) || 500;
+    const weeklyBurnGoal = dailyBurnGoal * 7;
+    
+    document.getElementById("current-achievement").innerText = `${totalCalsBurned} kcal`;
+    document.getElementById("target-goal").innerText = `${weeklyBurnGoal} kcal`;
+
+    // Calculate Score based on Weekly Averages
+    calculateWeeklyFitnessScore(totalCalsConsumed/7, 2000, totalCalsBurned/7, dailyBurnGoal, waterIntake/7, dailyWaterTarget);
+    
+    // Render Chart with dummy data for Mon-Sat and real data for Sun
+    renderActivityChart(totalCalsBurned, totalCalsConsumed);
 });
+
+function calculateWeeklyFitnessScore(avgCons, cGoal, avgBurn, bGoal, avgWater, wTarget) {
+    let score = 0;
+    // Water contribution
+    if (avgWater > 0) score += Math.min((avgWater / wTarget) * 33, 33);
+    // Exercise contribution
+    if (avgBurn > 0) score += Math.min((avgBurn / bGoal) * 34, 34);
+    // Diet contribution
+    if (avgCons > 0 && avgCons <= cGoal) score += 33;
+
+    const finalScore = Math.round(score);
+    const scoreElement = document.getElementById("fitness-score-text");
+    if(scoreElement) scoreElement.innerText = finalScore;
+    
+    const status = document.getElementById("score-status");
+    if (finalScore >= 80) { status.innerText = "Excellent"; status.style.color = "#4CAF50"; }
+    else if (finalScore >= 40) { status.innerText = "Active"; status.style.color = "#FF7A00"; }
+    else { status.innerText = "Low Activity"; status.style.color = "#FF5C5C"; }
+}

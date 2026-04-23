@@ -144,7 +144,7 @@ a{
     background: linear-gradient(to bottom, #0c0c0c, #1a1a1a);
     border: 1px solid #E66A00;
     border-radius: 18px;
-    padding: 23px;
+    padding: 30px;
     width: 100%;
     max-width: 1000px; 
     box-shadow: 0 0 20px rgba(230, 106, 0, 0.15);
@@ -152,10 +152,9 @@ a{
 }
 
 .macro-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    display: flex;
     gap: 20px;
-    margin-top: 10px;
+    flex-wrap: wrap;
 }
 
 /* --- THE SMALL BOX HIGHLIGHT (Matches your Active Sidebar Style) --- */
@@ -166,7 +165,7 @@ a{
     background: linear-gradient(to bottom, #ee954830, #E66A0010); 
     border: 1px solid #E66A00; /* Strong orange border */
     border-radius: 12px;
-    padding: 23px;
+    padding: 20px;
     text-align: center;
     box-shadow: inset 0 0 10px rgba(230, 106, 0, 0.1);
     transition: 0.3s;
@@ -204,7 +203,7 @@ a{
     width:80%;
     height:60px;
     
-    margin-left:23%;
+    margin-left:20%;
     padding:0 28px;
 
     display:flex;
@@ -297,50 +296,6 @@ a{
 
 
 
-.macro-item {
-    background: rgba(255, 255, 255, 0.05); /* Subtle dark glass effect */
-    border: 1px solid #e66a00; /* Matching your orange theme border */
-    border-radius: 12px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 100px;
-}
-
-.macro-item .label {
-    font-size: 12px;
-    text-transform: uppercase;
-    color: #b3b3b3;
-    margin-bottom: 8px;
-    letter-spacing: 1px;
-}
-
-.macro-item .value {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ffffff;
-}
-
-/* Ensure the main container obeys your margin rules */
-#progress-container, 
-#fitness-score-section, 
-.content-wrapper {
-    margin-left: 23% !important; /* Clears your 20vw sidebar + gap */
-    margin-right: 3% !important;  /* Gap on the right */
-    width: auto !important;       /* This prevents the overlap/overflow */
-    box-sizing: border-box;       /* Keeps padding inside the box */
-}
-
-
-
-
-
-
-
-
 
 
 
@@ -374,13 +329,11 @@ a{
     align-items: center; /* Centers the circle in the box */
 }
 
-/* CHANGE 2: Increase space between Circle and Improvement Box */
 .score-container {
     display: flex;
     align-items: center;
-    justify-content: flex-start; 
-    gap: 150px; /* Adjust this number to increase/decrease the gap */
-    width: 100%;
+    gap: 40px;
+    margin-top: 20px;
 }
 
 /* --- THE CIRCLE --- */
@@ -450,7 +403,7 @@ a{
 
 
 .content-wrapper {
-    margin-left: 23%;
+    margin-left: 22vw;
     padding: 20px 40px;
 }
 
@@ -483,285 +436,4 @@ a{
     color: #FF7A00 !important;
     text-shadow: 0 0 5px rgba(255, 122, 0, 0.3);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Layout Fix: Keeps the 23% / 3% boundary */
-#fitness-score-section {
-    margin-left: 23% !important;
-    margin-right: 3% !important;
-    width: auto !important;
-    box-sizing: border-box;
-}
-
-.fitness-card {
-    background: linear-gradient(135deg, #0c0c0c, #1a1a1a);
-    border: 1px solid #E66A00;
-    border-radius: 18px;
-    padding: 30px 45px !important;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start !important;
-}
-
-/* Removes the orange bar from the inner heading */
-.inner-heading h3 {
-    color: #ffffff;
-    font-size: 19px;
-    margin: 0 0 25px 0;
-    font-weight: 600;
-}
-
-/* Space between Circle and Advice */
-.score-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; 
-    gap: 200px; /* <--- Update this value. Increase it for more space. */
-    width: 100%;
-}
-
-.score-circle {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    border: 4px solid #E66A00;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: radial-gradient(circle, #221100 10%, #000 100%);
-    box-shadow: 0 0 20px rgba(230, 106, 0, 0.3);
-    flex-shrink: 0;
-}
-
-/* Interactive Advice Box */
-.score-info-box {
-    background: linear-gradient(to bottom, #ee954820, #E66A0008);
-    border: 1px solid #E66A00;
-    border-radius: 12px;
-    padding: 22px 28px;
-    cursor: pointer;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    flex-grow: 0; /* Keeps it from stretching too far */
-    min-width: 380px;
-}
-
-.score-info-box:hover {
-    transform: scale(1.04);
-    background: linear-gradient(to bottom, #ee954830, #E66A0015);
-}
-
-.improvement-list {
-    margin: 15px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.step-item {
-    color: #cccccc;
-    font-size: 13px;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 10px 15px;
-    border-radius: 6px;
-    border-left: 4px solid #E66A00;
-}
-
-#score-status {
-    color: #E66A00;
-    font-size: 22px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.score-subtext {
-    color: #666;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: block;
-    margin-top: 12px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* --- THE MAIN SECTION CONTAINER --- */
-#fitness-score-section {
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px; /* Reduced margin */
-}
-
-/* --- THE DUAL-BOX FLEX CONTAINER --- */
-.dual-box-container {
-    display: flex;
-    gap: 15px; /* Slightly tighter gap */
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* --- GENERIC BOX STYLING --- */
-.analysis-box {
-    flex: 1;
-    background: linear-gradient(135deg, #0c0c0c, #1a1a1a);
-    border: 1px solid #E66A00;
-    border-radius: 14px; /* Slightly tighter corners */
-    
-    /* REDUCED LENGTH: Less vertical padding and lower min-height */
-    padding: 15px 25px; 
-    min-height: 160px; 
-    
-    box-shadow: 0 0 15px rgba(230, 106, 0, 0.1);
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Keeps content distributed but tight */
-}
-
-/* --- BOX 1: YOUR FITNESS SCORE --- */
-.fitness-score-box {
-    align-items: center;
-    justify-content: center;
-}
-
-.box-title {
-    color: #ffffff;
-    font-size: 16px; /* Smaller font to save space */
-    font-weight: bold;
-    margin: 0 0 10px 0; /* Tightened margin below title */
-    text-align: center;
-}
-
-.score-circle {
-    width: 100px; /* Reduced diameter to shrink box length */
-    height: 100px;
-    border-radius: 50%;
-    border: 3px solid #E66A00;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: radial-gradient(circle, #221100 10%, #000 100%);
-    box-shadow: 0 0 12px rgba(230, 106, 0, 0.2);
-}
-
-.score-content {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
-
-#fitness-score-text { 
-    font-size: 34px; /* Scaled down for the smaller circle */
-    font-weight: bold; 
-    color: #ffffff; 
-    line-height: 1; 
-}
-
-.score-content small { 
-    color: #E66A00; 
-    font-size: 9px; 
-    font-weight: bold; 
-    margin-top: 2px; 
-    letter-spacing: 1px;
-}
-
-/* --- BOX 2: NEEDS IMPROVEMENT --- */
-.needs-improvement-box {
-    align-items: flex-start;
-}
-
-.improvement-title {
-    color: #FF7A00;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0 0 10px 0;
-}
-
-.improvement-list {
-    display: flex;
-    flex-direction: column;
-    gap: 6px; /* Tighter gap between items to save vertical space */
-    width: 100%;
-}
-
-.step-item {
-    color: #cccccc;
-    font-size: 11px; /* Smaller text for compact look */
-    background: rgba(255, 255, 255, 0.03);
-    padding: 8px 12px; /* Thinner padding on bars */
-    border-radius: 6px;
-    border-left: 3px solid #E66A00;
-}
-
-.analysis-link {
-    display: block;
-    color: #555;
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 10px; /* Reduced gap before link */
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.analysis-link:hover {
-    color: #E66A00;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
