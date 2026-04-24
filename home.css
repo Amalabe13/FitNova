@@ -97,6 +97,10 @@ a{
     text-decoration:none;
 }
 
+.box:hover{
+    box-shadow: 0 0 20px rgba(255, 106, 61, 0.4);
+    transform: translateY(6px);
+}
 
 /* for home 1st div */
 
