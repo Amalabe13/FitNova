@@ -75,52 +75,83 @@ function setBurnGoal() {
 
 /* ---------- EXERCISE SUGGESTION ---------- */
 function suggestExercise() {
-    let bodyPart = document.getElementById("bodyPart").value;
-    let box = document.getElementById("suggestResult");
+    const part = document.getElementById("bodyPart").value;
+    const box = document.getElementById("suggestResult");
+    const videoBox = document.getElementById("videoContainer");
+
+    localStorage.setItem("selectedPart", part);
 
     let data = {
-        belly: [
-            { name: "Crunches", img: "pic/crunches.jpg" },
-            { name: "Plank", img: "pic/plank.png" },
-            { name: "Mountain Climbers", img: "pic/climb.jpg" }
-        ],
-
-        arms: [
-            { name: "Push-ups", img: "pic/pushup.png" },
-            { name: "Bicep Curls", img: "pic/curl.png" },
-            { name: "Tricep Dips", img: "pic/dips.jpg" }
-        ],
-
-        legs: [
-            { name: "Squats", img: "pic/squat.jpg" },
-            { name: "Lunges", img: "pic/lunges.jpg" },
-            { name: "Leg Raises", img: "pic/legraise.jpg" }
-        ],
-
-        full: [
-            { name: "Burpees", img: "pic/burpee.jpg" },
-            { name: "Jumping Jacks", img: "pic/jumping.jpg" },
-            { name: "Jump Rope", img: "pic/jump.jpg" }
-        ]
+        belly: {
+            exercises: [
+                { name: "Crunches", img: "pic/crunches.jpg" },
+                { name: "Plank", img: "pic/plank.png" },
+                { name: "Leg Raises", img: "pic/legraise.jpg" }
+            ],
+            videos: [
+                "https://www.youtube.com/embed/Xyd_fa5zoEU", // crunches
+                "https://www.youtube.com/embed/pSHjTRCQxIw",  // plank
+                "https://www.youtube.com/embed/JB2oyawG9KI"  // leg raises
+            ]
+        },
+        arms: {
+            exercises: [
+                { name: "Push-ups", img: "pic/pushup.png" },
+                { name: "Bicep Curl", img: "pic/curl.png" },
+                { name: "Tricep Dips", img: "pic/dips.jpg" }
+            ],
+            videos: [
+                "https://www.youtube.com/embed/IODxDxX7oi4",    // push-ups
+                "https://www.youtube.com/embed/ykJmrZ5v0Oo",    // bicep curl
+                "https://www.youtube.com/embed/0326dy_-CzM"     // tricep dips
+            ]
+        },
+        legs: {
+            exercises: [
+                { name: "Squats", img: "pic/squat.jpg" },
+                { name: "Lunges", img: "pic/lunges.jpg" },
+                { name: "Jump Rope", img: "pic/jump.jpg" }
+            ],
+            videos: [
+                "https://www.youtube.com/embed/aclHkVaku9U",    // squats
+                "https://www.youtube.com/embed/QOVaHwm-Q6U",    // lunges
+                "https://www.youtube.com/embed/1BZM6jGkZkQ"     // jump rope
+            ]
+        },
+        full: {
+            exercises: [
+                { name: "Burpees", img: "pic/burpee.jpg" },
+                { name: "Mountain Climbers", img: "pic/climb.jpg" },
+                { name: "Jumping Jacks", img: "pic/jumping.jpg" }
+            ],
+            videos: [
+                "https://www.youtube.com/embed/TU8QYVW0gDU",    // Burpees
+                "https://www.youtube.com/embed/cnyTQDSE884",   // Mountain Climbers
+                "https://www.youtube.com/embed/c4DAnQ6DtF8"   //Jumping Jacks
+            ]
+        }
     };
 
-    if (!bodyPart) {
-        box.innerHTML = "<p class='placeholder'>Choose a body part</p>";
+    if (!part) {
+        box.innerHTML = `<p class="placeholder">Choose a body part</p>`;
+        videoBox.innerHTML = `<p class="placeholder">Select a body part to see demo videos</p>`;
         return;
     }
 
-    let html = "";
+    let selected = data[part];
 
-    data[bodyPart].forEach(item => {
-        html += `
-            <div class="exercise-card">
-                <img src="${item.img}" alt="${item.name}">
-                <p>${item.name}</p>
-            </div>
-        `;
-    });
+    // EXERCISES
+    box.innerHTML = selected.exercises.map(ex => `
+        <div class="exercise-card" onclick="fillExercise('${ex.name}')">
+            <img src="${ex.img}">
+            <span>${ex.name}</span>
+        </div>
+    `).join("");
 
-    box.innerHTML = html;
+    // VIDEOS
+    videoBox.innerHTML = selected.videos.map(v => `
+        <iframe src="${v}" allowfullscreen></iframe>
+    `).join("");
 }
 /* ---------- RENDER ---------- */
 function render() {
