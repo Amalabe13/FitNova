@@ -75,83 +75,63 @@ function setBurnGoal() {
 
 /* ---------- EXERCISE SUGGESTION ---------- */
 function suggestExercise() {
-    const part = document.getElementById("bodyPart").value;
-    const box = document.getElementById("suggestResult");
-    const videoBox = document.getElementById("videoContainer");
-
-    localStorage.setItem("selectedPart", part);
+    let bodyPart = document.getElementById("bodyPart").value;
+    let box = document.getElementById("suggestResult");
+    let videoBox = document.getElementById("videoContainer");
 
     let data = {
-        belly: {
-            exercises: [
-                { name: "Crunches", img: "pic/crunches.jpg" },
-                { name: "Plank", img: "pic/plank.png" },
-                { name: "Leg Raises", img: "pic/legraise.jpg" }
-            ],
-            videos: [
-                "https://www.youtube.com/embed/Xyd_fa5zoEU", // crunches
-                "https://www.youtube.com/embed/pSHjTRCQxIw",  // plank
-                "https://www.youtube.com/embed/JB2oyawG9KI"  // leg raises
-            ]
-        },
-        arms: {
-            exercises: [
-                { name: "Push-ups", img: "pic/pushup.png" },
-                { name: "Bicep Curl", img: "pic/curl.png" },
-                { name: "Tricep Dips", img: "pic/dips.jpg" }
-            ],
-            videos: [
-                "https://www.youtube.com/embed/IODxDxX7oi4",    // push-ups
-                "https://www.youtube.com/embed/ykJmrZ5v0Oo",    // bicep curl
-                "https://www.youtube.com/embed/0326dy_-CzM"     // tricep dips
-            ]
-        },
-        legs: {
-            exercises: [
-                { name: "Squats", img: "pic/squat.jpg" },
-                { name: "Lunges", img: "pic/lunges.jpg" },
-                { name: "Jump Rope", img: "pic/jump.jpg" }
-            ],
-            videos: [
-                "https://www.youtube.com/embed/aclHkVaku9U",    // squats
-                "https://www.youtube.com/embed/QOVaHwm-Q6U",    // lunges
-                "https://www.youtube.com/embed/1BZM6jGkZkQ"     // jump rope
-            ]
-        },
-        full: {
-            exercises: [
-                { name: "Burpees", img: "pic/burpee.jpg" },
-                { name: "Mountain Climbers", img: "pic/climb.jpg" },
-                { name: "Jumping Jacks", img: "pic/jumping.jpg" }
-            ],
-            videos: [
-                "https://www.youtube.com/embed/TU8QYVW0gDU",    // Burpees
-                "https://www.youtube.com/embed/cnyTQDSE884",   // Mountain Climbers
-                "https://www.youtube.com/embed/c4DAnQ6DtF8"   //Jumping Jacks
-            ]
-        }
+        belly: [
+            { name: "Crunches", img: "pic/crunches.jpg", video: "https://www.youtube.com/embed/Xyd_fa5zoEU" },
+            { name: "Plank", img: "pic/plank.png", video: "https://www.youtube.com/embed/pSHjTRCQxIw" },
+            { name: "Mountain Climbers", img: "pic/climb.jpg", video: "https://www.youtube.com/embed/nmwgirgXLYM" }
+        ],
+
+        arms: [
+            { name: "Push-ups", img: "pic/pushup.png", video: "https://www.youtube.com/embed/IODxDxX7oi4" },
+            { name: "Bicep Curls", img: "pic/curl.png", video: "https://www.youtube.com/embed/ykJmrZ5v0Oo" },
+            { name: "Tricep Dips", img: "pic/dips.jpg", video: "https://www.youtube.com/embed/6kALZikXxLc" }
+        ],
+
+        legs: [
+            { name: "Squats", img: "pic/squat.jpg", video: "https://www.youtube.com/embed/aclHkVaku9U" },
+            { name: "Lunges", img: "pic/lunges.jpg", video: "https://www.youtube.com/embed/QOVaHwm-Q6U" },
+            { name: "Leg Raises", img: "pic/legraise.jpg", video: "https://www.youtube.com/embed/JB2oyawG9KI" }
+        ],
+
+        full: [
+            { name: "Burpees", img: "pic/burpee.jpg", video: "https://www.youtube.com/embed/dZgVxmf6jkA" },
+            { name: "Jumping Jacks", img: "pic/jumping.jpg", video: "https://www.youtube.com/embed/c4DAnQ6DtF8" },
+            { name: "Jump Rope", img: "pic/jump.jpg", video: "https://www.youtube.com/embed/1BZM6gq1kW4" }
+        ]
     };
 
-    if (!part) {
-        box.innerHTML = `<p class="placeholder">Choose a body part</p>`;
-        videoBox.innerHTML = `<p class="placeholder">Select a body part to see demo videos</p>`;
+    if (!bodyPart) {
+        box.innerHTML = "<p class='placeholder'>Choose a body part</p>";
+        videoBox.innerHTML = "<p class='placeholder'>Select a body part to see demos</p>";
         return;
     }
 
-    let selected = data[part];
+    let html = "";
+    let videoHTML = "";
 
-    // EXERCISES
-    box.innerHTML = selected.exercises.map(ex => `
-        <div class="exercise-card" onclick="fillExercise('${ex.name}')">
-            <img src="${ex.img}">
-            <span>${ex.name}</span>
-        </div>
-    `).join("");
+    data[bodyPart].forEach(item => {
 
-    // VIDEOS
-    videoBox.innerHTML = selected.videos.map(v => `
-        <iframe src="${v}" allowfullscreen></iframe>
-    `).join("");
+        // images (top)
+        html += `
+            <div class="exercise-card">
+                <img src="${item.img}" alt="${item.name}">
+                <p>${item.name}</p>
+            </div>
+        `;
+
+        // videos (bottom)
+        videoHTML += `
+            <iframe src="${item.video}" allowfullscreen></iframe>
+        `;
+    });
+
+    box.innerHTML = html;
+    videoBox.innerHTML = videoHTML;
 }
 /* ---------- RENDER ---------- */
 function render() {

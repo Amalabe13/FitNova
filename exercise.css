@@ -567,3 +567,16 @@ button:hover {
   border: none;
   box-shadow: 0 0 10px rgba(230,106,0,0.3);
 }
+
+.exercise-card iframe {
+  width: 220px;
+  height: 140px;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 0 20px rgba(230,106,0,0.4);
+  transition: 0.3s;
+}
+
+.exercise-card iframe:hover {
+  transform: scale(1.05);
+}
