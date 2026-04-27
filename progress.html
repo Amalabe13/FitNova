@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sleep Tracker</title>
+<title>fitNova</title>
 <link rel="stylesheet" href="water.css">
 
 <style>
@@ -141,7 +141,7 @@
 </style>
 </head>
 
-<body>
+<body onload="loadProfile()">
 
 <div id="outer">
 
@@ -166,10 +166,10 @@
 </div>
 
 <nav class="menu">
-<a href="#">About</a>
-<a href="#">Contact</a>
-<a href="#">FAQ</a>
-<button>Logout</button>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="faq.html">FAQ</a>
+<button onclick="logout()" >Logout</button>
 </nav>
 </header>
 
@@ -288,6 +288,18 @@ msg = "Need More Rest";
 }
 
 document.getElementById("remark").innerHTML = msg;
+}
+function logout() {
+    localStorage.clear();   // remove saved login/session data
+    window.location.href = "login.html";   // go to login page
+}
+
+function loadProfile(){
+    const name = localStorage.getItem("un");
+    const photo = localStorage.getItem("profilePic");
+
+    if(name) document.getElementById("cname").innerText = name;
+    if(photo) document.getElementById("icon").src = photo;
 }
 </script>
 
