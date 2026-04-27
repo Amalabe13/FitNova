@@ -1,31 +1,55 @@
 let totalBurn = 0;
 let burnGoal = 0;
-let exerciseData = JSON.parse(localStorage.getItem("exerciseData")) || [];
+let exerciseData = [];
 
 /* ---------- PAGE LOAD ---------- */
 window.onload = function () {
+
+    // Load all saved values
     totalBurn = parseInt(localStorage.getItem("totalBurn")) || 0;
     burnGoal = parseInt(localStorage.getItem("burnGoal")) || 0;
+    exerciseData = JSON.parse(localStorage.getItem("exerciseData")) || [];
 
     let name = localStorage.getItem("un");
     let photo = localStorage.getItem("profilePic");
 
-    if (name) document.getElementById("cname").innerText = name;
-    if (photo) document.getElementById("icon").src = photo;
+    if (name && document.getElementById("cname")) {
+        document.getElementById("cname").innerText = name;
+    }
+
+    if (photo && document.getElementById("icon")) {
+        document.getElementById("icon").src = photo;
+    }
 
     render();
+
+    // Reload selected body part + images + videos
+    let savedBodyPart = localStorage.getItem("selectedBodyPart");
+    if (savedBodyPart && document.getElementById("bodyPart")) {
+        document.getElementById("bodyPart").value = savedBodyPart;
+        suggestExercise();
+    }
 };
+
+/* ---------- SAVE ALL DATA ---------- */
+function saveData() {
+    localStorage.setItem("exerciseData", JSON.stringify(exerciseData));
+    localStorage.setItem("totalBurn", totalBurn);
+    localStorage.setItem("burnGoal", burnGoal);
+}
 
 /* ---------- ADD EXERCISE ---------- */
 function addExercise() {
+
     let ex = document.getElementById("exercise").value.trim();
     let mins = parseInt(document.getElementById("duration").value);
 
     if (ex === "" || isNaN(mins) || mins <= 0) {
-        return alert("Enter valid data");
+        alert("Enter valid data");
+        return;
     }
 
-    let calories = mins * 5; // 5 kcal per min
+    let calories = mins * 5;
 
     exerciseData.push({
         name: ex,
@@ -35,51 +59,54 @@ function addExercise() {
 
     totalBurn += calories;
 
-    localStorage.setItem("exerciseData", JSON.stringify(exerciseData));
-    localStorage.setItem("totalBurn", totalBurn);
+    saveData();
+    render();
 
     document.getElementById("exercise").value = "";
     document.getElementById("duration").value = "";
-
-    render();
 }
 
 /* ---------- DELETE EXERCISE ---------- */
 function deleteExercise(index) {
+
     totalBurn -= exerciseData[index].calories;
 
     if (totalBurn < 0) totalBurn = 0;
 
     exerciseData.splice(index, 1);
 
-    localStorage.setItem("exerciseData", JSON.stringify(exerciseData));
-    localStorage.setItem("totalBurn", totalBurn);
-
+    saveData();
     render();
 }
 
 /* ---------- SET GOAL ---------- */
 function setBurnGoal() {
+
     let val = parseInt(document.getElementById("burnGoalInput").value);
 
     if (isNaN(val) || val <= 0) {
-        return alert("Enter valid goal");
+        alert("Enter valid goal");
+        return;
     }
 
     burnGoal = val;
 
-    localStorage.setItem("burnGoal", burnGoal);
-
+    saveData();
     render();
 }
 
 /* ---------- EXERCISE SUGGESTION ---------- */
 function suggestExercise() {
+
     let bodyPart = document.getElementById("bodyPart").value;
     let box = document.getElementById("suggestResult");
     let videoBox = document.getElementById("videoContainer");
 
+    // Save selected body part
+    localStorage.setItem("selectedBodyPart", bodyPart);
+
     let data = {
+
         belly: [
             { name: "Crunches", img: "pic/crunches.jpg", video: "https://www.youtube.com/embed/Xyd_fa5zoEU" },
             { name: "Plank", img: "pic/plank.png", video: "https://www.youtube.com/embed/pSHjTRCQxIw" },
@@ -105,18 +132,17 @@ function suggestExercise() {
         ]
     };
 
-    if (!bodyPart) {
-        box.innerHTML = "<p class='placeholder'>Choose a body part</p>";
-        videoBox.innerHTML = "<p class='placeholder'>Select a body part to see demos</p>";
+    if (bodyPart === "") {
+        box.innerHTML = "";
+        videoBox.innerHTML = "";
         return;
     }
 
     let html = "";
     let videoHTML = "";
 
-    data[bodyPart].forEach(item => {
+    data[bodyPart].forEach(function(item) {
 
-        // images (top)
         html += `
             <div class="exercise-card">
                 <img src="${item.img}" alt="${item.name}">
@@ -124,7 +150,6 @@ function suggestExercise() {
             </div>
         `;
 
-        // videos (bottom)
         videoHTML += `
             <iframe src="${item.video}" allowfullscreen></iframe>
         `;
@@ -133,63 +158,75 @@ function suggestExercise() {
     box.innerHTML = html;
     videoBox.innerHTML = videoHTML;
 }
+
 /* ---------- RENDER ---------- */
 function render() {
+
     let body = document.getElementById("exerciseList");
-    body.innerHTML = "";
 
-    exerciseData.forEach((item, index) => {
-        body.innerHTML += `
-            <tr>
-                <td>${item.name}</td>
-                <td>${item.duration}</td>
-                <td>${item.calories} kcal</td>
-                <td>
-                    <button onclick="deleteExercise(${index})">
-                        X
-                    </button>
-                </td>
-            </tr>
-        `;
-    });
+    if (body) {
 
-    document.getElementById("totalBurn").innerText =
-        totalBurn + " kcal";
+        body.innerHTML = "";
 
-    document.getElementById("burnGoalText").innerText =
-        "Burn Goal: " + burnGoal + " kcal";
+        exerciseData.forEach(function(item, index) {
 
-    /* Progress bar */
+            body.innerHTML += `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>${item.duration}</td>
+                    <td>${item.calories} kcal</td>
+                    <td>
+                        <button onclick="deleteExercise(${index})">X</button>
+                    </td>
+                </tr>
+            `;
+        });
+    }
+
+    if (document.getElementById("totalBurn")) {
+        document.getElementById("totalBurn").innerText = totalBurn + " kcal";
+    }
+
+    if (document.getElementById("burnGoalText")) {
+        document.getElementById("burnGoalText").innerText =
+            "Burn Goal: " + burnGoal + " kcal";
+    }
+
     let percent = 0;
 
     if (burnGoal > 0) {
         percent = (totalBurn / burnGoal) * 100;
-
         if (percent > 100) percent = 100;
     }
 
-    document.getElementById("burnPercent").innerText =
-        Math.round(percent) + "%";
+    if (document.getElementById("burnPercent")) {
+        document.getElementById("burnPercent").innerText =
+            Math.round(percent) + "%";
+    }
 
-    document.getElementById("burnProgress").style.width =
-        percent + "%";
+    if (document.getElementById("burnProgress")) {
+        document.getElementById("burnProgress").style.width =
+            percent + "%";
+    }
 
-    /* Message */
     let msg = document.getElementById("burn-msg");
 
-    if (burnGoal === 0) {
-        msg.innerText = "Set your calorie goal";
-    }
-    else if (totalBurn >= burnGoal) {
-        msg.innerText = "Goal achieved!";
-    }
-    else {
-        let left = burnGoal - totalBurn;
-        msg.innerText = left + " cal left";
+    if (msg) {
+
+        if (burnGoal === 0) {
+            msg.innerText = "Set your calorie goal";
+        }
+        else if (totalBurn >= burnGoal) {
+            msg.innerText = "Goal achieved!";
+        }
+        else {
+            msg.innerText = (burnGoal - totalBurn) + " cal left";
+        }
     }
 }
 
+/* ---------- LOGOUT ---------- */
 function logout() {
-    localStorage.clear();   // remove saved login/session data
-    window.location.href = "login.html";   // go to login page
+    localStorage.clear();
+    window.location.href = "login.html";
 }
