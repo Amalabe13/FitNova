@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sleep Tracker</title>
+<link rel="stylesheet" href="water.css">
+
+<style>
+.sleep-box{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    margin:40px 3% 0 23%;
+}
+
+.sleep-card{
+    flex:1;
+    min-width:280px;
+    background:#111;
+    border:1px solid #E66A00;
+    border-radius:20px;
+    padding:28px 36px 28px 28px; /* more right padding */
+    color:white;
+    box-shadow:none; /* removed glow */
+}
+
+.sleep-card h3{
+    font-size:22px;
+    margin-bottom:18px;
+}
+
+.sleep-card input{
+    width:100%;
+    padding:10px;
+    margin-bottom:14px;
+    border-radius:8px;
+    border:1px solid #E66A00;
+    background:#1a1a1a;
+    color:white;
+    font-size:14px;
+}
+
+.sleep-card button{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    background:linear-gradient(to bottom,#ee954880,#E66A0020);
+    color:white;
+    border:1px solid #E66A00;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.report-card{
+    flex:0;
+    min-width:320px;
+}
+
+/* Replace with this exact CSS */
+
+.sleep-card input,
+.sleep-card button{
+    display:block;
+    width:100%;
+    box-sizing:border-box;
+}
+
+/* Report rows */
+.report-row{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:2px;
+    margin-bottom:18px;
+    font-size:16px;
+}
+
+.label{
+   /* smaller fixed width */
+
+    font-weight:bold;
+}
+
+.value{
+    margin-left:0;
+    min-width:0;
+}
+
+/* remark */
+.remark-row .value{
+    color:#E66A00;
+    font-weight:bold;
+}
+
+.progress-sleep{
+    width:100%;
+    height:20px;
+    background:#222;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+.progress-sleep div{
+    width:0%;
+    height:100%;
+    background:linear-gradient(to right,#b45400,#ee9548);
+}
+
+/* details section */
+.extra-info{
+    margin:20px 3% 0 23%;
+}
+
+.extra-info details{
+    background:#111;
+    border:1px solid #272727; /* changed border */
+    border-radius:12px;
+    padding:10px 14px;
+    margin-bottom:15px;
+    color:white;
+}
+
+.extra-info summary{
+    color:#E66A00;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.extra-info p{
+    margin-top:10px;
+    font-size:13px;
+    line-height:1.5;
+    color:#ddd;
+}
+
+/* tips text smaller */
+.tip-card{
+    font-size:11px !important;
+}
+</style>
+</head>
+
+<body>
+
+<div id="outer">
+
+<div style="display:flex;gap:20px;align-items:center;padding:20px 5px;margin:20px;">
+<img id="icon" src="pic/icon.svg">
+<h3 id="cname" style="color:#ffffff;">Name</h3>
+</div>
+
+<a href="home.html"><div class="box"><img src="pic/home.svg"><span>Dashboard</span></div></a>
+<a href="water.html"><div class="box"><img src="pic/water.svg"><span>Water Tracker</span></div></a>
+<a href="calorie.html"><div class="box"><img src="pic/calorie.svg"><span>Calorie Tracker</span></div></a>
+<a href="exercise.html"><div class="box"><img src="pic/exercise.svg"><span>Exercise Tracker</span></div></a>
+<a href="nutrition.html"><div class="box"><img src="pic/nutrition.svg"><span>Nutrition Tracker</span></div></a>
+<a href="sleep.html"><div class="box-active"><img src="pic/progress.svg"><span>Sleep Tracker</span></div></a>
+
+</div>
+
+<header class="top-strip">
+<div class="brand">
+<img src="pic/app.png">
+<span>FIT<span style="color:#e66a00">NOVA</span></span>
+</div>
+
+<nav class="menu">
+<a href="#">About</a>
+<a href="#">Contact</a>
+<a href="#">FAQ</a>
+<button>Logout</button>
+</nav>
+</header>
+
+<main style="padding-top:50px;">
+
+<div class="title">
+<h1>Sleep Tracker</h1>
+</div>
+
+<div class="sleep-box">
+
+<!-- Input -->
+<div class="sleep-card">
+<h3>Enter Details</h3>
+
+<input type="number" id="goal" placeholder="Enter Goal Hours">
+<input type="number" id="sleep" placeholder="Enter Slept Hours">
+
+<button onclick="checkSleep()">Check Sleep</button>
+</div>
+
+<!-- Report -->
+<div class="sleep-card report-card">
+<h3>Your Report</h3>
+
+<div class="report-row">
+<span class="label">Goal:</span>
+<span class="value" id="goalText"></span>
+</div>
+
+<div class="report-row">
+<span class="label">Slept:&nbsp;&nbsp;</span>
+<span class="value" id="sleepText"></span>
+</div>
+
+<div class="report-row remark-row">
+<span class="label">Remark:&nbsp;&nbsp;</span>
+<span class="value" id="remark"></span>
+</div>
+
+<div class="progress-sleep">
+<div id="bar"></div>
+</div>
+
+</div>
+
+</div>
+
+<!-- details -->
+<div class="extra-info">
+
+<details>
+<summary>Why Sleep Matters</summary>
+<p>
+Good sleep improves memory, mood, immunity and energy.
+Adults should aim for 7 to 8 hours of sleep daily.
+</p>
+</details>
+
+<details>
+<summary>Sleep Score Guide</summary>
+<p>
+Excellent Sleep = Goal reached.<br>
+Almost Reached Goal = Slightly below target.<br>
+Need More Rest = Below target.
+</p>
+</details>
+
+</div>
+
+<div class="title">
+<h2>Sleep Tips</h2>
+</div>
+
+<div class="tips-container">
+<div class="tip-card">Sleep at same time daily.</div>
+<div class="tip-card">Avoid mobile before bed.</div>
+<div class="tip-card">Keep room dark and cool.</div>
+<div class="tip-card">Get 7-8 hours sleep.</div>
+<div class="tip-card">Avoid caffeine at night.</div>
+<div class="tip-card">Use comfortable pillow.</div>
+<div class="tip-card">Stretch before sleep.</div>
+<div class="tip-card">Listen to calm music.</div>
+<div class="tip-card">No heavy meals late night.</div>
+<div class="tip-card">Wake up same time daily.</div>
+</div>
+
+</main>
+
+<script>
+function checkSleep(){
+let goal = parseFloat(document.getElementById("goal").value);
+let sleep = parseFloat(document.getElementById("sleep").value);
+
+if(isNaN(goal) || isNaN(sleep) || goal <= 0){
+alert("Enter valid values");
+return;
+}
+
+let percent = (sleep / goal) * 100;
+if(percent > 100) percent = 100;
+
+document.getElementById("goalText").innerHTML = goal + " hrs";
+document.getElementById("sleepText").innerHTML = sleep + " hrs";
+document.getElementById("bar").style.width = percent + "%";
+
+let msg = "";
+if(sleep >= goal){
+msg = "Excellent";
+}
+else if(sleep >= goal - 1){
+msg = "Almost reached yourGoal";
+}
+else{
+msg = "Need More Rest";
+}
+
+document.getElementById("remark").innerHTML = msg;
+}
+</script>
+
+</body>
+</html>
