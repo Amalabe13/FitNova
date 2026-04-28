@@ -1,6 +1,8 @@
+/* ONLY COLORS CHANGED - SAME STRUCTURE */
+
 body{
     overflow:scroll;
-    background-color: #0D0D0D;
+    background-color: #F5F5F5;
     margin:0px;
     overflow-x:hidden;
 }
@@ -8,7 +10,7 @@ body{
     padding-top:150px;
     height:100vh;
     width:2vw;
-    background-color:#0D0D0D;
+    background-color:#FFFFFF;
     
     position:fixed;
    
@@ -26,15 +28,15 @@ body{
     justify-content:center;
 }
 .box-last button{
-    background: linear-gradient(to bottom, #ee954880, #E66A0020);
-    border:0.1px solid rgb(225, 105, 6) ;
-    color:white;
+    background: linear-gradient(to bottom, #FFD9BF, #FFF1E6);
+    border:0.1px solid rgb(225, 105, 6);
+    color:#E66A00;
     height:30px;
     width:100px;
 }
 
 button:hover{
-    box-shadow:0 0 10px rgba(255, 106, 61, 0.6);
+    box-shadow:0 0 10px rgba(255, 106, 61, 0.3);
 }
 
 #icon{
@@ -45,7 +47,7 @@ button:hover{
 .box{
     display:flex;
     gap:30px;
-    background: linear-gradient(to bottom, #0c0c0c, #272727);
+    background: linear-gradient(to bottom, #FFFFFF, #F2F2F2);
     width:100%;
     align-items:center;
     height:40px;
@@ -60,7 +62,7 @@ button:hover{
 }
 
 .box span{
-    color:#b3b3b3;
+    color:#444444;
     font-size:15px;
     display:flex;
     align-items:center;
@@ -68,7 +70,7 @@ button:hover{
 .box-active{
     display:flex;
     gap:30px;
-    background: linear-gradient(to bottom, #ee954880, #E66A0020);
+    background: linear-gradient(to bottom, #FFE0CC, #FFF2E8);
     width:100%;
    
     align-items:center;
@@ -84,7 +86,7 @@ button:hover{
 }
 
 .box-active span{
-    color:#b3b3b3;
+    color:#444444;
     font-size:15px;
     display:flex;
     align-items:center;
@@ -94,7 +96,7 @@ a{
 }
 
 .box:hover{
-    box-shadow: 0 0 20px rgba(255, 106, 61, 0.4);
+    box-shadow: 0 0 20px rgba(255, 106, 61, 0.15);
     transform: translateY(6px);
 }
 
@@ -105,20 +107,20 @@ a{
     border-radius: 16px;
     padding: 30px 40px;
     border: 0.1px solid #E66A00;
-    background: linear-gradient(to bottom, #0c0c0c, #272727);
-    box-shadow: 0 0 20px rgba(255, 106, 61, 0.4);
+    background: linear-gradient(to bottom, #FFFFFF, #F7F7F7);
+    box-shadow: 0 0 20px rgba(255, 106, 61, 0.15);
 }
 
 #first h1{
     margin: 0 0 10px 0;
     font-size: 28px;
-    color: #ffffff;
+    color: #222222;
 }
 
 #desc{
     margin: 0 0 15px 0;
     font-size: 16px;
-    color: #b3b3b3; 
+    color: #666666; 
 }
 
 #motivation{
@@ -135,13 +137,10 @@ a{
     width:20px;
 }
 
-
-
 /* 2nd div */
 
-
 .title h1,h2{
-    color: #FFFFFF;
+    color: #222222;
     font-size: 25px;
 }
 
@@ -179,8 +178,8 @@ a{
     flex: 1;
     gap:60px;
     display:flex;
-    background: #1A1A1A;
-    border: 1px solid #333333;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
     border-radius: 12px;
     padding: 10px;
     transition: 0.3s;
@@ -191,11 +190,11 @@ a{
     width:100px;
 }
 div h4{
-    color:white;
+    color:#222222;
 }
 
 .label {
-  color: #B3B3B3;
+  color: #666666;
   font-size: 14px;
 }
 
@@ -206,10 +205,9 @@ div h4{
 }
 
 .p2 {
-  color: #808080;
+  color: #888888;
   font-size: 13px;
 }
-
 
 /* 3rd div */
 
@@ -227,7 +225,7 @@ div h4{
 }
 
 .act {
-    background: linear-gradient(145deg, #1a1a1a, #111);
+    background: linear-gradient(145deg, #FFFFFF, #F3F3F3);
     border: 0.1px solid #ff6a3d;
     border-radius: 14px;
     padding: 22px;          
@@ -246,20 +244,18 @@ div h4{
     margin-bottom: 10px;
 }
 .act p {
-    color: #fff;
+    color: #222222;
     font-size: 14px;
     margin: 0;
 }
 .act:hover {
     transform: translateY(-6px);
-    box-shadow: 0 0 20px rgba(255, 106, 61, 0.4); 
+    box-shadow: 0 0 20px rgba(255, 106, 61, 0.2); 
     border-color: #ff8c5a;
 }
 .act:active {
     transform: scale(0.96);
 }
-
-
 
 /* 4th div */
 
@@ -271,25 +267,23 @@ div h4{
     flex-wrap: wrap;
 }
 
-
 .card {
     border-radius: 16px;
     padding: 20px;
     text-align: center;
     border: 0.1px solid #E66A00;
-    box-shadow: 0 6px 15px rgba(255, 255, 255,0.15);
-    background: linear-gradient(to bottom, #0c0c0c, #272727);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    background: linear-gradient(to bottom, #FFFFFF, #F7F7F7);
 }
-
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(255, 106, 61, 0.5);
+    box-shadow: 0 10px 25px rgba(255, 106, 61, 0.2);
 }
 
 .card h3 {
     margin: 10px 0 5px;
-    color: #ffffff;
+    color: #222222;
     display:flex;
     align-items:center;
     gap:10px;
@@ -299,9 +293,8 @@ div h4{
 .card p {
     margin: 0;
     font-size: 14px;
-    color: #b3b3b3;
+    color: #666666;
 }
-
 
 @media (max-width: 768px) {
   #outer {
@@ -314,17 +307,13 @@ div h4{
 }
 .card,.add,.act{
 backdrop-filter: blur(8px);
-box-shadow:0 12px 30px rgba(0,0,0,.35);
+box-shadow:0 12px 30px rgba(0,0,0,.08);
 }
-
-
-
 
 /* header */
 .top-strip{
     width:100%;
     height:60px;
-    
     
     padding:0 28px;
 
@@ -332,10 +321,10 @@ box-shadow:0 12px 30px rgba(0,0,0,.35);
     justify-content:space-between;
     align-items:center;
 
-    background:linear-gradient(90deg,#0f0f0f,#161616,#111,#000);
+    background:linear-gradient(90deg,#FFFFFF,#F8F8F8,#F3F3F3,#FFFFFF);
     border-radius:0 0 14px 14px;
 
-    box-shadow:0 4px 18px rgba(0,0,0,0.35);
+    box-shadow:0 4px 18px rgba(0,0,0,0.08);
     
     box-sizing:border-box;
     position:fixed;
@@ -343,6 +332,7 @@ box-shadow:0 12px 30px rgba(0,0,0,.35);
     left:0;
     z-index:1000;
 }
+
 /* LEFT SIDE BRAND */
 .brand{
     display:flex;
@@ -357,7 +347,7 @@ box-shadow:0 12px 30px rgba(0,0,0,.35);
 }
 
 .brand span{
-    color:#ffffff;
+    color:#222222;
     font-size:22px;
     font-weight:700;
     letter-spacing:1px;
@@ -371,7 +361,7 @@ box-shadow:0 12px 30px rgba(0,0,0,.35);
 }
 
 .menu a{
-    color:#ffffff;
+    color:#222222;
     text-decoration:none;
     font-size:16px;
     font-weight:500;

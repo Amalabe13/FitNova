@@ -1,0 +1,359 @@
+body{
+    overflow:scroll;
+    background-color:#F5F5F5;
+    margin:0px;
+    overflow-x:hidden;
+}
+
+#outer{
+    height:100vh;
+    width:20vw;
+    background-color:#FFFFFF;
+    position:fixed;
+    border:0.5px solid #E5E5E5;
+    top:0px;
+    overflow:hidden;
+}
+
+#icon{
+    height:50px;
+    width:50px;
+}
+
+.box{
+    display:flex;
+    gap:30px;
+    background:linear-gradient(to bottom,#FFFFFF,#F2F2F2);
+    width:100%;
+    align-items:center;
+    height:40px;
+    margin-bottom:5px;
+}
+
+.box img{
+    height:20px;
+    width:20px;
+    color:#E66A00;
+    padding-left:30px;
+}
+
+.box span{
+    color:#444444;
+    font-size:15px;
+    display:flex;
+    align-items:center;
+}
+
+.box-active{
+    display:flex;
+    gap:30px;
+    background:linear-gradient(to bottom,#FFE0CC,#FFF2E8);
+    width:100%;
+    align-items:center;
+    height:40px;
+    margin-bottom:5px;
+}
+
+.box-active img{
+    height:20px;
+    width:20px;
+    color:#E66A00;
+    padding-left:30px;
+}
+
+.box-active span{
+    color:#444444;
+    font-size:15px;
+    display:flex;
+    align-items:center;
+}
+
+a{
+    text-decoration:none;
+}
+
+.title h1,h2{
+    color:#222222;
+    font-size:27px;
+}
+
+.title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:30px 3% 0px 23%;
+}
+
+.title::before{
+  content:"";
+  width:4px;
+  height:23px;
+  background:#FF7A00;
+  border-radius:2px;
+}
+
+.w{
+    display:flex;
+    gap:30px;
+    text-align:justify;
+    margin:40px 3% 0 23%;
+    flex-wrap:wrap;
+}
+
+.water{
+    flex:1;
+    background:#FFFFFF;
+    color:#222222;
+    padding:20px;
+    border-radius:20px;
+    border:1px solid #E66A00;
+    display:flex;
+    flex-direction:column;
+}
+
+.wateradd{
+    flex:0;
+    background:#FFFFFF;
+    color:#222222;
+    padding:20px 20px 0 20px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(255,106,61,0.12);
+    border:1px solid #E66A00;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+#weight{
+    background-color:#FFFFFF;
+    color:#222222;
+    border:#E66A00 1px solid;
+}
+
+#comp{
+    color:#E66A00;
+    font-size:16px;
+}
+
+.goal{
+    display:flex;
+    gap:30px;
+    flex-direction:column;
+}
+
+#goalText{
+    padding:12px;
+}
+
+.goal input{
+    padding:8px;
+    border-radius:8px;
+    border:none;
+    width:120px;
+}
+
+.goal button{
+    padding:8px;
+    border-radius:8px;
+    border:#E66A00 1px solid;
+    box-shadow:0 0 20px rgba(255,106,61,0.12);
+    background:linear-gradient(to bottom,#FFD9BF,#FFF1E6);
+    color:#E66A00;
+    cursor:pointer;
+}
+
+#intake{
+    color:#222222;
+}
+
+.progress-bar{
+    width:100%;
+    height:150px;
+    background:linear-gradient(to bottom,#FFFFFF,#F2F2F2);
+    border-radius:10px;
+    margin-top:10px;
+    position:relative;
+    overflow:hidden;
+    border:1px solid #E66A00;
+    border-top-left-radius:0;
+    border-top-right-radius:0;
+    border-top:none;
+}
+
+#progress{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:0%;
+    background:linear-gradient(to top,#b4540080,#ee954880);
+    border-radius:10px;
+    transition:0.5s;
+    box-shadow:0 0 10px rgba(238,149,72,0.35);
+    border-top-left-radius:20px;
+    border-top-right-radius:20px;
+}
+
+.buttons{
+    display:flex;
+    gap:5px;
+    flex-direction:column;
+    width:100px;
+}
+
+.buttons button{
+    margin:5px;
+    padding:10px;
+    border:#E66A00 1px solid;
+    box-shadow:0 0 20px rgba(255,106,61,0.12);
+    border-radius:10px;
+    background:linear-gradient(to bottom,#FFD9BF,#FFF1E6);
+    color:#E66A00;
+    cursor:pointer;
+}
+
+.buttons button:hover{
+    background:#ee954880;
+}
+
+.tips-container{
+    display:flex;
+    padding:20px;
+    margin:0 3% 0 23%;
+    overflow-x:auto;
+}
+
+.tip-card{
+    background:linear-gradient(to bottom,#FFFFFF,#F3F3F3);
+    border:1px solid #DDDDDD;
+    padding:25px;
+    color:#666666;
+    font-size:15px;
+    height:120px;
+    width:120px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transition:all 0.35s ease;
+    cursor:pointer;
+    position:relative;
+    margin-left:-50px;
+}
+
+.tip-card:hover{
+    transform:translateY(-6px) scale(1.02);
+    box-shadow:0 8px 20px rgba(230,106,0,0.20);
+    border:#E66A00 1px solid;
+    z-index:100;
+    width:200px;
+}
+
+.tip-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    height:15px;
+    width:100%;
+    background:linear-gradient(to bottom,#E66A00,#FFFFFF);
+}
+
+.tip-card:first-child{
+    margin-left:0;
+}
+
+@media (max-width:768px){
+  #outer{
+    width:73px;
+  }
+
+  #outer span{
+    display:none;
+  }
+}
+
+.tip-card button{
+    position:absolute;
+    top:17px;
+    right:15px;
+    width:22px;
+    height:22px;
+    background:transparent;
+    border:none;
+    box-shadow:none;
+    opacity:0.9;
+}
+
+.top-strip{
+    width:80%;
+    height:60px;
+    margin-left:20%;
+    padding:0 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:linear-gradient(90deg,#FFFFFF,#F8F8F8,#F3F3F3,#FFFFFF);
+    border-radius:0 0 14px 14px;
+    box-shadow:0 4px 18px rgba(0,0,0,0.08);
+    border-bottom:1px solid rgba(255,122,0,0.20);
+    box-sizing:border-box;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand img{
+    width:34px;
+    height:34px;
+    object-fit:contain;
+}
+
+.brand span{
+    color:#222222;
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    gap:26px;
+}
+
+.menu a{
+    color:#222222;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    color:#ff7a00;
+}
+
+.menu button{
+    border:none;
+    outline:none;
+    padding:8px 16px;
+    border-radius:8px;
+    background:#ff7a00;
+    color:#fff;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.menu button:hover{
+    background:#ff5c00;
+    transform:translateY(-1px);
+}

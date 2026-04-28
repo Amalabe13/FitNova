@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #F5F5F5;
+    font-family: Arial, sans-serif;
+    color: #222222;
+    overflow-x: hidden;
+    padding-top: 80px;
+}
+
+.top-strip {
+    width: 100%;
+    min-height: 70px;
+    padding: 0 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #FFFFFF, #F8F8F8, #F3F3F3, #FFFFFF);
+    border-bottom: 1px solid rgba(230, 106, 0, 0.20);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.brand span {
+    color: #222222;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu a {
+    color: #222222;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #E66A00;
+    background: rgba(230,106,0,0.08);
+}
+
+.menu button {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #E66A00;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    background: #ff5c00;
+}
+
+.page {
+    width: 75%;
+    margin: 20px auto 0 23%;
+    padding: 20px;
+}
+
+.page h1,
+.page h2 {
+    color: #222222;
+    margin-bottom: 20px;
+    font-size: 42px;
+    font-weight: 100;
+    padding-left: 10px;
+}
+
+.contact-box {
+    width: 100%;
+    max-width: 760px;
+    background: linear-gradient(to bottom, #FFFFFF, #F7F7F7);
+    border: 1px solid #E66A00;
+    border-radius: 18px;
+    padding: 30px 35px;
+    box-shadow: 0 0 20px rgba(230,106,0,0.12);
+}
+
+.contact-desc {
+    color: #666666;
+    margin-bottom: 18px;
+    line-height: 1.7;
+}
+
+.contact-box input,
+.contact-box textarea {
+    width: 100%;
+    display: block;
+    margin-bottom: 16px;
+    padding: 12px 14px;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+    color: #222222;
+    font-size: 15px;
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus {
+    outline: none;
+    border-color: #E66A00;
+    box-shadow: 0 0 8px rgba(230,106,0,0.25);
+}
+
+.contact-box textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-box button {
+    background: #E66A00;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.contact-box button:hover {
+    background: #ff5c00;
+    transform: translateY(-2px);
+}
+
+.success-msg {
+    margin-top: 12px;
+    color: #22C55E;
+}
+
+@media (max-width: 900px) {
+    .page {
+        width: 92%;
+        margin: 20px auto;
+    }
+
+    .contact-box {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-strip {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+
+    .menu {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .page h1,
+    .page h2 {
+        font-size: 30px;
+    }
+}
