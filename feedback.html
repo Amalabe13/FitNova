@@ -1,0 +1,119 @@
+<!-- feedback.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>fitNova - Feedback</title>
+<link rel="icon" type="image/png" href="pic/app.png">
+<link id="theme-css" rel="stylesheet" href="feedback.css">
+</head>
+<body>
+
+<header class="top-strip">
+
+    <div class="brand">
+        <img src="pic/app.png" alt="">
+        <span>FIT<span style="color:#E66A00;">NOVA</span></span>
+    </div>
+
+    <nav class="menu">
+        <a href="home.html" title="Dashboard"><img src="pic/home.svg"></a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <button onclick="logout()">Logout</button>
+    </nav>
+
+</header>
+
+<section class="container">
+
+    <div class="hero">
+        <h1>We Value Your Feedback</h1>
+        <p>
+            Your opinion helps us improve FitNova and create a better fitness experience.
+            Share your thoughts, report issues, or suggest new features.
+        </p>
+    </div>
+
+    <div class="feedback-box">
+
+        <form>
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter your name">
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="Enter your email">
+            </div>
+
+            <div class="input-group">
+                <label>Rate Your Experience</label>
+                <select>
+                    <option>Excellent</option>
+                    <option>Good</option>
+                    <option>Average</option>
+                    <option>Poor</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Your Feedback</label>
+                <textarea rows="6" placeholder="Write your message here..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Feedback</button>
+
+        </form>
+
+    </div>
+
+    <div class="extra-section">
+        <h2>Why Feedback Matters</h2>
+        <p>
+            Every suggestion you send helps us improve our design, features,
+            and overall experience. Together, we can build a smarter fitness platform.
+        </p>
+    </div>
+
+    <div class="footer">
+        Thank you for helping FitNova grow.
+    </div>
+
+</section>
+
+<script>
+function logout(){
+    window.location.href="login.html";
+}
+
+// theme
+
+function toggleTheme() {
+    let current = localStorage.getItem("theme") || "dark";
+    let next = current === "dark" ? "light" : "dark";
+    localStorage.setItem("theme", next);
+    applyTheme();
+}
+
+function applyTheme() {
+    let page = window.location.pathname.split("/").pop().replace(".html","");
+    let theme = localStorage.getItem("theme") || "dark";
+    let css = document.getElementById("theme-css");
+
+    if(theme === "light"){
+        css.href = page + "l.css";
+    } else {
+        css.href = page + ".css";
+    }
+}
+
+applyTheme();
+
+</script>
+
+</body>
+</html>
