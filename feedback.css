@@ -25,7 +25,7 @@ body{
     align-items:center;
     background:linear-gradient(90deg,#0f0f0f,#161616,#111111,#000000);
     border-bottom:1px solid rgba(230,106,0,0.35);
-    border-radius:0 0 14px 14px;
+    
     position:fixed;
     top:0;
     left:0;

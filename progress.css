@@ -97,7 +97,7 @@ a{
   content: "";
   width: 4px;
   height: 23px;
-  background: #FF7A00;
+  background: #e66a00;
   border-radius: 2px;
 }
 .w{
@@ -190,7 +190,7 @@ a{
     background: linear-gradient(to top, #b4540080, #ee954880);
     border-radius: 10px;
     transition: 0.5s;
-    box-shadow: 0 0 10px #ee9548;
+    box-shadow: 0 0 10px #e66a00;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
@@ -352,7 +352,7 @@ a{
 }
 
 .menu a:hover{
-    color:#ff7a00;
+    color:#e66a00;
 }
 
 /* LOGOUT BUTTON */
@@ -362,7 +362,7 @@ a{
     padding:8px 16px;
     border-radius:8px;
 
-    background:#ff7a00;
+    background:#e66a00;
     color:#fff;
     font-size:15px;
     font-weight:600;
@@ -371,7 +371,7 @@ a{
 }
 
 .menu button:hover{
-    background:#ff5c00;
+    background:#e66a00;
     transform:translateY(-1px);
 }
 .sleep-box{

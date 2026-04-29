@@ -32,7 +32,7 @@ body {
     align-items: center;
 
     background: linear-gradient(90deg, #0f0f0f, #161616, #111111, #000000);
-    border-radius: 0 0 14px 14px;
+    
 
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
     border-bottom: 1px solid rgba(230, 106, 0, 0.35);

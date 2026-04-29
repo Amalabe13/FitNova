@@ -31,8 +31,7 @@ body {
     align-items: center;
 
     background: linear-gradient(90deg, #FFFFFF, #F8F8F8, #F3F3F3, #FFFFFF);
-    border-radius: 0 0 14px 14px;
-
+    
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
     border-bottom: 1px solid rgba(230, 106, 0, 0.20);
 

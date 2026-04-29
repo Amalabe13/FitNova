@@ -322,10 +322,10 @@ box-shadow:0 12px 30px rgba(0,0,0,.08);
     align-items:center;
 
     background:linear-gradient(90deg,#FFFFFF,#F8F8F8,#F3F3F3,#FFFFFF);
-    border-radius:0 0 14px 14px;
+    
 
     box-shadow:0 4px 18px rgba(0,0,0,0.08);
-    
+    border-bottom:1px solid rgba(255,122,0,0.25);
     box-sizing:border-box;
     position:fixed;
     top:0;
