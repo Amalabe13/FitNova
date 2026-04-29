@@ -81,6 +81,21 @@
 
 </div>
 
+<div class="sleep-card audio-panel">
+<h3>Sleep Audio</h3>
+
+<div class="audio-item"><p>Sleep Music Vol 1</p><audio controls src="audio/s1.mpeg"></audio></div>
+<div class="audio-item"><p>Sleep Music Vol 2</p><audio controls src="audio/s2.mpeg"></audio></div>
+<div class="audio-item"><p>Sleep Music Vol 3</p><audio controls src="audio/s3.mpeg"></audio></div>
+<div class="audio-item"><p>Sleep Music Vol 4</p><audio controls src="audio/s4.mpeg"></audio></div>
+<div class="audio-item"><p>Sleep Music Vol 5</p><audio controls src="audio/s5.mpeg"></audio></div>
+<div class="audio-item"><p>Sleep Music Vol 6</p><audio controls src="audio/s6.mpeg"></audio></div>
+<div class="audio-item"><p>Sleep Music Vol 7</p><audio controls src="audio/s7.mpeg></audio></div>
+<div class="audio-item"><p>Sleep Music Vol 8</p><audio controls src="audio/s8.mpeg"></audio></div>
+<div class="audio-item"><p>Sleep Music Vol 9</p><audio controls src="audio/s9.mpeg"></audio></div>
+<div class="audio-item"><p>Sleep Music Vol 10</p><audio controls src="audio/s10.mpeg"></audio></div>
+</div>
+
 </div>
 
 <div class="extra-info">
@@ -191,31 +206,26 @@ if(name) document.getElementById("cname").innerText = name;
 if(photo) document.getElementById("icon").src = photo;
 }
 
-
-// theme
-
 function toggleTheme() {
-    let current = localStorage.getItem("theme") || "dark";
-    let next = current === "dark" ? "light" : "dark";
-    localStorage.setItem("theme", next);
-    applyTheme();
+let current = localStorage.getItem("theme") || "dark";
+let next = current === "dark" ? "light" : "dark";
+localStorage.setItem("theme", next);
+applyTheme();
 }
 
 function applyTheme() {
-    let page = window.location.pathname.split("/").pop().replace(".html","");
-    let theme = localStorage.getItem("theme") || "dark";
-    let css = document.getElementById("theme-css");
+let page = window.location.pathname.split("/").pop().replace(".html","");
+let theme = localStorage.getItem("theme") || "dark";
+let css = document.getElementById("theme-css");
 
-    if(theme === "light"){
-        css.href = page + "l.css";
-    } else {
-        css.href = page + ".css";
-    }
+if(theme === "light"){
+css.href = page + "l.css";
+} else {
+css.href = page + ".css";
+}
 }
 
 applyTheme();
-
-
 </script>
 
 </body>
