@@ -7,10 +7,16 @@
     <title>fitNova-Energy Tracker</title>
     <link rel="icon" type="image/png" href="pic/app.png">
     <link id="theme-css" rel="stylesheet" href="calorie.css">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+    </style>
 </head>
 
 <body>
-    <nav>
+    <aside>
     <div id="outer">
         <div style="display:flex;gap:20px;align-items:center;padding:20px 5px;margin:20px;">
             <img id="icon" src="pic/icon.svg">
@@ -53,7 +59,7 @@
             </div>
         </a>
     </div>
-    </nav>
+</aside>
 
     <header class="top-strip">
 
@@ -73,7 +79,7 @@
 </header>
 
 <main style="padding-top:50px;">
-    <div class="page">
+    <section class="page">
         <div class="section-title">
             <span class="line"></span>
             <h1>Calorie Tracker</h1>
@@ -88,7 +94,7 @@
         </div>
 
 
-        <div style="padding:20px; border:1px solid #e66a00;border-radius:15px;margin-bottom:50px;">
+        <article style="padding:20px; border:1px solid #e66a00;border-radius:15px;margin-bottom:50px;">
         <div class="input-section">
             <input type="text" id="food" placeholder="Food item" list="foodList">
 
@@ -130,7 +136,7 @@
             </tfoot>
         </table>
 
-        </div>
+        </article>
 
         <div class="section-title" style="padding-bottom:10px;">
             <span class="line"></span>
@@ -199,7 +205,7 @@
 
             </div>
         </div>
-    </div>
+    </section>
 </main>
 
 <footer style="text-align:right;margin-right:5%;color:#696767;">

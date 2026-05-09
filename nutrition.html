@@ -6,11 +6,16 @@
     <title>fitNova-Smart Nutrition</title>
     <link rel="icon" type="image/png" href="pic/app.png">
     <link id="theme-css" rel="stylesheet" href="nutrition.css">
-    
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+    </style>
 </head>
 
 <body>
-
+<aside>
 <div id="outer">
 
         <div style="display:flex;gap:20px;align-items:center;padding:20px 5px;margin:20px;">
@@ -61,6 +66,8 @@
         </a>
         </div>
 
+</aside>
+
 
 <header class="top-strip" >
 
@@ -83,11 +90,11 @@
 
 <main id="main" style="padding-top:90px;">
 
-    <div class="meal-title">
-        <h2>Nutrition Tracker</h2>
-    </div>
+    <section class="meal-title">
+        <h1>Nutrition Tracker</h1>
+    </section>
 
-    <div class="w">
+    <article class="w">
         <div class="meal-card">
             <h3>Choose your meal type</h3>
 
@@ -102,7 +109,7 @@
                 <i>Please select a meal type</i>
             </p>
         </div>
-    </div>
+    </article>
 
     <div class="title">
         <h2>Daily Nutrition Log</h2>
@@ -209,11 +216,13 @@
              
         </div>
     </div>
+    
 
     <div class="title">
         <h2>Health Tips</h2>
     </div>
     </main>
+   
         <div class="tips-container">
 
         <div class="tip-card">
@@ -287,7 +296,7 @@
         </div>
 
         </div>
-
+ 
 
     <footer style="text-align:right;margin-right:5%;color:#696767; ">
         <p>&copy; 2026 FitNova | Stay Healthy</p>

@@ -123,16 +123,17 @@ a{
     flex-direction:column;
 }
 
-.wateradd {
+.wateradd{
     flex:0;
-    background: #111;
-    color: white;
-    padding: 20px 20px 0 20px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(255, 106, 61, 0.4);
-    border: 1px solid #E66A00;
+    background:#111;
+    color:white;
+    padding:20px 20px 0 20px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(255, 106, 61, 0.4);
+    border:1px solid #E66A00;
     display:flex;
     flex-direction:column;
+    text-align:center;
     align-items:center;
 }
 #weight{

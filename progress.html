@@ -5,323 +5,327 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>fitNova-Sleep Insights</title>
 <link id="theme-css" rel="stylesheet" href="progress.css">
+<style>
+        *{
+            margin:0;
+            padding:0;
+        }
+    </style>
 </head>
 
 <body onload="loadProfile();loadSleepData()">
+    <aside>
+    <div id="outer">
 
-<div id="outer">
+        <div style="display:flex;gap:20px;align-items:center;padding:20px 5px;margin:20px;">
+            <img id="icon" src="pic/icon.svg">
+            <h3 id="cname">Name</h3>
+        </div>
 
-<div style="display:flex;gap:20px;align-items:center;padding:20px 5px;margin:20px;">
-<img id="icon" src="pic/icon.svg">
-<h3 id="cname">Name</h3>
-</div>
+        <a href="home.html"><div class="box"><img src="pic/home.svg"><span>Dashboard</span></div></a>
+        <a href="water.html"><div class="box"><img src="pic/water.svg"><span>Hydration Hub</span></div></a>
+        <a href="calorie.html"><div class="box"><img src="pic/calorie.svg"><span>Energy Tracker</span></div></a>
+        <a href="exercise.html"><div class="box"><img src="pic/exercise.svg"><span>Training Zone</span></div></a>
+        <a href="nutrition.html"><div class="box"><img src="pic/nutrition.svg"><span>Smart Nutrition</span></div></a>
+        <a href="sleep.html"><div class="box-active"><img src="pic/progress.svg"><span>Sleep Insights</span></div></a>
 
-<a href="home.html"><div class="box"><img src="pic/home.svg"><span>Dashboard</span></div></a>
-<a href="water.html"><div class="box"><img src="pic/water.svg"><span>Hydration Hub</span></div></a>
-<a href="calorie.html"><div class="box"><img src="pic/calorie.svg"><span>Energy Tracker</span></div></a>
-<a href="exercise.html"><div class="box"><img src="pic/exercise.svg"><span>Training Zone</span></div></a>
-<a href="nutrition.html"><div class="box"><img src="pic/nutrition.svg"><span>Smart Nutrition</span></div></a>
-<a href="sleep.html"><div class="box-active"><img src="pic/progress.svg"><span>Sleep Insights</span></div></a>
+    </div>
+    </aside>
+    <header class="top-strip">
+        <div class="brand">
+            <img src="pic/app.png">
+            <span>FIT<span style="color:#e66a00">NOVA</span></span>
+        </div>
 
-</div>
+        <nav class="menu">
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="faq.html">FAQ</a>
+            <a href="feedback.html">Feedback</a>
+            <button onclick="logout()">Logout</button>
+        </nav>
+    </header>
 
-<header class="top-strip">
-<div class="brand">
-<img src="pic/app.png">
-<span>FIT<span style="color:#e66a00">NOVA</span></span>
-</div>
+    <main style="padding-top:50px;">
 
-<nav class="menu">
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-<a href="faq.html">FAQ</a>
-<a href="feedback.html">Feedback</a>
-<button onclick="logout()">Logout</button>
-</nav>
-</header>
+        <div class="title">
+            <h1>Sleep Tracker</h1>
+        </div>
 
-<main style="padding-top:50px;">
+        <section  class="sleep-box" id="sleepBox">
 
-<div class="title">
-<h1>Sleep Tracker</h1>
-</div>
+            <div class="sleep-card">
+                <h3>Enter Details</h3>
+                <form>
+                    <input type="number" id="goal" placeholder="Enter Goal Hours" min="6" title="Minimum 6 hours required" required 
+                    oninput="
+                    if(this.value < 6){
+                        alert('Minimum 6 hours required');
+                        this.value='';
+                    }">
+                    <input type="number" id="sleep" placeholder="Enter Slept Hours">
+                </form>
 
-<div  class="sleep-box" id="sleepBox">
+                <button onclick="checkSleep()">Check Sleep</button>
+            </div>
 
-<div class="sleep-card">
-<h3>Enter Details</h3>
-<form>
-<input type="number" id="goal" placeholder="Enter Goal Hours" min="6" title="Minimum 6 hours required" required 
-oninput="
-if(this.value < 6){
-alert('Minimum 6 hours required');
-this.value='';
-}
-">
-<input type="number" id="sleep" placeholder="Enter Slept Hours">
-</form>
+            <div  class="sleep-card report-card" id="reportCard">
+                <h3>Your Report</h3>
 
-<button onclick="checkSleep()">Check Sleep</button>
-</div>
+                <div class="report-row">
+                    <span class="label">Goal:</span>
+                    <span class="value" id="goalText"></span>
+                </div>
 
-<div  class="sleep-card report-card" id="reportCard">
-<h3>Your Report</h3>
+                <div class="report-row">
+                    <span class="label">Slept:&nbsp;&nbsp;</span>
+                    <span class="value" id="sleepText"></span>
+                </div>
 
-<div class="report-row">
-<span class="label">Goal:</span>
-<span class="value" id="goalText"></span>
-</div>
+                <div class="report-row remark-row">
+                    <span class="label">Remark:&nbsp;&nbsp;</span>
+                    <span class="value" id="remark"></span>
+                </div>
 
-<div class="report-row">
-<span class="label">Slept:&nbsp;&nbsp;</span>
-<span class="value" id="sleepText"></span>
-</div>
+                <div class="progress-sleep">
+                    <div id="bar"></div>
+                </div>
 
-<div class="report-row remark-row">
-<span class="label">Remark:&nbsp;&nbsp;</span>
-<span class="value" id="remark"></span>
-</div>
+            </div>
 
-<div class="progress-sleep">
-<div id="bar"></div>
-</div>
+            <div class="sleep-card audio-panel">
+                <h3>Sleep Audio</h3>
 
-</div>
+                <div class="audio-item"><p>Sleep Music Vol 1</p><audio controls src="audio/S1.mp3"></audio></div>
+                <div class="audio-item"><p>Sleep Music Vol 2</p><audio controls src="audio/s2.mpeg"></audio></div>
+                <div class="audio-item"><p>Sleep Music Vol 3</p><audio controls src="audio/s3.mpeg"></audio></div>
+                <div class="audio-item"><p>Sleep Music Vol 4</p><audio controls src="audio/s4.mpeg"></audio></div>
+                <div class="audio-item"><p>Sleep Music Vol 5</p><audio controls src="audio/s5.mpeg"></audio></div>
+                <div class="audio-item"><p>Sleep Music Vol 6</p><audio controls src="audio/s6.mpeg"></audio></div>
+                <div class="audio-item"><p>Sleep Music Vol 7</p><audio controls src="audio/s7.mpeg"></audio></div>
+                <div class="audio-item"><p>Sleep Music Vol 8</p><audio controls src="audio/s8.mpeg"></audio></div>
+                <div class="audio-item"><p>Sleep Music Vol 9</p><audio controls src="audio/s9.mpeg"></audio></div>
+                <div class="audio-item"><p>Sleep Music Vol 10</p><audio controls src="audio/s10.mpeg"></audio></div>
+            </div>
+        </section>
 
-<div class="sleep-card audio-panel">
-<h3>Sleep Audio</h3>
+        <section class="extra-info">
 
-<div class="audio-item"><p>Sleep Music Vol 1</p><audio controls src="audio/S1.mp3"></audio></div>
-<div class="audio-item"><p>Sleep Music Vol 2</p><audio controls src="audio/s2.mpeg"></audio></div>
-<div class="audio-item"><p>Sleep Music Vol 3</p><audio controls src="audio/s3.mpeg"></audio></div>
-<div class="audio-item"><p>Sleep Music Vol 4</p><audio controls src="audio/s4.mpeg"></audio></div>
-<div class="audio-item"><p>Sleep Music Vol 5</p><audio controls src="audio/s5.mpeg"></audio></div>
-<div class="audio-item"><p>Sleep Music Vol 6</p><audio controls src="audio/s6.mpeg"></audio></div>
-<div class="audio-item"><p>Sleep Music Vol 7</p><audio controls src="audio/s7.mpeg"></audio></div>
-<div class="audio-item"><p>Sleep Music Vol 8</p><audio controls src="audio/s8.mpeg"></audio></div>
-<div class="audio-item"><p>Sleep Music Vol 9</p><audio controls src="audio/s9.mpeg"></audio></div>
-<div class="audio-item"><p>Sleep Music Vol 10</p><audio controls src="audio/s10.mpeg"></audio></div>
-</div>
+            <details>
+            <summary>Why Sleep Matters</summary>
+            <p>
+            Good sleep improves memory, mood, immunity and energy.
+            Adults should aim for 7 to 8 hours of sleep daily.
+            </p>
+            </details>
 
-</div>
+            <details>
+            <summary>Sleep Score Guide</summary>
 
-<div class="extra-info">
+            <p>
+            <b>Excellent Sleep</b> = You successfully achieved your sleep goal. 
+            This indicates a healthy sleep routine that can improve energy, concentration, mood, and overall well-being.
+            </p>
 
-<details>
-<summary>Why Sleep Matters</summary>
-<p>
-Good sleep improves memory, mood, immunity and energy.
-Adults should aim for 7 to 8 hours of sleep daily.
-</p>
-</details>
+            <p>
+            <b>Almost Reached Your Goal</b> = Your sleep duration is slightly below the target. 
+            Although your sleep is fairly good, getting a little more rest can help improve recovery and daily performance.
+            </p>
 
-<details>
-<summary>Sleep Score Guide</summary>
+            <p>
+            <b>Need More Rest</b> = Your sleep is significantly below the recommended goal. 
+            Insufficient sleep may lead to tiredness, reduced focus, stress, and lower productivity during the day.
+            </p>
 
-<p>
-<b>Excellent Sleep</b> = You successfully achieved your sleep goal. 
-This indicates a healthy sleep routine that can improve energy, concentration, mood, and overall well-being.
-</p>
+            </details>
 
-<p>
-<b>Almost Reached Your Goal</b> = Your sleep duration is slightly below the target. 
-Although your sleep is fairly good, getting a little more rest can help improve recovery and daily performance.
-</p>
+        </section>
 
-<p>
-<b>Need More Rest</b> = Your sleep is significantly below the recommended goal. 
-Insufficient sleep may lead to tiredness, reduced focus, stress, and lower productivity during the day.
-</p>
+        <div class="title">
+        <h2>Sleep Tips</h2>
+        </div>
 
-</details>
+        <article class="tips-container">
 
-</div>
+            <div class="tip-card">
+            Sleep at same time daily.
+            <button onclick="speakText('Sleep at same time daily')">
+            <img src="pic/volume.svg">
+            </button>
+            </div>
 
-<div class="title">
-<h2>Sleep Tips</h2>
-</div>
+            <div class="tip-card">
+            Avoid mobile before bed.
+            <button onclick="speakText('Avoid mobile before bed')">
+            <img src="pic/volume.svg">
+            </button>
+            </div>
 
-<div class="tips-container">
+            <div class="tip-card">
+            Keep room dark and cool.
+            <button onclick="speakText('Keep room dark and cool')">
+            <img src="pic/volume.svg">
+            </button>
+            </div>
 
-<div class="tip-card">
-Sleep at same time daily.
-<button onclick="speakText('Sleep at same time daily')">
-<img src="pic/volume.svg">
-</button>
-</div>
+            <div class="tip-card">
+            Get 7 to 8 hours sleep.
+            <button onclick="speakText('Get 7 to 8 hours sleep')">
+            <img src="pic/volume.svg">
+            </button>
+            </div>
 
-<div class="tip-card">
-Avoid mobile before bed.
-<button onclick="speakText('Avoid mobile before bed')">
-<img src="pic/volume.svg">
-</button>
-</div>
+            <div class="tip-card">
+            Avoid caffeine at night.
+            <button onclick="speakText('Avoid caffeine at night')">
+            <img src="pic/volume.svg">
+            </button>
+            </div>
 
-<div class="tip-card">
-Keep room dark and cool.
-<button onclick="speakText('Keep room dark and cool')">
-<img src="pic/volume.svg">
-</button>
-</div>
+            <div class="tip-card">
+            Use comfortable pillow.
+            <button onclick="speakText('Use comfortable pillow')">
+            <img src="pic/volume.svg">
+            </button>
+            </div>
 
-<div class="tip-card">
-Get 7 to 8 hours sleep.
-<button onclick="speakText('Get 7 to 8 hours sleep')">
-<img src="pic/volume.svg">
-</button>
-</div>
+            <div class="tip-card">
+            Stretch before sleep.
+            <button onclick="speakText('Stretch before sleep')">
+            <img src="pic/volume.svg">
+            </button>
+            </div>
 
-<div class="tip-card">
-Avoid caffeine at night.
-<button onclick="speakText('Avoid caffeine at night')">
-<img src="pic/volume.svg">
-</button>
-</div>
+            <div class="tip-card">
+            Listen to calm music.
+            <button onclick="speakText('Listen to calm music')">
+            <img src="pic/volume.svg">
+            </button>
+            </div>
 
-<div class="tip-card">
-Use comfortable pillow.
-<button onclick="speakText('Use comfortable pillow')">
-<img src="pic/volume.svg">
-</button>
-</div>
+            <div class="tip-card">
+            No heavy meals late night.
+            <button onclick="speakText('No heavy meals late night')">
+            <img src="pic/volume.svg">
+            </button>
+            </div>
 
-<div class="tip-card">
-Stretch before sleep.
-<button onclick="speakText('Stretch before sleep')">
-<img src="pic/volume.svg">
-</button>
-</div>
+            <div class="tip-card">
+            Wake up same time daily.
+            <button onclick="speakText('Wake up same time daily')">
+            <img src="pic/volume.svg">
+            </button>
+            </div>
 
-<div class="tip-card">
-Listen to calm music.
-<button onclick="speakText('Listen to calm music')">
-<img src="pic/volume.svg">
-</button>
-</div>
+        </article>
 
-<div class="tip-card">
-No heavy meals late night.
-<button onclick="speakText('No heavy meals late night')">
-<img src="pic/volume.svg">
-</button>
-</div>
+    </main>
 
-<div class="tip-card">
-Wake up same time daily.
-<button onclick="speakText('Wake up same time daily')">
-<img src="pic/volume.svg">
-</button>
-</div>
+    <footer style="text-align:right;margin-right:5%;color:#696767; ">
+            <p>&copy; 2026 FitNova | Stay Healthy</p>
+    </footer>
 
-</div>
+    <script>
+    function checkSleep(){
+    let goal = parseFloat(document.getElementById("goal").value);
+    let sleep = parseFloat(document.getElementById("sleep").value);
 
-</main>
+    if(isNaN(goal) || isNaN(sleep) || goal <= 0){
+    alert("Enter valid values");
+    return;
+    }
 
-<footer style="text-align:right;margin-right:5%;color:#696767; ">
-        <p>&copy; 2026 FitNova | Stay Healthy</p>
-</footer>
+    let percent = (sleep / goal) * 100;
+    if(percent > 100) percent = 100;
 
-<script>
-function checkSleep(){
-let goal = parseFloat(document.getElementById("goal").value);
-let sleep = parseFloat(document.getElementById("sleep").value);
+    document.getElementById("goalText").innerHTML = goal + " hrs";
+    document.getElementById("sleepText").innerHTML = sleep + " hrs";
+    document.getElementById("bar").style.width = percent + "%";
 
-if(isNaN(goal) || isNaN(sleep) || goal <= 0){
-alert("Enter valid values");
-return;
-}
+    let msg = "";
+    if(sleep >= goal){
+    msg = "Excellent";
+    }
+    else if(sleep >= goal - 1){
+    msg = "Almost reached your goal";
+    }
+    else{
+    msg = "Need More Rest";
+    }
 
-let percent = (sleep / goal) * 100;
-if(percent > 100) percent = 100;
+    document.getElementById("remark").innerHTML = msg;
 
-document.getElementById("goalText").innerHTML = goal + " hrs";
-document.getElementById("sleepText").innerHTML = sleep + " hrs";
-document.getElementById("bar").style.width = percent + "%";
+    document.getElementById("sleepBox").classList.add("show-report");
 
-let msg = "";
-if(sleep >= goal){
-msg = "Excellent";
-}
-else if(sleep >= goal - 1){
-msg = "Almost reached your goal";
-}
-else{
-msg = "Need More Rest";
-}
+    localStorage.setItem("goalHours", goal);
+    localStorage.setItem("sleepHours", sleep);
+    localStorage.setItem("sleepMsg", msg);
+    localStorage.setItem("sleepPercent", percent);
+    }
 
-document.getElementById("remark").innerHTML = msg;
+    function loadSleepData(){
+    let goal = localStorage.getItem("goalHours");
+    let sleep = localStorage.getItem("sleepHours");
+    let msg = localStorage.getItem("sleepMsg");
+    let percent = localStorage.getItem("sleepPercent");
 
-document.getElementById("sleepBox").classList.add("show-report");
+    if(goal && sleep){
+    document.getElementById("goal").value = goal;
+    document.getElementById("sleep").value = sleep;
+    document.getElementById("goalText").innerHTML = goal + " hrs";
+    document.getElementById("sleepText").innerHTML = sleep + " hrs";
+    document.getElementById("remark").innerHTML = msg;
+    document.getElementById("bar").style.width = percent + "%";
+    document.getElementById("sleepBox").classList.add("show-report");
+    }
+    }
 
-localStorage.setItem("goalHours", goal);
-localStorage.setItem("sleepHours", sleep);
-localStorage.setItem("sleepMsg", msg);
-localStorage.setItem("sleepPercent", percent);
-}
+    function logout() {
+    localStorage.clear();
+    window.location.href = "login.html";
+    }
 
-function loadSleepData(){
-let goal = localStorage.getItem("goalHours");
-let sleep = localStorage.getItem("sleepHours");
-let msg = localStorage.getItem("sleepMsg");
-let percent = localStorage.getItem("sleepPercent");
+    function loadProfile(){
+    const name = localStorage.getItem("un");
+    const photo = localStorage.getItem("profilePic");
 
-if(goal && sleep){
-document.getElementById("goal").value = goal;
-document.getElementById("sleep").value = sleep;
-document.getElementById("goalText").innerHTML = goal + " hrs";
-document.getElementById("sleepText").innerHTML = sleep + " hrs";
-document.getElementById("remark").innerHTML = msg;
-document.getElementById("bar").style.width = percent + "%";
-document.getElementById("sleepBox").classList.add("show-report");
-}
-}
+    if(name) document.getElementById("cname").innerText = name;
+    if(photo) document.getElementById("icon").src = photo;
+    }
 
-function logout() {
-localStorage.clear();
-window.location.href = "login.html";
-}
+    function toggleTheme() {
+            
+    let current = localStorage.getItem("theme") || "dark";
+    let next = current === "dark" ? "light" : "dark";
+    localStorage.setItem("theme", next);
+    applyTheme();
+    }
 
-function loadProfile(){
-const name = localStorage.getItem("un");
-const photo = localStorage.getItem("profilePic");
+    function applyTheme() {
+    
+    let page = window.location.pathname.split("/").pop().replace(".html","");
+    let theme = localStorage.getItem("theme") || "dark";
+    let css = document.getElementById("theme-css");
 
-if(name) document.getElementById("cname").innerText = name;
-if(photo) document.getElementById("icon").src = photo;
-}
+    if(theme === "light"){
+    css.href = page + "l.css";
+    } else {
+    css.href = page + ".css";
+    }
+    }
 
-function toggleTheme() {
-        
-let current = localStorage.getItem("theme") || "dark";
-let next = current === "dark" ? "light" : "dark";
-localStorage.setItem("theme", next);
-applyTheme();
-}
+    applyTheme();
 
-function applyTheme() {
-   
-let page = window.location.pathname.split("/").pop().replace(".html","");
-let theme = localStorage.getItem("theme") || "dark";
-let css = document.getElementById("theme-css");
-
-if(theme === "light"){
-css.href = page + "l.css";
-} else {
-css.href = page + ".css";
-}
-}
-
-applyTheme();
-
-function speakText(text) {
-    let speech = new SpeechSynthesisUtterance(text);
-    speech.rate = 1;
-    speech.pitch = 1;
-    speech.volume = 1;
-    window.speechSynthesis.speak(speech);
-}
+    function speakText(text) {
+        let speech = new SpeechSynthesisUtterance(text);
+        speech.rate = 1;
+        speech.pitch = 1;
+        speech.volume = 1;
+        window.speechSynthesis.speak(speech);
+    }
 
 
-</script>
+    </script>
 
 </body>
 </html>

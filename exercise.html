@@ -7,10 +7,16 @@
     <title>fitNova-Training Zone</title>
     <link rel="icon" type="image/png" href="pic/app.png">
     <link id="theme-css" rel="stylesheet" href="exercise.css">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+    </style>
 </head>
 
 <body>
-    <nav>
+    <aside>
         <div id="outer">
             <div style="display:flex;gap:20px;align-items:center;padding:20px 5px;margin:20px">
                 <img id="icon" src="pic/icon.svg">
@@ -53,7 +59,7 @@
                 </div>
             </a>
         </div>
-    </nav>
+    </aside>
 
 
 
@@ -75,12 +81,12 @@
     </header>
 
     <main style="padding-top:50px;">
-        <div class="page">
+        <section class="page">
             <div class="section-title">
                 <span class="line"></span>
                 <h2>Exercise Tracker</h2>
             </div>
-            <div class="suggest-wrapper">
+            <article class="suggest-wrapper">
                 <div class="suggest-left">
                     <div class="section-title">
                         <span class="line"></span>
@@ -98,7 +104,7 @@
                 <div class="suggest-right" id="suggestResult">
                     <p class="placeholder">Choose a body part to get suggestions</p>
                 </div>
-            </div>
+            </article>
 
             <div class="section-title">
                 <span class="line"></span>
@@ -168,7 +174,7 @@
                 </i>
 
             </div>
-        </div>
+        </section>
     </main>
 
 <footer style="text-align:right;margin-right:5%;color:#696767; ">

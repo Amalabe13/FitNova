@@ -131,7 +131,7 @@ body {
     margin-bottom: 15px;
 }
 
-.hero p {
+.hero article {
     max-width: 720px;
     margin: auto;
     color: #cccccc;
@@ -212,7 +212,7 @@ body {
 }
 
 /* ---------- FOOTER ---------- */
-.footer {
+footer {
     margin-top: 60px;
     text-align: center;
     color: #888888;
