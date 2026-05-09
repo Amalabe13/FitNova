@@ -357,3 +357,76 @@ a{
     background:#ff5c00;
     transform:translateY(-1px);
 }
+.water-section{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    margin:40px 3% 0 23%;
+}
+
+.water-awareness,
+.water-video{
+    background:linear-gradient(to bottom,#ffffff,#f3f3f3);
+    border:1px solid #E66A00;
+    border-radius:18px;
+    padding:25px 30px;
+    height:420px;
+    box-sizing:border-box;
+    box-shadow:0 4px 14px rgba(0,0,0,0.06);
+}
+
+.water-awareness{
+    
+    color:#111;
+    overflow:scroll;
+}
+
+.water-awareness h2{
+    color:#E66A00;
+    margin-bottom:18px;
+    font-size:28px;
+}
+
+.water-awareness ul{
+    padding-left:20px;
+}
+
+.water-awareness li{
+    margin-bottom:12px;
+    line-height:1.6;
+    color:#444;
+    font-size:15px;
+}
+
+.water-video{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.water-video video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+
+.water-awareness::-webkit-scrollbar{
+    width:6px;
+}
+
+.water-awareness::-webkit-scrollbar-track{
+    background:#1a1a1a;
+    border-radius:10px;
+}
+
+.water-awareness::-webkit-scrollbar-thumb{
+    background:#E66A00;
+    border-radius:10px;
+}
+
+.water-awareness::-webkit-scrollbar-thumb:hover{
+    background:#ff8c1a;
+}
