@@ -14,7 +14,7 @@
     <div id="outer">
         <div style="display:flex;gap:20px;align-items:center;padding:20px 5px;margin:20px;">
             <img id="icon" src="pic/icon.svg">
-            <h3 id="cname" style="color:#ffffff;">Name</h3>
+            <h2 id="cname" style="color:#ffffff;">Name</h2>
         </div>
         <a href="home.html">
             <div class="box">
@@ -54,14 +54,12 @@
         </a>
     </div>
     </nav>
-    
-
 
     <header class="top-strip">
 
     <div class="brand">
         <img src="pic/app.png" alt="">
-        <span>FIT<span style="color:#e66a00">NOVA</span></span>
+        <h2>FIT<span style="color:#e66a00">NOVA</span></h2>
     </div>
 
     <nav class="menu">
@@ -78,16 +76,22 @@
     <div class="page">
         <div class="section-title">
             <span class="line"></span>
-            <h2>Calorie Tracker</h2>
+            <h1>Calorie Tracker</h1>
         </div>
+        
+       
         <div class="calorie-help">
             <span>Don't know the calories?</span>
             <a href="https://www.calorieking.com/" target="_blank">
                 Check food calories here
             </a>
         </div>
+
+
+        <div style="padding:20px; border:1px solid #e66a00;border-radius:15px;margin-bottom:50px;">
         <div class="input-section">
             <input type="text" id="food" placeholder="Food item" list="foodList">
+
             <datalist id="foodList">
                 <option value="Rice">
                 <option value="Chapati">
@@ -99,6 +103,7 @@
                 <option value="Banana">
                 <option value="Apple">
             </datalist>
+
             <input type="number" id="calories" placeholder="Calories">
             <button onclick="addItem()">Add</button>
         </div>
@@ -115,48 +120,55 @@
             </thead>
 
             <tbody id="calorieBody">
-                <!-- JS will insert rows here -->
             </tbody>
 
             <tfoot>
                 <tr>
-                    <th scope="row" colspan="2">Total</th>
-                    <td id="totalCalories">0 kcal</td>
+                    <td style="color:#e5e2e2;font-size:12px;" colspan="2"><i>Total Intake: <span id="totalCalories">0 kcal</span></i></td>
+                    <td></td>
                 </tr>
             </tfoot>
         </table>
 
+        </div>
+
         <div class="section-title" style="padding-bottom:10px;">
             <span class="line"></span>
-            <h3>Calorie Suggestion</h3>
+            <h2>Calorie Suggestion</h2>
         </div>
 
         <fieldset class="suggest-box">
             <legend>Input Details</legend>
-            <form >
+
+            <form>
                 <input type="number" id="weight" placeholder="Weight(kg)" step="0.1" min=1 max=300 required>
             </form>
+
             <select id="activity">
                 <option value="25">Light activity</option>
                 <option value="30">Moderate activity</option>
                 <option value="35">Active</option>
             </select>
+
             <select id="goalType">
                 <option value="lose">Lose weight</option>
                 <option value="maintain">Maintain</option>
                 <option value="gain">Gain weight</option>
             </select>
+
             <button onclick="suggestCalories()" id="sug">Suggest</button>
+
             <p id="suggest-result"></p>
         </fieldset>
 
         <div class="section-title" style="padding-top:20px;">
             <span class="line"></span>
-            <h3>Set your goal</h3>
+            <h2>Set your goal</h2>
         </div>
 
         <div class="goal-b">
             <div class="goal-box">
+
                 <div class="goal-input" id="manualGoalBox">
                     <input type="number" id="goalInput" placeholder="Set daily goal (kcal)">
                     <button onclick="setGoal()">Set Goal</button>
@@ -166,8 +178,10 @@
                     <i>
                         <p id="auto-msg">Auto goal applied based on your weight</p>
                     </i>
-                    <button id="editBtn" style="display:none;width:100px;" onclick="enableManualGoal()">Edit
-                        Goal</button>
+
+                    <button id="editBtn" style="display:none;width:100px;" onclick="enableManualGoal()">
+                        Edit Goal
+                    </button>
                 </div>
 
                 <div class="goal-text">
@@ -182,16 +196,17 @@
                 <i>
                     <p id="goal-msg" class="goal-msg" style="padding-left: 10px;margin-top:0;"></p>
                 </i>
+
             </div>
         </div>
     </div>
-    </main>
+</main>
 
-    <footer style="text-align:right;margin-right:5%;color:#696767; ">
-        <p>&copy; 2026 FitNova | Stay Healthy</p>
+<footer style="text-align:right;margin-right:5%;color:#696767;">
+    <p>&copy; 2026 FitNova | Stay Healthy</p>
 </footer>
 
-    <script src="calorie.js"></script>
+<script src="calorie.js"></script>
 </body>
 
 </html>

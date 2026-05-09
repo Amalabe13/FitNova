@@ -46,18 +46,25 @@
 <h1>Sleep Tracker</h1>
 </div>
 
-<div class="sleep-box" id="sleepBox">
+<div  class="sleep-box" id="sleepBox">
 
 <div class="sleep-card">
 <h3>Enter Details</h3>
-
-<input type="number" id="goal" placeholder="Enter Goal Hours">
+<form>
+<input type="number" id="goal" placeholder="Enter Goal Hours" min="6" title="Minimum 6 hours required" required 
+oninput="
+if(this.value < 6){
+alert('Minimum 6 hours required');
+this.value='';
+}
+">
 <input type="number" id="sleep" placeholder="Enter Slept Hours">
+</form>
 
 <button onclick="checkSleep()">Check Sleep</button>
 </div>
 
-<div class="sleep-card report-card" id="reportCard">
+<div  class="sleep-card report-card" id="reportCard">
 <h3>Your Report</h3>
 
 <div class="report-row">

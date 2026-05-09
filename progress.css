@@ -200,10 +200,14 @@ a{
 
 .sleep-box{
     display:grid;
-    grid-template-columns:2fr 1fr 1fr;
+    grid-template-columns:2fr 1fr;
     gap:30px;
     margin:40px 3% 0 23%;
     align-items:stretch;
+}
+
+.sleep-box.show-report{
+    grid-template-columns:2fr 1fr 1fr;
 }
 
 .sleep-card{
@@ -234,7 +238,7 @@ a{
     padding:10px;
     margin-bottom:14px;
     border-radius:8px;
-    border:2px solid #E66A00;
+    border:1px solid #E66A00;
     background:#1a1a1a;
     color:white;
     font-size:14px;
