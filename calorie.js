@@ -79,9 +79,7 @@ function render() {
             <td>${item.food}</td>
             <td>${item.calories} kcal</td>
             <td>
-                <button class="delete-btn" onclick="deleteItem(${index})">
-                    <img src="pic/close.svg">
-                </button>
+                <button onclick="deleteExercise(${index})">X</button>
             </td>
         `;
 
