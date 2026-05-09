@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fitNova</title>
+    <title>fitNova-Hydration Hub</title>
     <link rel="icon" type="image/png" href="pic/app.png">
     <link id="theme-css" rel="stylesheet" href="water.css">
 </head>
@@ -88,7 +88,9 @@
     <div class="w">
         <div class="wateradd">
             <div class="goal">
-                <input type="digit" id="weight" placeholder="Enter weight (kg)">
+                <form>
+                    <input type="number" id="weight" placeholder="Enter weight (kg)" step="0.1" min=1 max=300 required>
+                </form>
                 <div style="display:flex;gap:10px;">
                     <button onclick="setGoal()">Set Goal</button>
                     <button onclick="reset()">Reset</button>
@@ -169,6 +171,10 @@
             <button onclick="speakText('Add natural flavors like lemon or mint for variety')"><img src="pic/volume.svg"></button>
         </div>
     </div>
+
+    <footer style="text-align:right;margin-right:5%;color:#696767; ">
+        <p>&copy; 2026 FitNova | Stay Healthy</p>
+</footer>
 
     
 <script src="water.js"></script>
