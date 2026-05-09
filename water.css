@@ -402,7 +402,7 @@ a{
 .water-awareness{
     width:30%;
     color:white;
-    overflow:auto;
+    overflow-y:auto;
 }
 
 .water-awareness h2{
@@ -456,3 +456,7 @@ a{
 .water-awareness::-webkit-scrollbar-thumb:hover{
     background:#ff8c1a;
 }
+
+
+
+
