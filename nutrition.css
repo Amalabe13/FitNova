@@ -26,6 +26,9 @@ body{
 a{
     text-decoration:none;
 }
+#cname{
+    color:#ffffff;
+}
 
 .box,
 .box-active{

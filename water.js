@@ -156,6 +156,7 @@ function logout() {
 // theme
 
 function toggleTheme() {
+    
     let current = localStorage.getItem("theme") || "dark";
     let next = current === "dark" ? "light" : "dark";
     localStorage.setItem("theme", next);
@@ -163,6 +164,7 @@ function toggleTheme() {
 }
 
 function applyTheme() {
+   
     let page = window.location.pathname.split("/").pop().replace(".html","");
     let theme = localStorage.getItem("theme") || "dark";
     let css = document.getElementById("theme-css");

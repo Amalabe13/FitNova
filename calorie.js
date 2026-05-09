@@ -207,6 +207,7 @@ function toggleTheme() {
 }
 
 function applyTheme() {
+   
     let page = window.location.pathname.split("/").pop().replace(".html","");
     let theme = localStorage.getItem("theme") || "dark";
     let css = document.getElementById("theme-css");

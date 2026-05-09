@@ -17,6 +17,9 @@ body{
     display:flex;
     flex-direction:column;
 }
+#cname{
+    color:black;
+}
 
 #icon{
     height:50px;

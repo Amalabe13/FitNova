@@ -14,7 +14,9 @@ body{
     top:0;
     overflow:hidden;
 }
-
+#cname{
+    color:black;
+}
 #icon{
     height:50px;
     width:50px;
