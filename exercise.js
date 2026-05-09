@@ -127,8 +127,8 @@ function suggestExercise() {
 
         full: [
             { name: "Burpees", img: "pic/burpee.jpg", video: "https://www.youtube.com/embed/dZgVxmf6jkA" },
-            { name: "Jumping Jacks", img: "pic/jumping.jpg", video: "https://www.youtube.com/embed/c4DAnQ6DtF8" },
-            { name: "Jump Rope", img: "pic/jump.jpg", video: "https://www.youtube.com/embed/1BZM6gq1kW4" }
+            { name: "Jumping Jacks", img: "pic/jumping.jpg", video: "https://www.youtube.com/embed/2W4ZNSwoW_4" },
+            { name: "Jump Rope", img: "pic/jump.jpg", video: "https://www.youtube.com/embed/u3zgHI8QnqE" }
         ]
     };
 
