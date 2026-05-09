@@ -189,14 +189,11 @@ window.onload = function () {
 }
 
 function logout() {
-    localStorage.clear();   // remove saved login/session data
-    window.location.href = "login.html";   // go to login page
+    localStorage.clear();   
+    window.location.href = "login.html";   
 }
 
-
-
 // theme
-
 function toggleTheme() {
     let current = localStorage.getItem("theme") || "dark";
     let next = current === "dark" ? "light" : "dark";
@@ -218,14 +215,3 @@ function applyTheme() {
 }
 
 applyTheme();
-
-
-
-
-
-
-
-
-// jkkkkk
-
-
