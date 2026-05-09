@@ -1,4 +1,4 @@
-#cname{
+#cname {
   color: white;
 }
 
@@ -21,17 +21,20 @@ body {
 }
 
 .calorie-help {
-  margin-bottom: 15px;
-  padding: 10px 15px;
-  border: 1px solid #272727;
-  border-radius: 10px;
-  background: linear-gradient(to right, #0c0c0c, #1a1a1a);
-  color: #ccc;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  padding: 14px 18px;
+  margin-bottom: 18px;
+
+  border: 1px solid #E66A00;
+  border-radius: 12px;
+
+  background: linear-gradient(to bottom, #0c0c0c, #1a1a1a);
   font-size: 14px;
 }
+
 
 .calorie-help a {
   color: #E66A00;
@@ -491,15 +494,12 @@ button:hover {
   transition: 0.3s;
 }
 
-<<<<<<< HEAD
-.menu button:hover{
-    background:#ff5c00;
-    transform:translateY(-1px);
-}
-
-=======
 .menu button:hover {
   background: #ff5c00;
   transform: translateY(-1px);
 }
->>>>>>> 0109b18 (c)
+
+.menu button:hover {
+  background: #ff5c00;
+  transform: translateY(-1px);
+}

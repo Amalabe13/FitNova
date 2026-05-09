@@ -20,7 +20,7 @@
         <div id="outer">
             <div style="display:flex;gap:20px;align-items:center;padding:20px 5px;margin:20px">
                 <img id="icon" src="pic/icon.svg">
-                <h3 id="cname" >Name</h3>
+                <h3 id="cname">Name</h3>
             </div>
             <a href="home.html">
                 <div class="box">
@@ -126,29 +126,6 @@
                 <button onclick="addExercise()">Add</button>
             </div>
 
-            <table class="styled-table">
-                <caption>Exercise History</caption>
-
-                <thead>
-                    <tr>
-                        <th scope="col">Exercise</th>
-                        <th scope="col">Duration (mins)</th>
-                        <th scope="col">Calories</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-
-                <tbody id="exerciseList">
-                    <!-- JS will insert rows here -->
-                </tbody>
-
-                <tfoot>
-                    <tr>
-                        <td style="color:#e5e2e2;font-size:12px;" colspan="4"><i>Total Burned:   <span id="totalBurn">0 kcal</span></i></td>
-                    </tr>
-                </tfoot>
-            </table>
-
             <div class="section-title">
                 <span class="line"></span>
                 <h3>Set your goal</h3>
@@ -159,6 +136,34 @@
                     <input type="number" id="burnGoalInput" placeholder="Set burn goal">
                     <button onclick="setBurnGoal()">Set Goal</button>
                 </div>
+
+                <table class="styled-table">
+                    <caption>Exercise History</caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Exercise</th>
+                            <th scope="col">Duration (mins)</th>
+                            <th scope="col">Calories</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="exerciseList">
+                        <tr id="emptyRow">
+                            <td colspan="4" style="text-align:center;color:#888;">
+                                No exercises added yet
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <td style="color:#e5e2e2;font-size:12px;" colspan="4"><i>Total Burned: <span
+                                        id="totalBurn">0 kcal</span></i></td>
+                        </tr>
+                    </tfoot>
+                </table>
 
                 <div class="goal-top">
                     <span id="burnGoalText">Burn Goal: 0 kcal</span>
@@ -177,9 +182,9 @@
         </section>
     </main>
 
-<footer style="text-align:right;margin-right:5%;color:#696767; ">
+    <footer style="text-align:right;margin-right:5%;color:#696767; ">
         <p>&copy; 2026 FitNova | Stay Healthy</p>
-</footer>
+    </footer>
 
     <script src="exercise.js"></script>
 </body>

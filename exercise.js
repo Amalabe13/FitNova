@@ -102,7 +102,6 @@ function suggestExercise() {
     let box = document.getElementById("suggestResult");
     let videoBox = document.getElementById("videoContainer");
 
-    // Save selected body part
     localStorage.setItem("selectedBodyPart", bodyPart);
 
     let data = {
@@ -141,7 +140,7 @@ function suggestExercise() {
     let html = "";
     let videoHTML = "";
 
-    data[bodyPart].forEach(function(item) {
+    data[bodyPart].forEach(function (item) {
 
         html += `
             <div class="exercise-card">
@@ -168,23 +167,41 @@ function render() {
 
         body.innerHTML = "";
 
-        exerciseData.forEach(function(item, index) {
+        if (exerciseData.length === 0) {
 
-            body.innerHTML += `
+            body.innerHTML = `
                 <tr>
-                    <td>${item.name}</td>
-                    <td>${item.duration}</td>
-                    <td>${item.calories} kcal</td>
-                    <td>
-                        <button onclick="deleteExercise(${index})">X</button>
+                    <td colspan="4"
+                        style="text-align:center;color:#888;padding:15px;">
+                        No exercises added yet
                     </td>
                 </tr>
             `;
-        });
+        }
+
+        else {
+
+            exerciseData.forEach(function (item, index) {
+
+                body.innerHTML += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.duration}</td>
+                        <td>${item.calories} kcal</td>
+                        <td>
+                            <button onclick="deleteExercise(${index})">
+                                X
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
     }
 
     if (document.getElementById("totalBurn")) {
-        document.getElementById("totalBurn").innerText = totalBurn + " kcal";
+        document.getElementById("totalBurn").innerText =
+            totalBurn + " kcal";
     }
 
     if (document.getElementById("burnGoalText")) {
@@ -196,7 +213,9 @@ function render() {
 
     if (burnGoal > 0) {
         percent = (totalBurn / burnGoal) * 100;
-        if (percent > 100) percent = 100;
+
+        if (percent > 100)
+            percent = 100;
     }
 
     if (document.getElementById("burnPercent")) {
@@ -216,11 +235,14 @@ function render() {
         if (burnGoal === 0) {
             msg.innerText = "Set your calorie goal";
         }
+
         else if (totalBurn >= burnGoal) {
             msg.innerText = "Goal achieved!";
         }
+
         else {
-            msg.innerText = (burnGoal - totalBurn) + " cal left";
+            msg.innerText =
+                (burnGoal - totalBurn) + " cal left";
         }
     }
 }
@@ -243,12 +265,12 @@ function toggleTheme() {
 }
 
 function applyTheme() {
-   
-    let page = window.location.pathname.split("/").pop().replace(".html","");
+
+    let page = window.location.pathname.split("/").pop().replace(".html", "");
     let theme = localStorage.getItem("theme") || "dark";
     let css = document.getElementById("theme-css");
 
-    if(theme === "light"){
+    if (theme === "light") {
         css.href = page + "l.css";
     } else {
         css.href = page + ".css";
