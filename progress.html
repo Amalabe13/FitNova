@@ -131,16 +131,77 @@ Need More Rest = Below target.
 </div>
 
 <div class="tips-container">
-<div class="tip-card">Sleep at same time daily.</div>
-<div class="tip-card">Avoid mobile before bed.</div>
-<div class="tip-card">Keep room dark and cool.</div>
-<div class="tip-card">Get 7-8 hours sleep.</div>
-<div class="tip-card">Avoid caffeine at night.</div>
-<div class="tip-card">Use comfortable pillow.</div>
-<div class="tip-card">Stretch before sleep.</div>
-<div class="tip-card">Listen to calm music.</div>
-<div class="tip-card">No heavy meals late night.</div>
-<div class="tip-card">Wake up same time daily.</div>
+
+<div class="tip-card">
+Sleep at same time daily.
+<button onclick="speakText('Sleep at same time daily')">
+<img src="pic/volume.svg">
+</button>
+</div>
+
+<div class="tip-card">
+Avoid mobile before bed.
+<button onclick="speakText('Avoid mobile before bed')">
+<img src="pic/volume.svg">
+</button>
+</div>
+
+<div class="tip-card">
+Keep room dark and cool.
+<button onclick="speakText('Keep room dark and cool')">
+<img src="pic/volume.svg">
+</button>
+</div>
+
+<div class="tip-card">
+Get 7 to 8 hours sleep.
+<button onclick="speakText('Get 7 to 8 hours sleep')">
+<img src="pic/volume.svg">
+</button>
+</div>
+
+<div class="tip-card">
+Avoid caffeine at night.
+<button onclick="speakText('Avoid caffeine at night')">
+<img src="pic/volume.svg">
+</button>
+</div>
+
+<div class="tip-card">
+Use comfortable pillow.
+<button onclick="speakText('Use comfortable pillow')">
+<img src="pic/volume.svg">
+</button>
+</div>
+
+<div class="tip-card">
+Stretch before sleep.
+<button onclick="speakText('Stretch before sleep')">
+<img src="pic/volume.svg">
+</button>
+</div>
+
+<div class="tip-card">
+Listen to calm music.
+<button onclick="speakText('Listen to calm music')">
+<img src="pic/volume.svg">
+</button>
+</div>
+
+<div class="tip-card">
+No heavy meals late night.
+<button onclick="speakText('No heavy meals late night')">
+<img src="pic/volume.svg">
+</button>
+</div>
+
+<div class="tip-card">
+Wake up same time daily.
+<button onclick="speakText('Wake up same time daily')">
+<img src="pic/volume.svg">
+</button>
+</div>
+
 </div>
 
 </main>
@@ -239,6 +300,16 @@ css.href = page + ".css";
 }
 
 applyTheme();
+
+function speakText(text) {
+    let speech = new SpeechSynthesisUtterance(text);
+    speech.rate = 1;
+    speech.pitch = 1;
+    speech.volume = 1;
+    window.speechSynthesis.speak(speech);
+}
+
+
 </script>
 
 </body>
