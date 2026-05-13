@@ -227,12 +227,12 @@
 
     <script>
     function checkSleep(){
-    let goal = parseFloat(document.getElementById("goal").value);
-    let sleep = parseFloat(document.getElementById("sleep").value);
+        let goal = parseFloat(document.getElementById("goal").value);
+        let sleep = parseFloat(document.getElementById("sleep").value);
 
-    if(isNaN(goal) || isNaN(sleep) || goal <= 0){
-    alert("Enter valid values");
-    return;
+        if(isNaN(goal) || isNaN(sleep) || goal <= 0){
+        alert("Enter valid values");
+        return;
     }
 
     let percent = (sleep / goal) * 100;
@@ -244,13 +244,13 @@
 
     let msg = "";
     if(sleep >= goal){
-    msg = "Excellent";
+        msg = "Excellent";
     }
     else if(sleep >= goal - 1){
-    msg = "Almost reached your goal";
+        msg = "Almost reached your goal";
     }
     else{
-    msg = "Need More Rest";
+        msg = "Need More Rest";
     }
 
     document.getElementById("remark").innerHTML = msg;
@@ -264,20 +264,20 @@
     }
 
     function loadSleepData(){
-    let goal = localStorage.getItem("goalHours");
-    let sleep = localStorage.getItem("sleepHours");
-    let msg = localStorage.getItem("sleepMsg");
-    let percent = localStorage.getItem("sleepPercent");
+        let goal = localStorage.getItem("goalHours");
+        let sleep = localStorage.getItem("sleepHours");
+        let msg = localStorage.getItem("sleepMsg");
+        let percent = localStorage.getItem("sleepPercent");
 
-    if(goal && sleep){
-    document.getElementById("goal").value = goal;
-    document.getElementById("sleep").value = sleep;
-    document.getElementById("goalText").innerHTML = goal + " hrs";
-    document.getElementById("sleepText").innerHTML = sleep + " hrs";
-    document.getElementById("remark").innerHTML = msg;
-    document.getElementById("bar").style.width = percent + "%";
-    document.getElementById("sleepBox").classList.add("show-report");
-    }
+        if(goal && sleep){
+            document.getElementById("goal").value = goal;
+            document.getElementById("sleep").value = sleep;
+            document.getElementById("goalText").innerHTML = goal + " hrs";
+            document.getElementById("sleepText").innerHTML = sleep + " hrs";
+            document.getElementById("remark").innerHTML = msg;
+            document.getElementById("bar").style.width = percent + "%";
+            document.getElementById("sleepBox").classList.add("show-report");
+        }
     }
 
     function logout() {
@@ -292,7 +292,8 @@
     if(name) document.getElementById("cname").innerText = name;
     if(photo) document.getElementById("icon").src = photo;
     }
-
+    
+<!-- theme -->
     function toggleTheme() {
             
     let current = localStorage.getItem("theme") || "dark";
@@ -315,7 +316,7 @@
     }
 
     applyTheme();
-
+    <!-- voice -->
     function speakText(text) {
         let speech = new SpeechSynthesisUtterance(text);
         speech.rate = 1;

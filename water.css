@@ -14,7 +14,6 @@ body{
     height:100vh;
     width:20vw;
     background-color:#0D0D0D;
-    /* border-radius:10px; */
     position:fixed;
     border:0.5px solid #272727;
     top:0px;
@@ -31,9 +30,6 @@ body{
     gap:30px;
     background: linear-gradient(to bottom, #0c0c0c, #272727);
     width:100%;
-    /* border-width:0.1px 0px 0.1px 0px ;
-    border-style:solid ;
-    border-color:#E66A00; */
     align-items:center;
     height:40px;
     margin-bottom:5px;
@@ -57,9 +53,6 @@ body{
     gap:30px;
     background: linear-gradient(to bottom, #ee954880, #E66A0020);
     width:100%;
-    /* border-width:0.1px 0px 0.1px 0px ;
-    border-style:solid ;
-    border-color:#E66A00; */
     align-items:center;
     height:40px;
     margin-bottom:5px;
@@ -117,13 +110,12 @@ a{
     color: white;
     padding: 20px;
     border-radius: 20px;
-    /* box-shadow: 0 0 20px rgba(255, 106, 61, 0.4); */
     border: 1px solid #E66A00;
     display:flex;
     flex-direction:column;
 }
 
-.wateradd{
+.wateradd {
     flex:0;
     background:#111;
     color:white;
@@ -136,7 +128,7 @@ a{
     text-align:center;
     align-items:center;
 }
-#weight{
+#weight {
     background-color:#1a1a1a;
     color:white;
     border:#E66A00 1px solid;
@@ -151,7 +143,7 @@ a{
     gap:30px;
     flex-direction: column;
 }
-#goalText{
+#goalText {
     padding:12px;
 }
 .goal input {
@@ -225,11 +217,6 @@ a{
 /* 2nd section */
 
 .tips-container {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    margin:0 3% 0 23%; */
     display: flex;                  
     padding: 20px;
     margin: 0 3% 0 23%;

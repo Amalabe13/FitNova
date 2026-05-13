@@ -8,14 +8,63 @@ body{
     margin:0px;
     overflow-x:hidden;
 }
+
+#himg{
+     width:100%;
+        height:100vh;
+        object-fit:cover;
+        filter:blur(2px) brightness(55%);
+        transform:scale(1.05);
+}
+#hdiv{ 
+        position:absolute;
+        top:18%;
+        left:50%;
+        transform:translateX(-50%);
+        font-size:78px;
+        font-weight:800;
+        font-family:Poppins, sans-serif;
+        letter-spacing:2px;
+        color:white;
+        text-shadow:0 4px 20px rgba(0,0,0,0.45);
+    }
+
+#hhdiv{
+     position:absolute;
+        top:43%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        width:80%;
+        text-align:center;
+        font-size:58px;
+        font-weight:600;
+        font-family:Poppins, sans-serif;
+        color:white;
+        line-height:1.25;
+        text-shadow:0 4px 20px rgba(0,0,0,0.45);
+}
+#ha{
+    position:absolute;
+        top:68%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        padding:18px 48px;
+        background:linear-gradient(135deg,#ff8a00,#ff6600);
+        color:white;
+        text-decoration:none;
+        font-size:30px;
+        font-weight:700;
+        font-family:Poppins, sans-serif;
+        border-radius:14px;
+        box-shadow:0 10px 30px rgba(255,122,0,0.35);
+}
+
 #outer{
     padding-top:150px;
     height:100vh;
     width:2vw;
     background-color:#0D0D0D;
-    
     position:fixed;
-   
     top:0px;
     display:flex;
     overflow:hidden;
@@ -74,7 +123,6 @@ button:hover{
     gap:30px;
     background: linear-gradient(to bottom, #ee954880, #E66A0020);
     width:100%;
-   
     align-items:center;
     height:40px;
     margin-bottom:5px;
@@ -239,7 +287,6 @@ div h4{
     flex-direction:column;
     justify-content:center;
     align-items:center;
-
     transition: all 0.3s ease;
 }
 
@@ -328,26 +375,22 @@ box-shadow:0 12px 30px rgba(0,0,0,.35);
 .top-strip{
     width:100%;
     height:60px;
-    
-    
     padding:0 28px;
-
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     background:linear-gradient(90deg,#0f0f0f,#161616,#111,#000);
-    
     border-bottom:1px solid rgba(255,122,0,0.25);
     box-shadow:0 4px 18px rgba(0,0,0,0.35);
-    
     box-sizing:border-box;
     position:fixed;
     top:0;
     left:0;
     z-index:1000;
 }
+
 /* LEFT SIDE BRAND */
+
 .brand{
     display:flex;
     align-items:center;
@@ -383,7 +426,7 @@ box-shadow:0 12px 30px rgba(0,0,0,.35);
 }
 
 .menu a:hover{
-    color:#ff7a00;
+    color:#e66a00;
 }
 
 /* LOGOUT BUTTON */
@@ -392,8 +435,7 @@ box-shadow:0 12px 30px rgba(0,0,0,.35);
     outline:none;
     padding:8px 16px;
     border-radius:8px;
-
-    background:#ff7a00;
+    background:#e66a00;
     color:#fff;
     font-size:15px;
     font-weight:600;
@@ -402,6 +444,6 @@ box-shadow:0 12px 30px rgba(0,0,0,.35);
 }
 
 .menu button:hover{
-    background:#ff5c00;
+    background:#e65a00;
     transform:translateY(-1px);
 }

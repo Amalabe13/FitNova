@@ -1,30 +1,13 @@
 let total = 0;
 let goal = 0;
 
-function getTodayKey() {
-    return new Date().toISOString().split('T')[0];
-}
-
-/* Save daily water */
 function saveTodayWater() {
-    localStorage.setItem('water_' + getTodayKey(), total);
+    localStorage.setItem("water", total);
 }
 
-/* Weekly data */
-function getWeeklyWaterData() {
-    let arr = [];
-
-    for (let i = 6; i >= 0; i--) {
-        let d = new Date();
-        d.setDate(d.getDate() - i);
-
-        let key = d.toISOString().split('T')[0];
-        let val = localStorage.getItem('water_' + key);
-
-        arr.push(val ? parseFloat(val) : 0);
-    }
-
-    return arr;
+function getTodayWater() {
+    let val = localStorage.getItem("water");
+    return val ? parseFloat(val) : 0;
 }
 
 /* Load saved data */
@@ -123,7 +106,7 @@ function addWater(amount) {
     updateUI();
 }
 
-/* Reset only water data */
+
 function reset() {
 
     total = 0;
