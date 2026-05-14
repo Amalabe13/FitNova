@@ -281,42 +281,42 @@
     }
 
     function logout() {
-    localStorage.clear();
-    window.location.href = "login.html";
+        localStorage.clear();
+        window.location.href = "login.html";
     }
 
     function loadProfile(){
-    const name = localStorage.getItem("un");
-    const photo = localStorage.getItem("profilePic");
+        const name = localStorage.getItem("un");
+        const photo = localStorage.getItem("profilePic");
 
-    if(name) document.getElementById("cname").innerText = name;
-    if(photo) document.getElementById("icon").src = photo;
+        if(name) document.getElementById("cname").innerText = name;
+        if(photo) document.getElementById("icon").src = photo;
     }
     
 <!-- theme -->
     function toggleTheme() {
             
-    let current = localStorage.getItem("theme") || "dark";
-    let next = current === "dark" ? "light" : "dark";
-    localStorage.setItem("theme", next);
-    applyTheme();
+        let current = localStorage.getItem("theme") || "dark";
+        let next = current === "dark" ? "light" : "dark";
+        localStorage.setItem("theme", next);
+        applyTheme();
     }
 
     function applyTheme() {
     
-    let page = window.location.pathname.split("/").pop().replace(".html","");
-    let theme = localStorage.getItem("theme") || "dark";
-    let css = document.getElementById("theme-css");
+        let page = window.location.pathname.split("/").pop().replace(".html","");
+        let theme = localStorage.getItem("theme") || "dark";
+        let css = document.getElementById("theme-css");
 
-    if(theme === "light"){
-    css.href = page + "l.css";
-    } else {
-    css.href = page + ".css";
-    }
+        if(theme === "light"){
+            css.href = page + "l.css";
+        } else {
+            css.href = page + ".css";
+        }
     }
 
     applyTheme();
-    <!-- voice -->
+  
     function speakText(text) {
         let speech = new SpeechSynthesisUtterance(text);
         speech.rate = 1;

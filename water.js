@@ -60,7 +60,7 @@ function updateUI() {
         percent + "%";
 
     if (goal === 0)
-        document.getElementById("status").innerText = "Start drinking 💧";
+        document.getElementById("status").innerText = "Start drinking";
     else if (total >= goal)
         document.getElementById("status").innerText = "Goal achieved!!!";
     else
@@ -131,15 +131,14 @@ function speakText(text) {
 }
 
 function logout() {
-    localStorage.clear();   // remove saved login/session data
-    window.location.href = "login.html";   // go to login page
+    localStorage.clear();  
+    window.location.href = "login.html";   
 }
 
 
 // theme
 
-function toggleTheme() {
-    
+function toggleTheme() {   
     let current = localStorage.getItem("theme") || "dark";
     let next = current === "dark" ? "light" : "dark";
     localStorage.setItem("theme", next);
